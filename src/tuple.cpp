@@ -1,6 +1,7 @@
 #include "tuple.h"
 #include "equal.h"
 #include <iostream>
+#include <cmath>
 
 namespace TwoD {
     Tuple::Tuple(float x , float y , float z , float w):
@@ -9,13 +10,38 @@ namespace TwoD {
         z(z),
         w(w) {}
     
-    Tuple Tuple::operator+=(const Tuple& tuple) {
-        return Tuple(tuple.x + x , tuple.y + y , tuple.z + z , tuple.w + w );
+    void Tuple::operator+=(const Tuple& tuple) {
+
+        x += tuple.x;
+        y += tuple.y;
+        z += tuple.z;
+        w += tuple.w;
     }
 
 
-    Tuple Tuple::operator-=(const Tuple& tuple) {
-        return Tuple(x - tuple.x , y - tuple.y , z - tuple.z , w - tuple.w );
+    void Tuple::operator-=(const Tuple& tuple) {
+
+        x -= tuple.x;
+        y -= tuple.y;
+        z -= tuple.z;
+        w -= tuple.w;
+    }
+
+    void Tuple::operator*=(float value) {
+
+        x *= value;
+        y *= value;
+        z *= value;
+        w *= value;
+    }
+
+    
+    void Tuple::operator/=(float value) {
+
+        x /= value;
+        y /= value;
+        z /= value;
+        w /= value;
     }
 
     
@@ -41,6 +67,16 @@ namespace TwoD {
 
         Tuple zero = Tuple(0.0f , 0.0f , 0.0f , 0.0f);
         return zero - *this;
+    }
+
+
+    std::ostream& operator<<(std::ostream& out , const Tuple& obj) {
+        out << obj.x << " , " << obj.y << " , " << obj.z  << " , " << obj.w;
+        return out;
+    }
+
+    float Tuple::magnitude() {
+        return sqrt(pow(x , 2) + pow(y , 2) + pow(z , 2) + pow(w , 2));
     }
 
 }

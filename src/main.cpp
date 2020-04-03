@@ -1,6 +1,7 @@
 #include "unit_test.h"
 #include "tuple.h"
 #include "point.h"
+#include "equal.h"
 #include "vector.h"
 #include <iostream>
 

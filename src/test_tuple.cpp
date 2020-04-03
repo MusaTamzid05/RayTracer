@@ -1,5 +1,7 @@
 #include "test_tuple.h"
 #include "equal.h"
+#include <iostream>
+#include <cmath>
 
 namespace Testing {
 
@@ -65,5 +67,36 @@ namespace Testing {
         
         TwoD::Vector vec = TwoD::Vector(1.0f , -2.0f , 3.0f);
         CPPUNIT_ASSERT(vec.negate() == TwoD::Vector(-1.0f , 2.0f , -3.0f));
+    }
+
+    
+    void TestTuple::testMulTuple() {
+        TwoD::Tuple data(1.0f , -2.0f , 3.0f , -4.0f);
+        data *= 3.5f;
+
+        CPPUNIT_ASSERT(data == TwoD::Tuple(3.5f , -7.0f , 10.5f , -14.0f));
+    
+    }
+
+    void TestTuple::testDevideTuple() {
+
+        TwoD::Tuple data(1.0f , -2.0f , 3.0f , -4.0f);
+        data /= 2;
+        CPPUNIT_ASSERT(data == TwoD::Tuple(0.5f , -1.0f , 1.5f , -2.0f));
+    }
+
+    void TestTuple::testMagnitude() {
+    
+        TwoD::Tuple data1(0.f , 1.f , 0.f , 0.0f );
+        CPPUNIT_ASSERT(Operation::equal(data1.magnitude() , 1.0f));
+
+        TwoD::Tuple data2(0.f , 0.f , 1.f , 0.0f );
+        CPPUNIT_ASSERT(Operation::equal(data2.magnitude() , 1.0f));
+
+        TwoD::Tuple data3(1.f , 0.f , 0.f , 0.0f );
+        CPPUNIT_ASSERT(Operation::equal(data3.magnitude() , 1.0f));
+
+        TwoD::Tuple data4(1.f , 2.f , 3.f , 0.0f );
+        CPPUNIT_ASSERT(Operation::equal(sqrt(14.0f) , data4.magnitude()) == true);
     }
 };

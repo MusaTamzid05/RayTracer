@@ -15,8 +15,11 @@ namespace Testing {
         CPPUNIT_TEST(testValidVector);
         CPPUNIT_TEST(testAddTuple);
         CPPUNIT_TEST(testSubTuple);
+        CPPUNIT_TEST(testMulTuple);
+        CPPUNIT_TEST(testDevideTuple);
         CPPUNIT_TEST(testSubVecFromPoint);
         CPPUNIT_TEST(testNegate);
+        CPPUNIT_TEST(testMagnitude);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -30,8 +33,11 @@ namespace Testing {
             void testPointIsTuple();
             void testAddTuple();
             void testSubTuple();
+            void testMulTuple();
+            void testDevideTuple();
             void testSubVecFromPoint();
             void testNegate();
+            void testMagnitude();
 
         private:
             TwoD::Tuple*  tuple;
