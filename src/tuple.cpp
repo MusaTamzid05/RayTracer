@@ -79,4 +79,10 @@ namespace TwoD {
         return sqrt(pow(x , 2) + pow(y , 2) + pow(z , 2) + pow(w , 2));
     }
 
+    Tuple Tuple::normalize() {
+
+        float mag = magnitude();
+        return Tuple(x / mag , y / mag , z / mag , w /mag);
+
+    }
 }

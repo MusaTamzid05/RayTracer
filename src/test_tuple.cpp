@@ -99,4 +99,13 @@ namespace Testing {
         TwoD::Tuple data4(1.f , 2.f , 3.f , 0.0f );
         CPPUNIT_ASSERT(Operation::equal(sqrt(14.0f) , data4.magnitude()) == true);
     }
+    
+    void TestTuple::testNormalize() {
+
+        TwoD::Tuple vec(4.0f , 0.0f , 0.0f , 0.0f);
+        CPPUNIT_ASSERT(vec.normalize() == TwoD::Vector(1.0f , 0.0f , 0.0f));
+
+        TwoD::Tuple vec1(1.0f , 2.0f , 3.0f , 0.0f);
+        CPPUNIT_ASSERT(vec1.normalize() == TwoD::Vector(0.26726f , 0.53452f , 0.80178f));
+    }
 };

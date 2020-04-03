@@ -20,6 +20,7 @@ namespace Testing {
         CPPUNIT_TEST(testSubVecFromPoint);
         CPPUNIT_TEST(testNegate);
         CPPUNIT_TEST(testMagnitude);
+        CPPUNIT_TEST(testNormalize);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -38,6 +39,7 @@ namespace Testing {
             void testSubVecFromPoint();
             void testNegate();
             void testMagnitude();
+            void testNormalize();
 
         private:
             TwoD::Tuple*  tuple;

@@ -22,6 +22,8 @@ namespace TwoD {
         Tuple negate();
 
         float magnitude();
+
+        Tuple normalize();
         
     };
 
