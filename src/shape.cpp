@@ -21,4 +21,11 @@ namespace Engine {
     void Shape::update() {
 
     }
+    
+    void Shape::set_pos(const TwoD::Point& pos) {
+
+        this->pos = pos; 
+        shape->setPosition(pos.x , pos.y);
+    
+    }
 }

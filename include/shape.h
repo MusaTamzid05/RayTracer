@@ -20,7 +20,7 @@ namespace Engine {
             void draw(sf::RenderWindow* window);
             void update();
 
-            void set_pos(const TwoD::Point& pos) { this->pos = pos; }
+            void set_pos(const TwoD::Point& pos);
             TwoD::Point get_pos() { return pos; }
 
         private:
