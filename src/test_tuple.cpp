@@ -108,4 +108,12 @@ namespace Testing {
         TwoD::Tuple vec1(1.0f , 2.0f , 3.0f , 0.0f);
         CPPUNIT_ASSERT(vec1.normalize() == TwoD::Vector(0.26726f , 0.53452f , 0.80178f));
     }
+
+    void TestTuple::testDot() {
+
+        TwoD::Vector data1(1.0f , 2.0f , 3.0f);
+        TwoD::Vector data2(2.0f , 3.0f , 4.0f);
+
+        CPPUNIT_ASSERT(Operation::equal(data1.dot(data2) , 20.f));
+    }
 };

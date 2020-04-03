@@ -85,4 +85,9 @@ namespace TwoD {
         return Tuple(x / mag , y / mag , z / mag , w /mag);
 
     }
+
+    float Tuple::dot(const Tuple& data) {
+        return x * data.x + y * data.y + z * data.z + w * data.w;
+    }
+
 }

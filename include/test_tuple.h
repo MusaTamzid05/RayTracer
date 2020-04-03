@@ -21,6 +21,7 @@ namespace Testing {
         CPPUNIT_TEST(testNegate);
         CPPUNIT_TEST(testMagnitude);
         CPPUNIT_TEST(testNormalize);
+        CPPUNIT_TEST(testDot);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -40,6 +41,7 @@ namespace Testing {
             void testNegate();
             void testMagnitude();
             void testNormalize();
+            void testDot();
 
         private:
             TwoD::Tuple*  tuple;

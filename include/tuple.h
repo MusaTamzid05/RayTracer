@@ -22,8 +22,8 @@ namespace TwoD {
         Tuple negate();
 
         float magnitude();
-
         Tuple normalize();
+        float dot(const Tuple& data);
         
     };
 
