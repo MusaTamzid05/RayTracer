@@ -7,7 +7,7 @@ namespace sf {
 };
 
 
-#include "vector.h"
+#include "point.h"
 
 namespace Engine {
 
@@ -20,13 +20,13 @@ namespace Engine {
             void draw(sf::RenderWindow* window);
             void update();
 
-            void set_pos(const TwoD::Vector& pos) { this->pos = pos; }
-            TwoD::Vector get_pos() { return pos; }
+            void set_pos(const TwoD::Point& pos) { this->pos = pos; }
+            TwoD::Point get_pos() { return pos; }
 
         private:
 
             sf::CircleShape* shape;
-            TwoD::Vector pos;
+            TwoD::Point pos;
     };
 }
 #endif
