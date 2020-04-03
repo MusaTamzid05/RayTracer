@@ -2,12 +2,15 @@
 #define APP_H
 
 #include <string>
+#include <vector>
 
 namespace sf {
     class RenderWindow;
 };
 
 namespace Engine {
+
+    class Shape;
 
     class App {
 
@@ -21,11 +24,14 @@ namespace Engine {
 
             void handle_event();
             void render();
+            void update();
 
             int width;
             int height;
 
             sf::RenderWindow* m_window;
+
+            std::vector<Shape*> shapes;
     };
 };
 #endif
