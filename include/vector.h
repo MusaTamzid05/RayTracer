@@ -9,6 +9,8 @@ namespace TwoD {
     struct Vector : public Tuple {
         Vector(float x , float y , float z):
             Tuple(x , y , z , 0.f) {}
+
+        Vector cross(const Vector& vec);
     };
 
 }

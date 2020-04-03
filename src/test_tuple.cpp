@@ -116,4 +116,13 @@ namespace Testing {
 
         CPPUNIT_ASSERT(Operation::equal(data1.dot(data2) , 20.f));
     }
+
+    void TestTuple::testCross() {
+
+        TwoD::Vector a(1.0f , 2.0f , 3.0f);
+        TwoD::Vector b(2.0f , 3.0f , 4.0f);
+
+        CPPUNIT_ASSERT(a.cross(b) == TwoD::Vector(-1.0f , 2.0f , -1.0f));
+        CPPUNIT_ASSERT(b.cross(a) == TwoD::Vector(1.0f , -2.0f , 1.0f));
+    }
 };
