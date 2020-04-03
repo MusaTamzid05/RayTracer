@@ -15,7 +15,7 @@ namespace Engine {
     class App {
 
         public:
-            App(const std::string& title = "App" , int width = 640 , int  height = 480);
+            App(const std::string& title = "App" , float frame_rate = 60.0f ,  int width = 640 , int  height = 480);
             virtual ~App();
 
             void run();

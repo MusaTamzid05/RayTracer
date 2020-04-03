@@ -4,10 +4,11 @@
 
 namespace Engine {
 
-    App::App(const std::string& title , int width , int height):
+    App::App(const std::string& title , float frame_rate ,  int width , int height):
         width(width),
         height(height) {
             m_window = new sf::RenderWindow(sf::VideoMode(width , height) , title);
+            m_window->setFramerateLimit(frame_rate);
             shapes.push_back(new Shape(50.0f , 350.0f));
         }
 
