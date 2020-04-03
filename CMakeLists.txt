@@ -9,6 +9,7 @@ set(Source
     src/tuple.cpp
     src/equal.cpp
     src/vector.cpp
+    src/app.cpp
     )
 add_executable(test_pro ${Source})
-target_link_libraries(test_pro ${GTEST_LIBRARIES} cppunit pthread)
+target_link_libraries(test_pro ${GTEST_LIBRARIES} cppunit sfml-graphics sfml-window sfml-system pthread)

@@ -1,4 +1,5 @@
 #include "unit_test.h"
+#include "app.h"
 #include "tuple.h"
 #include "point.h"
 #include "equal.h"
@@ -7,5 +8,10 @@
 
 int main(int argc , char** argv) {
 
-    return Testing::run_test();
+    Engine::App app;
+    app.run();
+    
+   //return Testing::run_test();
+
+    return 0;
 }
