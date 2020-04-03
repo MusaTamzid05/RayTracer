@@ -36,4 +36,11 @@ namespace TwoD {
         return Tuple(data1.x - data2.x , data1.y - data2.y , data1.z - data2.z , data1.w - data2.w);
     }
 
+
+    Tuple Tuple::negate() {
+
+        Tuple zero = Tuple(0.0f , 0.0f , 0.0f , 0.0f);
+        return zero - *this;
+    }
+
 }

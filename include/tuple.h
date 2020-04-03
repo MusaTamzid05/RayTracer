@@ -16,6 +16,7 @@ namespace TwoD {
         Tuple operator-=(const Tuple& tuple);
 
         bool operator==(const Tuple& tuple);
+        Tuple negate();
     };
 
     Tuple operator+(const Tuple& data1 , const Tuple& data2);
