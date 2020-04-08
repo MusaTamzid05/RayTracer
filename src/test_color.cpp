@@ -31,4 +31,14 @@ namespace Testing {
         CPPUNIT_ASSERT(result == Engine::Color(1.6f , 0.7f, 1.0f));
     }
 
+    void TestColor::testSubColor() {
+
+        Engine::Color color1(0.9f , 0.6f , 0.75f);
+        Engine::Color color2(0.7f , 0.1f , 0.25f);
+        TwoD::Tuple tuple_result = color1 - color2;
+        Engine::Color result =  Operation::tupleToColor(tuple_result);
+
+        CPPUNIT_ASSERT(result == Engine::Color(0.2f , 0.5f, 0.5f));
+    }
+
 };
