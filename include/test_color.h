@@ -13,6 +13,7 @@ namespace Testing {
         CPPUNIT_TEST(testAddColor);
         CPPUNIT_TEST(testSubColor);
         CPPUNIT_TEST(testMulColor);
+        CPPUNIT_TEST(testHadamard);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -25,6 +26,8 @@ namespace Testing {
             void testAddColor();
             void testSubColor();
             void testMulColor();
+
+            void testHadamard();
 
         private:
 

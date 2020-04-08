@@ -58,4 +58,12 @@ namespace Testing {
         CPPUNIT_ASSERT(result == Engine::Color(0.9f , 0.2f, 0.04f));
     }
 
+    void TestColor::testHadamard() {
+
+        Engine::Color color1(0.2f , 0.3f , 0.4f);
+        Engine::Color color2(0.3f , 0.3f , 0.4f);
+        Engine::Color result = color1.hadamard_product(color2);
+        CPPUNIT_ASSERT(result == Engine::Color(0.06f , 0.09f , 0.16f));
+    }
+
 };

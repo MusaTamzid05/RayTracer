@@ -10,9 +10,11 @@ namespace Engine {
         Color(float r , float g , float b):
             TwoD::Tuple(r , g , b) {}
 
-        float red() { return x; }
-        float green() { return y; }
-        float blue() { return z; }
+        float red() const  { return x; }
+        float green() const { return y; }
+        float blue() const { return z; }
+
+        Color  hadamard_product(const Color& color) const;
 
     };
 }

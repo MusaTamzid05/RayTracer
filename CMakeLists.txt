@@ -13,6 +13,7 @@ set(Source
     src/app.cpp
     src/shape.cpp
     src/convert.cpp
+    src/color.cpp
     )
 add_executable(test_pro ${Source})
 target_link_libraries(test_pro ${GTEST_LIBRARIES} cppunit sfml-graphics sfml-window sfml-system pthread)
