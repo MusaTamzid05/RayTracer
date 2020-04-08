@@ -8,7 +8,7 @@ namespace Engine {
     struct Color: public TwoD::Tuple {
 
         Color(float r , float g , float b):
-            TwoD::Tuple(r , g , b) {}
+            TwoD::Tuple(r , g , b , 0.0f) {}
 
         float red() const  { return x; }
         float green() const { return y; }
