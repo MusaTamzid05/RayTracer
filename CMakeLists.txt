@@ -9,13 +9,12 @@ set(Source
     src/test_color.cpp
     src/test_canvas.cpp
     src/tuple.cpp
-    src/equal.cpp
     src/vector.cpp
     src/app.cpp
     src/shape.cpp
-    src/convert.cpp
     src/color.cpp
     src/canvas.cpp
+    src/operation.cpp
     )
 add_executable(test_pro ${Source})
 target_link_libraries(test_pro ${GTEST_LIBRARIES} cppunit sfml-graphics sfml-window sfml-system pthread)

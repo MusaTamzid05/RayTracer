@@ -15,6 +15,8 @@ namespace Engine {
 
             Color get_pixle(int row , int col) const { return pixles[row][col]; }
 
+            void save(const std::string& save_path = "./result.ppm");
+
         private:
 
             int width;

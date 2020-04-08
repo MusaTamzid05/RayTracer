@@ -1,7 +1,6 @@
 #include "test_color.h"
 #include "color.h"
-#include "equal.h"
-#include "convert.h"
+#include "operation.h"
 
 namespace Testing {
 

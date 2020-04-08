@@ -25,4 +25,10 @@ namespace Engine {
             for(unsigned int col = 0 ; col < width ; col++) 
                 std::cout << "(" << row << "," << col << ")" << " = " << pixles[row][col] << "\n";
     }
+
+
+    
+    void Canvas::save(const std::string& save_path) {
+
+    }
 };

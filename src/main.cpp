@@ -2,7 +2,7 @@
 #include "app.h"
 #include "tuple.h"
 #include "point.h"
-#include "equal.h"
+#include "operation.h"
 #include "canvas.h"
 #include "vector.h"
 #include <iostream>
@@ -20,5 +20,5 @@ int run_test() {
 
 int main(int argc , char** argv) {
 
-    return main_app();
+    return run_test();
 }
