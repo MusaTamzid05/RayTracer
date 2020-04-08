@@ -9,8 +9,9 @@
 
 int main_app()  {
 
-    Engine::Canvas canvas(640 , 480);
-    std::cout << canvas.get_pixle(0 , 0) << "\n";
+    Engine::Canvas canvas(5, 3);
+    canvas.save("ss\n");
+
     return 0;
 }
 
@@ -19,6 +20,5 @@ int run_test() {
 }
 
 int main(int argc , char** argv) {
-
     return run_test();
 }

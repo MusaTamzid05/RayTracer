@@ -9,6 +9,8 @@ namespace Operation {
     Engine::Color tupleToColor(const TwoD::Tuple& data);
     bool equal(float value1 , float value2);
     Engine::Color tupleToColor(const TwoD::Tuple& data);
+
+    int scale_int(float value , float max_value);
 };
 
 #endif
