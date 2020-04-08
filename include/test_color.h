@@ -19,6 +19,7 @@ namespace Testing {
         protected:
 
             void testColorIsTuple();
+            void testAddColor();
 
         private:
 
