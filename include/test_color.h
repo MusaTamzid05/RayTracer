@@ -10,6 +10,7 @@ namespace Testing {
 
         CPPUNIT_TEST_SUITE(TestColor);
         CPPUNIT_TEST(testColorIsTuple);
+        CPPUNIT_TEST(testAddColor);
         CPPUNIT_TEST_SUITE_END();
 
         public:
