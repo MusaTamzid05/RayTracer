@@ -11,6 +11,8 @@ namespace Operation {
     Engine::Color tupleToColor(const TwoD::Tuple& data);
 
     int scale_int(float value , float max_value);
+
+    void write_file(const std::string& filename , const std::string& text , bool append = false);
 };
 
 #endif

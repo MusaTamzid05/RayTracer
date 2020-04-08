@@ -1,5 +1,6 @@
 #include "operation.h"
 #include <cmath>
+#include <fstream>
 
 
 namespace Operation {
@@ -23,5 +24,18 @@ namespace Operation {
             result = (int)max_value;
 
         return result;
+    }
+
+    void write_file(const std::string& filename , const std::string& text , bool append) {
+        
+        std::ofstream output_file;
+
+        if(append)
+            output_file.open(filename , std::ios::out | std::ios::app);
+        else
+            output_file.open(filename);
+
+        output_file << text;
+        output_file.close();
     }
 };

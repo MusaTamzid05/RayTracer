@@ -1,16 +1,16 @@
 #include "unit_test.h"
 #include "app.h"
-#include "tuple.h"
-#include "point.h"
-#include "operation.h"
+#include "color.h"
 #include "canvas.h"
-#include "vector.h"
 #include <iostream>
 
 int main_app()  {
 
     Engine::Canvas canvas(5, 3);
-    canvas.save("ss\n");
+    canvas.write_pixle(0 , 0 , Engine::Color(1.5f , 0.0f , 0.0f));
+    canvas.write_pixle(2 , 1 , Engine::Color(0.0f , 0.5f , 0.0f));
+    canvas.write_pixle(4 , 2 , Engine::Color(-0.5f , 0.0f , 1.0f));
+    canvas.save("./result.txt");
 
     return 0;
 }
@@ -20,5 +20,5 @@ int run_test() {
 }
 
 int main(int argc , char** argv) {
-    return run_test();
+    return main_app();
 }

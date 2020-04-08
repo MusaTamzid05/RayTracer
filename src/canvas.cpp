@@ -28,6 +28,9 @@ namespace Engine {
     }
 
 
+    void Canvas::write_pixle(int row , int col , const Color& color) {
+        pixles[col][row] = color;
+    }
     
     void Canvas::save(const std::string& save_path) {
 
@@ -55,9 +58,9 @@ namespace Engine {
             }
 
             ppm_str += "\n";
-
         }
 
-        std::cout << ppm_str;
+        Operation::write_file(save_path , ppm_str);
+        std::cout << "Sucessfully written data to " << save_path << "\n";
     }
 };

@@ -16,6 +16,10 @@ namespace Engine {
             Color get_pixle(int row , int col) const { return pixles[row][col]; }
 
             void save(const std::string& save_path = "./result.ppm");
+            
+            void write_pixle(int row , int col , const Color& color);
+            
+            std::vector<std::vector<Color>> get_pixles() { return pixles; }
 
         private:
 
