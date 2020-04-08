@@ -1,10 +1,12 @@
 #include "unit_test.h"
 #include "test_header.h"
 #include "test_tuple.h"
+#include "test_color.h"
 #include <iostream>
 
 
 CPPUNIT_TEST_SUITE_REGISTRATION(Testing::TestTuple);
+CPPUNIT_TEST_SUITE_REGISTRATION(Testing::TestColor);
 namespace Testing {
 
     int run_test() {

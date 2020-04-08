@@ -6,12 +6,19 @@
 #include "vector.h"
 #include <iostream>
 
-int main(int argc , char** argv) {
+int main_app()  {
 
     Engine::App app;
     app.run();
-    
-   //return Testing::run_test();
 
     return 0;
+}
+
+int run_test() {
+    return Testing::run_test();
+}
+
+int main(int argc , char** argv) {
+
+    return run_test();
 }
