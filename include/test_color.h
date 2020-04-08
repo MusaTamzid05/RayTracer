@@ -12,6 +12,7 @@ namespace Testing {
         CPPUNIT_TEST(testColorIsTuple);
         CPPUNIT_TEST(testAddColor);
         CPPUNIT_TEST(testSubColor);
+        CPPUNIT_TEST(testMulColor);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -23,6 +24,7 @@ namespace Testing {
             void testColorIsTuple();
             void testAddColor();
             void testSubColor();
+            void testMulColor();
 
         private:
 

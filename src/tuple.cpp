@@ -53,6 +53,26 @@ namespace TwoD {
             Operation::equal(w , tuple.w);
     }
 
+    Tuple Tuple::operator*(float value) {
+
+        x *= value;
+        y *= value;
+        z *= value;
+        w *= value;
+
+        return *this;
+    }
+
+    Tuple Tuple::operator/(float value) {
+
+        x /= value;
+        y /= value;
+        z /= value;
+        w /= value;
+
+        return *this;
+    }
+
 
     Tuple operator+(const Tuple& data1 , const Tuple& data2) {
         return Tuple(data1.x + data2.x , data1.y + data2.y , data1.z + data2.z , data1.w + data2.w);
@@ -62,6 +82,9 @@ namespace TwoD {
         return Tuple(data1.x - data2.x , data1.y - data2.y , data1.z - data2.z , data1.w - data2.w);
     }
 
+    Tuple operator*(const Tuple& data1 , const Tuple& data2) {
+        return Tuple(data1.x * data2.x , data1.y * data2.y , data1.z * data2.z , data1.w * data2.w);
+    }
 
     Tuple Tuple::negate() {
 

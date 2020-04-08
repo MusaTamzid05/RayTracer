@@ -18,6 +18,9 @@ namespace TwoD {
         void operator*=(float value);
         void operator/=(float value);
 
+        Tuple operator*(float value);
+        Tuple operator/(float value);
+
         bool operator==(const Tuple& tuple);
         Tuple negate();
 
@@ -29,6 +32,7 @@ namespace TwoD {
 
     Tuple operator+(const Tuple& data1 , const Tuple& data2);
     Tuple operator-(const Tuple& data1 , const Tuple& data2);
+    Tuple operator*(const Tuple& data1 , const Tuple& data2);
 
     std::ostream& operator<<(std::ostream& out , const Tuple& obj);
 
