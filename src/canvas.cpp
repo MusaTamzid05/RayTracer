@@ -44,7 +44,10 @@ namespace Engine {
         std::string green;
         std::string blue;
 
+        std::string current_line;
+
         for(unsigned int row = 0 ; row < height ; row++) {
+            current_line = "";
             for(unsigned int col = 0 ; col < width ; col++) {
                 Color current_color = pixles[row][col];
 
@@ -52,12 +55,12 @@ namespace Engine {
                 green =  std::to_string(Operation::scale_int(current_color.green() , 255.0f));
                 blue =  std::to_string(Operation::scale_int(current_color.blue() , 255.0f));
 
-                std::string current_line = red + " " + green + " " + blue + " ";
-                ppm_str += current_line;
-
+                current_line += red + " " + green + " " + blue + " ";
             }
 
-            ppm_str += "\n";
+            current_line = Operation::limit_line(current_line , 70);
+
+            ppm_str += current_line + "\n";
         }
 
         Operation::write_file(save_path , ppm_str);
