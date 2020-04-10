@@ -14,7 +14,7 @@ namespace Operation {
 
     void write_file(const std::string& filename , const std::string& text , bool append = false);
 
-    std::string limit_line(std::string& str , int character_limit);
+    std::string limit_line(const std::string& str , int character_limit);
 };
 
 #endif

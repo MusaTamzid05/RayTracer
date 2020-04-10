@@ -40,24 +40,36 @@ namespace Operation {
     }
 
 
-    std::string limit_line(std::string& str , int character_limit) {
+    std::string limit_line(const std::string& str , int character_limit) {
 
         if(str.size() <= character_limit)
             return str;
 
-        character_limit -= 1;
+        std::string result = str;
         int index = character_limit;
+        int increment = character_limit;
     
 
-        while(true) {
+        while(index < str.size()) {
 
-            if(str[index] == ' ') {
-                str[index] = '\n';
-                break;
-            }
-            index += 1;
+            std::cout << index << "\n";
+            if(result[index] == ' ')  {
+                result[index] = '\n';
+                index += increment;
+                continue;
+
+            } 
+
+            int temp_index = index + 1;
+            while(result[temp_index] != ' ')
+                temp_index += 1;
+            result[temp_index] = '\n';
+
+            index =  temp_index + 1 + increment;
+
+
         }
 
-        return str;
+        return result;
     }
 };
