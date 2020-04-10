@@ -52,7 +52,6 @@ namespace Operation {
 
         while(index < str.size()) {
 
-            std::cout << index << "\n";
             if(result[index] == ' ')  {
                 result[index] = '\n';
                 index += increment;

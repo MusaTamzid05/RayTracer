@@ -13,7 +13,6 @@ int main_app()  {
     canvas.write_pixle(4 , 2 , Engine::Color(-0.5f , 0.0f , 1.0f));
     canvas.save("./result.txt");
 
-    //std::cout << Operation::limit_line("1 1 1 1 1 1 1" , 2);
     return 0;
 }
 
