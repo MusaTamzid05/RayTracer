@@ -10,6 +10,7 @@ namespace Testing {
 
         CPPUNIT_TEST_SUITE(TestCanvas);
         CPPUNIT_TEST(testCanvasIsBlackAtInit);
+        CPPUNIT_TEST(testPPMHeader);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -19,6 +20,7 @@ namespace Testing {
         protected:
 
             void testCanvasIsBlackAtInit();
+            void testPPMHeader();
 
         private:
 

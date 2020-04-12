@@ -1,5 +1,6 @@
 #include "test_canvas.h"
 #include "canvas.h"
+#include "operation.h"
 
 namespace Testing {
 
@@ -25,5 +26,20 @@ namespace Testing {
             }
         }
 
+    }
+
+    void TestCanvas::testPPMHeader() {
+
+        std::string canvas_path = "./results.ppm";
+
+        Engine::Canvas canvas(5 , 3);
+        std::vector<std::string> lines;
+        canvas.save(canvas_path);
+
+        lines = Operation::read_lines_from(canvas_path);
+        
+        CPPUNIT_ASSERT(lines[0] == "P3");
+        CPPUNIT_ASSERT(lines[1] == "5 3");
+        CPPUNIT_ASSERT(lines[2] == "255");
     }
 }

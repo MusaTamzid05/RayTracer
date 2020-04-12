@@ -36,7 +36,7 @@ namespace Engine {
 
         std::string ppm_str = "";
 
-        ppm_str += "p3\n";
+        ppm_str += "P3\n";
         ppm_str += std::to_string(width) + " " + std::to_string(height) + "\n";
         ppm_str += "255\n";
 
