@@ -66,7 +66,6 @@ namespace Operation {
 
             index =  temp_index + 1 + increment;
 
-
         }
 
         return result;
@@ -93,5 +92,13 @@ namespace Operation {
         input_file.close();
 
         return lines;
+    }
+
+
+    std::string trim(const std::string& str) {
+
+        std::string result = str;
+        result.erase(str.find_last_not_of(" \n\r\t") + 1);
+        return result;
     }
 };

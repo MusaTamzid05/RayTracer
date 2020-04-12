@@ -18,6 +18,8 @@ namespace Operation {
     std::string limit_line(const std::string& str , int character_limit);
 
     std::vector<std::string> read_lines_from(const std::string& path);
+
+    std::string trim(const std::string& str);
 };
 
 #endif
