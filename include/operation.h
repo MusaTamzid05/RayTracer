@@ -3,6 +3,7 @@
 
 #include "tuple.h"
 #include "color.h"
+#include <vector>
 
 namespace Operation {
     const float EPSILON = 0.0001f;
@@ -15,6 +16,8 @@ namespace Operation {
     void write_file(const std::string& filename , const std::string& text , bool append = false);
 
     std::string limit_line(const std::string& str , int character_limit);
+
+    std::vector<std::string> read_lines_from(const std::string& path);
 };
 
 #endif

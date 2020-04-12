@@ -71,4 +71,27 @@ namespace Operation {
 
         return result;
     }
+
+
+    std::vector<std::string> read_lines_from(const std::string& path) {
+
+        std::vector<std::string> lines;
+
+        std::fstream input_file;
+        input_file.open(path);
+
+        if(!input_file.is_open()) {
+            std::cerr << "Could not open " << path << "\n";
+            return lines;
+        }
+
+        std::string line;
+
+        while(std::getline(input_file ,line))
+            lines.push_back(line);
+
+        input_file.close();
+
+        return lines;
+    }
 };
