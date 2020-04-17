@@ -1,5 +1,6 @@
 #include "canvas.h"
 #include "operation.h"
+#include <SFML/Graphics.hpp>
 
 namespace Engine {
 
@@ -8,6 +9,9 @@ namespace Engine {
         height(height) {
             init_pixles();
         }
+
+    Canvas::~Canvas() {
+    }
 
     void Canvas::init_pixles() {
 
@@ -29,7 +33,7 @@ namespace Engine {
 
 
     void Canvas::write_pixle(int row , int col , const Color& color) {
-        pixles[col][row] = color;
+        pixles[row][col] = color;
     }
     
     void Canvas::save(const std::string& save_path) {
@@ -65,5 +69,26 @@ namespace Engine {
 
         Operation::write_file(save_path , ppm_str);
         std::cout << "Sucessfully written data to " << save_path << "\n";
+    }
+
+    void Canvas::draw(sf::RenderWindow* window) {
+
+        std::vector<sf::CircleShape> shapes;
+
+        for(unsigned int row = 0 ; row < height ; row++) {
+            for(unsigned int col = 0 ; col < width ; col++) {
+                Engine::Color color = get_pixle(row , col);
+                sf::CircleShape shape(1.0f);
+                shape.setPosition(col , row);
+                shape.setFillColor(sf::Color(color.red() , color.green() , color.blue()));
+                shapes.push_back(shape);
+
+            }
+        }
+
+        for(sf::CircleShape& shape : shapes)
+            window->draw(shape);
+
+        std::cout << "Canvas drawn\n";
     }
 };

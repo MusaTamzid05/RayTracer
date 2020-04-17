@@ -11,11 +11,12 @@ namespace sf {
 namespace Engine {
 
     class Shape;
+    class Canvas;
 
     class App {
 
         public:
-            App(const std::string& title = "App" , float frame_rate = 60.0f ,  int width = 640 , int  height = 480);
+            App(const std::string& title = "App" , float frame_rate = 30.0f ,  int width = 640 , int  height = 480);
             virtual ~App();
 
             void run();
@@ -30,8 +31,8 @@ namespace Engine {
             int height;
 
             sf::RenderWindow* m_window;
+            Canvas* m_canvas;
 
-            std::vector<Shape*> shapes;
     };
 };
 #endif

@@ -1,5 +1,6 @@
 #include "app.h"
 #include "shape.h"
+#include "canvas.h"
 #include <SFML/Graphics.hpp>
 
 namespace Engine {
@@ -9,11 +10,12 @@ namespace Engine {
         height(height) {
             m_window = new sf::RenderWindow(sf::VideoMode(width , height) , title);
             m_window->setFramerateLimit(frame_rate);
-            shapes.push_back(new Shape(50.0f , 350.0f));
+            m_canvas = new Canvas(width , height);
         }
 
     App::~App() {
         delete m_window;
+        delete m_canvas;
     }
 
     void App::run() {
@@ -27,10 +29,6 @@ namespace Engine {
     }
 
     void App::update() {
-
-        for(Shape* shape : shapes)
-            shape->update();
-
     }
 
     void App::handle_event() {
@@ -49,10 +47,7 @@ namespace Engine {
     void App::render() {
 
         m_window->clear(sf::Color(100 , 0 , 0));
-
-        for(Shape* shape : shapes)
-            shape->draw(m_window);
-
+        m_canvas->draw(m_window);
         m_window->display();
     }
 }

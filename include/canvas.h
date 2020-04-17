@@ -4,13 +4,18 @@
 #include <vector>
 #include "color.h"
 
+namespace sf {
+    class RenderWindow;
+};
+
 namespace Engine {
 
     class Canvas {
 
         public:
             Canvas(int width , int height);
-            virtual ~Canvas() {}
+            virtual ~Canvas();
+
             void show_pixles();
 
             Color get_pixle(int row , int col) const { return pixles[row][col]; }
@@ -20,6 +25,7 @@ namespace Engine {
             void write_pixle(int row , int col , const Color& color);
             
             std::vector<std::vector<Color>> get_pixles() { return pixles; }
+            void draw(sf::RenderWindow* window);
 
         private:
 
