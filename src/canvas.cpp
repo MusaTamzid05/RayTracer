@@ -1,5 +1,6 @@
 #include "canvas.h"
 #include <iostream>
+#include "operation.h"
 
 namespace Engine {
 
@@ -8,23 +9,21 @@ namespace Engine {
         height(height),
         renderer(renderer)
     {
-        init();
     }
 
     Canvas::~Canvas() {
-        delete []pixels;
-        SDL_DestroyTexture(m_texture);
     }
 
-    void Canvas::init() {
 
-        pixels = new Uint32[width * height];
-        memset(pixels , 255 , width * height * sizeof(Uint32));
+    void Canvas::draw() {
+
+        for(PixleData& data : pixle_data)
+            data.draw(renderer);
+
     }
 
-    void Canvas::render() {
-        SDL_UpdateTexture(m_texture , nullptr , pixels , width * sizeof(Uint32));
-        SDL_RenderCopy(renderer , m_texture , nullptr , nullptr);
+    void Canvas::write_pixle(int row , int col , const Color& color) {
+        pixle_data.push_back(PixleData(row , col , color));
     }
 
 };

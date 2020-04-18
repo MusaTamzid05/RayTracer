@@ -2,8 +2,12 @@
 #define CANVAS_H
 
 #include <SDL2/SDL.h>
+#include "color.h"
+#include "pixle_data.h"
+#include <vector>
 
 namespace Engine {
+
 
     class Canvas {
 
@@ -11,18 +15,16 @@ namespace Engine {
             Canvas(int width , int height , SDL_Renderer* renderer);
             virtual ~Canvas();
 
-            void render();
+            void draw();
+            void write_pixle(int row , int col , const Color& color);
 
         private:
 
             int width;
             int height;
 
-            void init();
-
-            Uint32* pixels;
             SDL_Renderer* renderer;
-            SDL_Texture* m_texture;
+            std::vector<PixleData> pixle_data;
     };
 };
 
