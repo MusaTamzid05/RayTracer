@@ -1,41 +1,28 @@
 #ifndef CANVAS_H
 #define CANVAS_H
 
-#include <vector>
-#include "color.h"
-
-namespace sf {
-    class RenderWindow;
-};
+#include <SDL2/SDL.h>
 
 namespace Engine {
 
     class Canvas {
 
         public:
-            Canvas(int width , int height);
+            Canvas(int width , int height , SDL_Renderer* renderer);
             virtual ~Canvas();
 
-            void show_pixles();
-
-            Color get_pixle(int row , int col) const { return pixles[row][col]; }
-
-            void save(const std::string& save_path = "./result.ppm");
-            
-            void write_pixle(int row , int col , const Color& color);
-            
-            std::vector<std::vector<Color>> get_pixles() { return pixles; }
-            void draw(sf::RenderWindow* window);
+            void render();
 
         private:
 
             int width;
             int height;
 
-            void init_pixles();
+            void init();
 
-            std::vector<std::vector<Color>> pixles;
-
+            Uint32* pixels;
+            SDL_Renderer* renderer;
+            SDL_Texture* m_texture;
     };
 };
 
