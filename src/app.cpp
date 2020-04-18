@@ -1,27 +1,30 @@
 #include "app.h"
 #include "shape.h"
 #include "canvas.h"
-#include <SFML/Graphics.hpp>
 
 namespace Engine {
 
     App::App(const std::string& title , float frame_rate ,  int width , int height):
         width(width),
-        height(height) {
-            m_window = new sf::RenderWindow(sf::VideoMode(width , height) , title);
-            m_window->setFramerateLimit(frame_rate);
-            m_canvas = new Canvas(width , height);
+        height(height),
+    m_canvas(nullptr){
+            SDL_Init(SDL_INIT_VIDEO);
+            SDL_CreateWindowAndRenderer(width , height , 0 , &m_window, &m_renderer);
+            running = true;
         }
 
     App::~App() {
-        delete m_window;
+
         delete m_canvas;
+        SDL_DestroyRenderer(m_renderer);
+        SDL_DestroyWindow(m_window);
+        SDL_Quit();
+
     }
 
     void App::run() {
 
-
-        while(m_window->isOpen()) {
+        while(running) {
             handle_event();
             update();
             render();
@@ -33,21 +36,13 @@ namespace Engine {
 
     void App::handle_event() {
 
-        sf::Event event;
-
-        while(m_window->pollEvent(event)) {
-            if(event.type == sf::Event::Closed)
-                m_window->close();
-
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-                m_window->close();
-        }
+        if(SDL_PollEvent(&m_event) && m_event.type == SDL_QUIT)
+            running = false;
     }
 
     void App::render() {
+        SDL_RenderClear(m_renderer);
 
-        m_window->clear(sf::Color(100 , 0 , 0));
-        m_canvas->draw(m_window);
-        m_window->display();
+        SDL_RenderPresent(m_renderer);
     }
 }
