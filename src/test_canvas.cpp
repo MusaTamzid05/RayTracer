@@ -37,7 +37,8 @@ namespace Testing {
         canvas.save(canvas_path);
 
         lines = Operation::read_lines_from(canvas_path);
-        
+    
+
         CPPUNIT_ASSERT(lines[0] == "P3");
         CPPUNIT_ASSERT(lines[1] == "5 3");
         CPPUNIT_ASSERT(lines[2] == "255");
