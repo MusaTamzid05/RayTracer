@@ -1,32 +1,38 @@
 #ifndef SHAPE_H
 #define SHAPE_H
 
-namespace sf {
-    class CircleShape;
-    class RenderWindow;
-};
-
-
+#include <SDL2/SDL.h>
 #include "point.h"
+#include "color.h"
+
 
 namespace Engine {
+    struct PixleData;
 
     class Shape {
 
         public:
-            Shape(float x , float y , float radius = 5.0f);
+            Shape(float x , float y , float z = 0.0f);
             virtual ~Shape();
 
-            void draw(sf::RenderWindow* window);
+            void draw(SDL_Renderer* renderer);
             void update();
+
+            void set_color(const Color& color);
 
             void set_pos(const TwoD::Point& pos);
             TwoD::Point get_pos() { return pos; }
 
+            void set_velocity(const TwoD::Point& velocity) { this->velocity = velocity; }
+            TwoD::Point get_velocity() { return velocity; }
+
         private:
 
-            sf::CircleShape* shape;
             TwoD::Point pos;
+            TwoD::Point velocity;
+
+            Color m_color;
+            PixleData* pixle;
     };
 }
 #endif

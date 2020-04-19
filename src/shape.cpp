@@ -1,21 +1,21 @@
 #include "shape.h"
+#include "pixle_data.h"
 #include <SFML/Graphics.hpp>
 
 namespace Engine {
     
-    Shape::Shape(float x , float y , float radius):
-    pos(x , y , 0.0f){
-        shape = new sf::CircleShape(radius);
-        shape->setFillColor(sf::Color(0.0f , 0.0f , 100.0f));
-        shape->setPosition(x , y);
+    Shape::Shape(float x , float y , float z):
+        pos(x , y , z),
+        m_color(1.0f , 0.0f , 0.0f){
+            pixle = new PixleData(x , y , m_color);
     }
 
     Shape::~Shape() {
-        delete shape;
+        delete pixle;
     }
 
-    void Shape::draw(sf::RenderWindow* window) {
-        window->draw(*shape);
+    void Shape::draw(SDL_Renderer* renderer) {
+        pixle->draw(renderer);
     }
 
     void Shape::update() {
@@ -23,9 +23,13 @@ namespace Engine {
     }
     
     void Shape::set_pos(const TwoD::Point& pos) {
-
-        this->pos = pos; 
-        shape->setPosition(pos.x , pos.y);
+        this->pos = pos;
+        pixle->row = pos.x;
+        pixle->col = pos.y;
+    }
     
+    void Shape::set_color(const Color& color) {
+        m_color = color;
+        pixle->color = color;
     }
 }
