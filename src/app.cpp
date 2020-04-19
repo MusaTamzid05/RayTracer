@@ -14,23 +14,6 @@ namespace Engine {
             m_canvas = new Engine::Canvas(width , height , m_renderer);
             running = true;
             
-            for(unsigned int i = 0 ; i < width ; i++) {
-
-                m_canvas->write_pixle(i , i , Engine::Color(1.0f , 0.0f , 0.0f));
-
-                for(unsigned int j = 0 ; j < 5 ; j++) {
-
-                    m_canvas->write_pixle(i , height - j  , Engine::Color(0.0f , 0.0f , 1.0f));
-                    m_canvas->write_pixle(i ,  j  , Engine::Color(0.0f , 0.0f , 1.0f));
-                }
-            }
-
-            for(unsigned int i = 0 ; i < height ; i++) {
-                for (unsigned int j = 0 ; j < 5; j++) {
-                    m_canvas->write_pixle(j , i , Engine::Color(0.0f , 1.0f , 0.0f));
-                    m_canvas->write_pixle(width - (j + 1) , i , Engine::Color(0.0f , 1.0f , 0.0f));
-                }
-            }
         }
 
     App::~App() {
