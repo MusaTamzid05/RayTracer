@@ -7,13 +7,18 @@ namespace Engine {
     
     Environment::Environment(const TwoD::Vector& gravity , const TwoD::Vector& wind):
         gravity(gravity),
-        wind(wind) {}
+        wind(wind) {
+        }
 
 
         
     World::World(const Environment& env):
     env(env){
-        m_shape = new Engine::Shape(50.0f , 400.0f);
+        m_shape = new Engine::Shape(50.0f , 100.0f);
+        TwoD::Point point = TwoD::Point(1.0f , 1.8f , 0.0f);
+        TwoD::Tuple nor = point.normalize();
+        nor *= 8.28;
+        m_shape->set_velocity(TwoD::Point(nor.x , nor.y , nor.z));
     }
 
     World::~World() {

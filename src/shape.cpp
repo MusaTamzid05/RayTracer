@@ -2,6 +2,8 @@
 #include "pixle_data.h"
 #include <SFML/Graphics.hpp>
 
+#include "const.h"
+
 namespace Engine {
     
     Shape::Shape(float x , float y , float z):
@@ -26,7 +28,7 @@ namespace Engine {
     void Shape::set_pos(const TwoD::Point& pos) {
         this->pos = pos;
         pixle->row = pos.x;
-        pixle->col = pos.y;
+        pixle->col = Const::HEIGHT - pos.y;
     }
     
     void Shape::set_color(const Color& color) {
