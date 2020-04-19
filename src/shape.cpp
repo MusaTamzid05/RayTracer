@@ -6,6 +6,7 @@ namespace Engine {
     
     Shape::Shape(float x , float y , float z):
         pos(x , y , z),
+        velocity(0.0f , 0.0f , 0.0f),
         m_color(1.0f , 0.0f , 0.0f){
             pixle = new PixleData(x , y , m_color);
     }

@@ -3,11 +3,11 @@
 
 #include <SDL2/SDL.h>
 #include "color.h"
-#include "pixle_data.h"
 #include <vector>
 
 namespace Engine {
 
+    class World;
 
     class Canvas {
 
@@ -18,13 +18,15 @@ namespace Engine {
             void draw();
             void write_pixle(int row , int col , const Color& color);
 
+            void update();
+
         private:
 
             int width;
             int height;
 
             SDL_Renderer* renderer;
-            std::vector<PixleData> pixle_data;
+            World* m_world;
     };
 };
 

@@ -14,6 +14,9 @@ set(Source
     src/canvas.cpp
     src/operation.cpp
     src/pixle_data.cpp
+    src/world.cpp
+    src/shape.cpp
+    src/fps.cpp
     )
 add_executable(test_pro ${Source})
 target_link_libraries(test_pro ${GTEST_LIBRARIES} cppunit SDL2 pthread)

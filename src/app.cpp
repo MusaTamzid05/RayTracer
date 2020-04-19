@@ -1,12 +1,14 @@
 #include "app.h"
 #include "shape.h"
 #include "canvas.h"
+#include "fps.h"
 
 namespace Engine {
 
     App::App(const std::string& title , float frame_rate ,  int width , int height):
         width(width),
-        height(height){
+        height(height),
+        m_fps(new FrameRateSecond()){
             SDL_Init(SDL_INIT_VIDEO);
             SDL_CreateWindowAndRenderer(width , height , 0 , &m_window, &m_renderer);
             m_canvas = new Engine::Canvas(width , height , m_renderer);
@@ -33,6 +35,7 @@ namespace Engine {
 
     App::~App() {
 
+        delete m_fps;
         delete m_canvas;
         SDL_DestroyRenderer(m_renderer);
         SDL_DestroyWindow(m_window);
@@ -43,13 +46,16 @@ namespace Engine {
     void App::run() {
 
         while(running) {
+            m_fps->update_timer();
             handle_event();
             update();
             render();
+            m_fps->handle_fps();
         }
     }
 
     void App::update() {
+        m_canvas->update();
     }
 
     void App::handle_event() {

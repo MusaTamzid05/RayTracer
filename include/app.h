@@ -11,6 +11,7 @@ namespace Engine {
 
     class Shape;
     class Canvas;
+    class FrameRateSecond;
 
     class App {
 
@@ -34,7 +35,7 @@ namespace Engine {
             SDL_Event m_event;
 
             Canvas* m_canvas;
-
+            FrameRateSecond* m_fps;
             bool running;
 
     };
