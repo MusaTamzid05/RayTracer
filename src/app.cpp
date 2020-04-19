@@ -2,12 +2,13 @@
 #include "shape.h"
 #include "canvas.h"
 #include "fps.h"
+#include "const.h"
 
 namespace Engine {
 
-    App::App(const std::string& title , float frame_rate ,  int width , int height):
-        width(width),
-        height(height),
+    App::App(const std::string& title , float frame_rate):
+        width(Const::WIDTH),
+        height(Const::HEIGHT),
         m_fps(new FrameRateSecond()){
             SDL_Init(SDL_INIT_VIDEO);
             SDL_CreateWindowAndRenderer(width , height , 0 , &m_window, &m_renderer);
@@ -43,8 +44,21 @@ namespace Engine {
 
     void App::handle_event() {
 
-        if(SDL_PollEvent(&m_event) && m_event.type == SDL_QUIT)
-            running = false;
+        while(SDL_PollEvent(&m_event)) {
+            switch(m_event.type) {
+                case SDL_QUIT:
+                    running = false;
+                    break;
+
+                case SDL_KEYDOWN:
+                    if(m_event.key.keysym.sym == SDLK_ESCAPE)
+                        running = false;
+                    break;
+
+                    
+            }
+        }
+
     }
 
     void App::render() {
