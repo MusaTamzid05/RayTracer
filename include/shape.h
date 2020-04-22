@@ -26,6 +26,8 @@ namespace Engine {
             void set_velocity(const TwoD::Point& velocity) { this->velocity = velocity; }
             TwoD::Point get_velocity() { return velocity; }
 
+            PixleData* get_pixle();
+
         private:
 
             TwoD::Point pos;

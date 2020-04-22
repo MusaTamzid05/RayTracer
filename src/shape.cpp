@@ -35,4 +35,9 @@ namespace Engine {
         m_color = color;
         pixle->color = color;
     }
+
+    PixleData* Shape::get_pixle() {
+        return pixle;
+    }
+
 }

@@ -19,6 +19,7 @@ namespace Engine {
             void write_pixle(int row , int col , const Color& color);
 
             void update();
+            void save(const std::string& save_path);
 
         private:
 

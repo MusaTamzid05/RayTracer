@@ -3,12 +3,16 @@
 
 #include "vector.h"
 #include "point.h"
+#include "color.h"
+#include <vector>
 
 
 #include <SDL2/SDL.h>
 
 
 namespace Engine {
+
+    struct PixleData;
 
     struct Environment {
         TwoD::Vector gravity;
@@ -28,11 +32,20 @@ namespace Engine {
 
             void draw(SDL_Renderer* renderer);
             void update();
+            std::vector<std::vector<PixleData*>>  get_pixles();
+
+            // write_pixle has more priority than shapes
+            void write_pixle(int row , int col , const Color& color);
 
         private:
 
-            Shape* m_shape;
+
+            std::vector<Shape*> shapes;
             Environment env;
+            std::vector<std::vector<PixleData*>> pixle_data;
+
+            // this used just for writing ppa file.
+            void clear_pixles();
 
     };
 };

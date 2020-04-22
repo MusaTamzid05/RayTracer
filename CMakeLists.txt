@@ -6,6 +6,7 @@ set(Source
     src/main.cpp
     src/unit_test.cpp
     src/test_tuple.cpp
+    src/test_canvas.cpp
     src/test_color.cpp
     src/tuple.cpp
     src/vector.cpp
