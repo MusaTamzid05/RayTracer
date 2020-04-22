@@ -3,7 +3,8 @@
 #include "color.h"
 #include <iostream>
 #include "world.h"
-#include "canvas.h"
+#include "matrix.h"
+
 
 int main_app()  {
 
@@ -12,9 +13,9 @@ int main_app()  {
     app.run();
     */
 
-    Engine::Canvas* canvas = new Engine::Canvas(5 , 3 , nullptr);
-    canvas->save("./result.txt");
 
+    TwoD::Matrix matrix(5 , 3);
+    std::cout << matrix << "\n";
 
     return 0;
 }
@@ -24,5 +25,5 @@ int run_test() {
 }
 
 int main(int argc , char** argv) {
-    return run_test();
+    return main_app();
 }
