@@ -3,12 +3,14 @@
 #include "test_tuple.h"
 #include "test_canvas.h"
 #include "test_color.h"
+#include "test_matrix.h"
 #include <iostream>
 
 
 CPPUNIT_TEST_SUITE_REGISTRATION(Testing::TestCanvas);
 CPPUNIT_TEST_SUITE_REGISTRATION(Testing::TestTuple);
 CPPUNIT_TEST_SUITE_REGISTRATION(Testing::TestColor);
+CPPUNIT_TEST_SUITE_REGISTRATION(Testing::TestMatrix);
 
 namespace Testing {
 

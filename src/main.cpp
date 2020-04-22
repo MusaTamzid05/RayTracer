@@ -8,14 +8,10 @@
 
 int main_app()  {
 
-    /*
     Engine::App app;
     app.run();
-    */
 
 
-    TwoD::Matrix matrix(5 , 3);
-    std::cout << matrix << "\n";
 
     return 0;
 }
@@ -25,5 +21,5 @@ int run_test() {
 }
 
 int main(int argc , char** argv) {
-    return main_app();
+    return run_test();
 }
