@@ -22,6 +22,24 @@ namespace TwoD {
 
     }
 
+
+    Matrix3x3::Matrix3x3(float arr[3][3]):Matrix(3 , 3){
+
+        for(unsigned int i = 0 ; i < row ; i++ ) 
+            for(unsigned int j = 0 ; j < col ; j++)
+                set(i , j , arr[i][j]);
+
+    }
+
+
+    Matrix2x2::Matrix2x2(float arr[2][2]):Matrix(2 , 2){
+
+        for(unsigned int i = 0 ; i < row ; i++ ) 
+            for(unsigned int j = 0 ; j < col ; j++)
+                set(i , j , arr[i][j]);
+
+    }
+
     std::ostream& operator<<(std::ostream& out , const Matrix& matrix) {
         out << "Matrix : (" << matrix.values.size() << "x" << matrix.values[0].size() << ")\n";
 

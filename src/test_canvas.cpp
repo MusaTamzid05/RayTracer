@@ -43,7 +43,6 @@ namespace Testing {
 
         lines = Operation::read_lines_from(canvas_path);
     
-        std::cout << "\n" << lines[3] << "\n";
         CPPUNIT_ASSERT(Operation::trim(lines[3]) == "255 0 0 0 0 0 0 0 0 0 0 0 0 0 0");
         CPPUNIT_ASSERT(Operation::trim(lines[4]) == "0 0 0 0 0 0 0 127 0 0 0 0 0 0 0");
         CPPUNIT_ASSERT(Operation::trim(lines[5]) == "0 0 0 0 0 0 0 0 0 0 0 0 0 0 255");

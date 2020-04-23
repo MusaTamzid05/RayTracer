@@ -22,7 +22,16 @@ namespace TwoD {
 
     struct Matrix4x4 : public Matrix {
         Matrix4x4(float arr[4][4]);
+    };
 
+
+    struct Matrix3x3 : public Matrix {
+        Matrix3x3(float arr[3][3]);
+    };
+
+
+    struct Matrix2x2 : public Matrix {
+        Matrix2x2(float arr[2][2]);
     };
 
     std::ostream& operator<<(std::ostream& out , const Matrix& matrix);
