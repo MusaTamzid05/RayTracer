@@ -59,4 +59,34 @@ namespace Testing {
         CPPUNIT_ASSERT(matrix2x2.get(1,1) == -2.0f);
     }
 
+    void TestMatrix::testMatrixEqualation() {
+
+
+        float a[4][4] = {
+            {1.0f , 2.0f , 3.0f, 4.0f},
+            {5.0f , 6.0f , 7.0f , 8.0f },
+            {9.0f , 10.0f , 11.0f , 12.0f},
+            {13.0f , 14.0f , 15.0f ,  16.0f}
+        };
+
+
+        float b[4][4] = {
+            {1.0f , 2.0f , 3.0f, 4.0f},
+            {5.0f , 6.0f , 7.0f , 8.0f },
+            {9.0f , 10.0f , 11.0f , 12.0f},
+            {13.0f , 14.0f , 15.0f ,  16.0f}
+        };
+
+
+        
+        TwoD::Matrix4x4 a_(a);
+        TwoD::Matrix4x4 b_(b);
+
+        CPPUNIT_ASSERT(a_ == b_);
+
+        b_.set(2 , 1 , 5.0);
+
+        CPPUNIT_ASSERT(a_ != b_);
+    }
+
 }

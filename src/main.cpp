@@ -8,9 +8,8 @@
 
 int main_app()  {
 
-    Engine::App app;
-    app.run();
-
+    //Engine::App app;
+    //app.run();
 
 
     return 0;

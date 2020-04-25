@@ -54,4 +54,23 @@ namespace TwoD {
 
     }
 
+    bool Matrix::operator==(const Matrix& matrix) {
+
+
+        if(row != matrix.row || col != matrix.col)
+            return false;
+
+        for(unsigned int i = 0 ; i < row ; i++)
+            for(unsigned int j = 0 ; j < col; j++)
+                if(values[i][j] != matrix.get(i , j)) 
+                    return false;
+
+        return true;
+    }
+
+
+    bool Matrix::operator!=(const Matrix& matrix) {
+        return !(*this == matrix);
+    }
+
 };

@@ -17,6 +17,9 @@ namespace TwoD {
         int col;
 
         std::vector<std::vector<float>> values;
+
+        bool operator==(const Matrix& matrix);
+        bool operator!=(const Matrix& matrix);
         
     };
 
