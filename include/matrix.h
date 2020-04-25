@@ -45,6 +45,8 @@ namespace TwoD {
         Matrix2x2():Matrix(2,2){}
     };
 
+    Matrix4x4 get_identity_matrix();
+
     std::ostream& operator<<(std::ostream& out , const Matrix& matrix);
 }
 

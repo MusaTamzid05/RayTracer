@@ -121,4 +121,19 @@ namespace TwoD {
         return result;
     }
 
+    Matrix4x4 get_identity_matrix() {
+        
+        float arr[4][4] = {
+            {1.0f , 0.0f , 0.0f , 0.0f},
+            {0.0f , 1.0f , 0.0f , 0.0f},
+            {0.0f , 0.0f , 1.0f , 0.0f},
+            {0.0f , 0.0f , 0.0f , 1.0f}
+        };
+
+        Matrix4x4 identity_matrix(arr);
+
+        return identity_matrix;
+
+    }
+
 };

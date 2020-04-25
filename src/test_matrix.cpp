@@ -140,4 +140,18 @@ namespace Testing {
         TwoD::Tuple result = a_ * tuple;
         CPPUNIT_ASSERT(result == TwoD::Tuple(18.0f , 24.0f , 33.0f , 1.0f));
     }
+
+    void TestMatrix::testIdentityMatrix() {
+        
+        float arr[4][4] = {
+            {0.0f , 1.0f , 2.0f , 4.0f},
+            {0.0f , 1.0f , 4.0f , 8.0f},
+            {2.0f , 4.0f , 8.0f , 16.0f},
+            {4.0f , 8.0f , 16.0f , 32.0f}
+        };
+
+        TwoD::Matrix4x4 a(arr);
+        CPPUNIT_ASSERT(a * TwoD::get_identity_matrix() == a);
+
+    }
 }
