@@ -2,6 +2,7 @@
 #include "operation.h"
 #include <iostream>
 #include <cmath>
+#include <stdexcept>
 
 namespace TwoD {
     Tuple::Tuple(float x , float y , float z , float w):
@@ -113,4 +114,41 @@ namespace TwoD {
         return x * data.x + y * data.y + z * data.z + w * data.w;
     }
 
+    
+    float Tuple::get_value(const char name) const  {
+
+        if(name == 'x')
+            return x;
+        else if(name == 'y')
+            return y;
+        else if(name == 'z')
+            return z;
+        else if(name == 'w')
+            return w;
+
+        throw std::runtime_error("Invalid attribe asked in tuple");
+
+    }
+
+    void Tuple::set_value(const char name , float value) {
+
+        if(name == 'x') {
+            x = value;
+            return;
+        }
+        else if(name == 'y') {
+            y = value;
+            return;
+        }
+        else if(name == 'z') {
+            z = value;
+            return;
+        }
+        else if(name == 'w') {
+            w = value;
+            return;
+        }
+
+        throw std::runtime_error("Invalid attribe set in tuple");
+    }
 }

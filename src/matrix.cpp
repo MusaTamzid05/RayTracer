@@ -102,5 +102,23 @@ namespace TwoD {
         return *result;
 
     }
+    
+    
+    
+    Tuple Matrix::operator*(const Tuple& tuple) {
+
+        TwoD::Tuple result(0.0f , 0.0f , 0.0f , 0.0f);
+        float sum;
+        std::string tuple_attributes = "xyzw";
+
+        for(unsigned int i = 0 ; i < row ; i++) {
+            sum = 0.0f;
+            for(unsigned int j = 0 ; j < col ; j++) {
+                sum += values[i][j] * tuple.get_value(tuple_attributes[j]);
+            }
+            result.set_value(tuple_attributes[i] , sum);
+        }
+        return result;
+    }
 
 };

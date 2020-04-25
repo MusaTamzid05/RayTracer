@@ -124,4 +124,20 @@ namespace Testing {
         TwoD::Matrix result = a_* b_;
         CPPUNIT_ASSERT(result == c_);
     }
+
+    void TestMatrix::testMatrixTupleMultiplication() {
+
+
+        float a[4][4] = {
+            {1.0f , 2.0f , 3.0f, 4.0f},
+            {2.0f , 4.0f , 4.0f , 2.0f },
+            {8.0f , 6.0f , 4.0f , 1.0f},
+            {0.0f , 0.0f , 0.0f ,  1.0f}
+        };
+
+        TwoD::Matrix4x4 a_(a);
+        TwoD::Tuple tuple(1.0f , 2.0f , 3.0f , 1.0f);
+        TwoD::Tuple result = a_ * tuple;
+        CPPUNIT_ASSERT(result == TwoD::Tuple(18.0f , 24.0f , 33.0f , 1.0f));
+    }
 }

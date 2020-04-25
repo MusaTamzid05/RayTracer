@@ -27,6 +27,9 @@ namespace TwoD {
         float magnitude();
         Tuple normalize();
         float dot(const Tuple& data);
+
+        float get_value(const char name) const;
+        void set_value(const char name , float value);
         
     };
 

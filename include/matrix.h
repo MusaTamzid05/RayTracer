@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <sstream>
+#include "tuple.h"
 
 namespace TwoD {
 
@@ -20,6 +21,8 @@ namespace TwoD {
 
         bool operator==(const Matrix& matrix);
         bool operator!=(const Matrix& matrix);
+
+        Tuple operator*(const Tuple& tuple);
         
     };
 
