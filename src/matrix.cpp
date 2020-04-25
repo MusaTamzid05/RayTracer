@@ -73,4 +73,34 @@ namespace TwoD {
         return !(*this == matrix);
     }
 
+
+    Matrix operator*(const Matrix& mat1 , const Matrix& mat2) {
+
+        int row_size = mat1.row;
+        int col_size = mat2.col;
+        Matrix* result =  nullptr;
+
+        if(row_size == 2 && col_size == 2)
+            result = new Matrix2x2();
+        else if(row_size == 3 && col_size == 3)
+            result = new Matrix3x3();
+        else if(row_size == 4 && col_size == 4)
+            result = new Matrix4x4();
+        
+
+
+        for(unsigned int row = 0 ; row < row_size ; row++)
+            for(unsigned int col = 0 ; col < col_size ; col++) {
+                float value = mat1.get(row , 0) * mat2.get(0 , col) +
+                    mat1.get(row , 1) * mat2.get(1 , col) +
+                    mat1.get(row , 2) * mat2.get(2 , col) +
+                    mat1.get(row , 3) * mat2.get(3 , col);
+
+                result->set(row , col , value);
+            }
+
+        return *result;
+
+    }
+
 };

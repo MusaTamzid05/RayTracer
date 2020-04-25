@@ -89,4 +89,39 @@ namespace Testing {
         CPPUNIT_ASSERT(a_ != b_);
     }
 
+
+    void TestMatrix::testMatrixMultiplication() {
+
+
+        float a[4][4] = {
+            {1.0f , 2.0f , 3.0f, 4.0f},
+            {5.0f , 6.0f , 7.0f , 8.0f },
+            {9.0f , 8.0f , 7.0f , 6.0f},
+            {5.0f , 4.0f , 3.0f ,  2.0f}
+        };
+
+
+        float b[4][4] = {
+            {-2.0f , 1.0f , 2.0f, 3.0f},
+            {3.0f , 2.0f , 1.0f , -1.0f },
+            {4.0f , 3.0f , 6.0f , 5.0f},
+            {1.0f , 2.0f , 7.0f ,  8.0f}
+        };
+
+
+        float c[4][4] = {
+            {20.0f , 22.0f , 50.0f, 48.0f},
+            {44.0f , 54.0f , 114.0f , 108.0f },
+            {40.0f , 58.0f , 110.0f , 102.0f},
+            {16.0f , 26.0f , 46.0f ,  42.0f}
+        };
+
+
+        TwoD::Matrix4x4 a_(a);
+        TwoD::Matrix4x4 b_(b);
+        TwoD::Matrix4x4 c_(c);
+
+        TwoD::Matrix result = a_* b_;
+        CPPUNIT_ASSERT(result == c_);
+    }
 }
