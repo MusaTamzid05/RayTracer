@@ -240,4 +240,18 @@ namespace Testing {
 
     }
 
+
+    void TestMatrix::testMinor() {
+
+        float arr[3][3] = {
+            {3.0f , 5.0f , 0.0f},
+            {2.0f , -1.0f , -7.0f},
+            {6.0f , -1.0f , 5.0f}
+        };
+
+        TwoD::Matrix3x3 matrix(arr);
+        TwoD::Matrix result1 = matrix.sub_matrix(1 , 0);
+        CPPUNIT_ASSERT(result1.determinate() == matrix.minor_(1 , 0));
+    }
+
 }

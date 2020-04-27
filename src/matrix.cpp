@@ -222,5 +222,12 @@ namespace TwoD {
         return (values[0][0] * values[1][1]) - (values[0][1] * values[1][0]);
     }
 
+    
+
+    float Matrix::minor_(int row , int col) {
+
+        Matrix result = sub_matrix(row , col);
+        return result.determinate();
+    }
 
 };

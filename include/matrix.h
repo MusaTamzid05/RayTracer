@@ -28,6 +28,7 @@ namespace TwoD {
         
         static Matrix create_empty(int row , int col);
         float determinate();
+        float minor_(int row , int col);
 
         
     };
