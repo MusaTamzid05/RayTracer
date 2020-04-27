@@ -13,8 +13,6 @@ namespace TwoD {
         float get(int row , int col) const  { return values[row][col]; }
         void set(int row , int col , float value) { values[row][col] = value; }
 
-
-
         int row;
         int col;
 
@@ -24,12 +22,13 @@ namespace TwoD {
         bool operator==(const Matrix& matrix);
         bool operator!=(const Matrix& matrix);
         Matrix operator=(const Matrix& matrix);
-
         Tuple operator*(const Tuple& tuple);
+
+        Matrix sub_matrix(int ignore_row , int ignore_col);
         
         static Matrix create_empty(int row , int col);
-
         float determinate();
+
         
     };
 

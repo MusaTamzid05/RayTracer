@@ -17,6 +17,7 @@ namespace Testing {
         CPPUNIT_TEST(testTransposeMatrix);
         CPPUNIT_TEST(testTransposeMatrixIdentity);
         CPPUNIT_TEST(testDeterminate);
+        CPPUNIT_TEST(testSubMatrix);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -33,6 +34,7 @@ namespace Testing {
             void testTransposeMatrix();
             void testTransposeMatrixIdentity();
             void testDeterminate();
+            void testSubMatrix();
 
         private:
 

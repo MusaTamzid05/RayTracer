@@ -182,7 +182,6 @@ namespace Testing {
 
         TwoD::Matrix matrix = TwoD::get_identity_matrix();
         CPPUNIT_ASSERT(matrix.transpose()  == matrix);
-
     }
 
     void TestMatrix::testDeterminate() {
@@ -194,8 +193,51 @@ namespace Testing {
 
         TwoD::Matrix2x2 matrix(arr);
         float currentDetermind = matrix.determinate();
-        std::cout << "\n" << currentDetermind << "\n";
         CPPUNIT_ASSERT(currentDetermind  == 17.0f);
+    }
+
+    void TestMatrix::testSubMatrix() {
+
+        float arr[3][3] = {
+            {1.0f , 5.0f , 0.0f},
+            {-3.0f , 2.0f , 7.0f},
+            {0.0f , 6.0f , -3.0f}
+        };
+
+        float b[2][2] = {
+            {-3.0f , 2.0f},
+            {0.0f , 6.0f}
+        };
+
+
+        TwoD::Matrix3x3 matrix(arr);
+        TwoD::Matrix2x2 matrix_b(b);
+        TwoD::Matrix result = matrix.sub_matrix(0 , 2);
+
+        CPPUNIT_ASSERT(result == matrix_b);
+
+
+        float arr_c[4][4] = {
+
+            {-6.0f , 1.0f , 1.0f , 6.0f},
+            {-8.0f , 5.0f , 8.0f , 6.0f},
+            {-1.0f , 0.0f , 8.0f , 2.0f},
+            {-7.0f , 1.0f , -1.0f , 1.0f}
+        };
+
+        float d[3][3] =  {
+            {-6.0f , 1.0f , 6.0f},
+            {-8.0f , 8.0f , 6.0f},
+            {-7.0f , -1.0f , 1.0f}
+        };
+
+
+        TwoD::Matrix4x4 matrix_c(arr_c);
+        TwoD::Matrix3x3 matrix_d(d);
+        TwoD::Matrix result2 = matrix_c.sub_matrix(2 , 1);
+
+        CPPUNIT_ASSERT(matrix_d == result2);
+
     }
 
 }

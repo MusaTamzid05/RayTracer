@@ -131,6 +131,8 @@ namespace TwoD {
 
     }
 
+    
+
     Matrix Matrix::transpose() {
 
         Matrix result = Matrix::create_empty(row , col);
@@ -161,6 +163,39 @@ namespace TwoD {
         return result;
     }
 
+
+    Matrix Matrix::sub_matrix(int ignore_row , int ignore_col) {
+    
+
+        Matrix* result = nullptr;
+
+        if(row == 4 && col == 4)
+            result = new Matrix3x3();
+
+        if(row == 3 && col == 3)
+            result = new Matrix2x2();
+
+        int current_row = 0;
+        int current_col = 0;
+
+        for(unsigned int i = 0 ; i < row ; i++) {
+            if(i == ignore_row)
+                continue;
+            for(unsigned int j = 0 ; j < col ; j++) {
+                if(j == ignore_col)
+                    continue;
+
+                result->values[current_row][current_col] = values[i][j];
+                current_col += 1;
+            }
+
+            current_col = 0;
+            current_row += 1;
+        }
+
+        return *result;
+    }
+
     Matrix4x4 get_identity_matrix() {
         
         float arr[4][4] = {
@@ -186,5 +221,6 @@ namespace TwoD {
 
         return (values[0][0] * values[1][1]) - (values[0][1] * values[1][0]);
     }
+
 
 };
