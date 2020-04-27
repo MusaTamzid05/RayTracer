@@ -103,7 +103,47 @@ namespace TwoD {
 
     }
     
+    Matrix Matrix::create_empty(int row , int col) {
+
+        Matrix* matrix = nullptr;
+
+        if(row == 2 && col == 2)
+            matrix = new Matrix2x2();
+        else if(row == 3 && col == 3)
+            matrix = new Matrix3x3();
+        else if(row == 4 && col == 4)
+            matrix = new Matrix4x4();
+
+        return *matrix;
+
+
+    }
     
+    Matrix Matrix::operator=(const Matrix& matrix) {
+       
+        Matrix result = Matrix::create_empty(row , col);
+
+        for(unsigned int i = 0 ; i < row ; i++)
+            for(unsigned int j = 0 ; j < col; j++) 
+                result.values[i][j] = values[i][j];
+
+        return result;
+
+    }
+
+    Matrix Matrix::transpose() {
+
+        Matrix result = Matrix::create_empty(row , col);
+
+        for(unsigned int i = 0 ; i < values.size() ; i++) {
+            for(unsigned int j = 0 ; j < values[0].size(); j++) {
+                result.values[j][i] = values[i][j];
+
+            }
+        }
+
+        return result;
+    }
     
     Tuple Matrix::operator*(const Tuple& tuple) {
 

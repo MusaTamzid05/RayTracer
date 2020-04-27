@@ -14,15 +14,20 @@ namespace TwoD {
         void set(int row , int col , float value) { values[row][col] = value; }
 
 
+
         int row;
         int col;
 
         std::vector<std::vector<float>> values;
+        Matrix transpose();
 
         bool operator==(const Matrix& matrix);
         bool operator!=(const Matrix& matrix);
+        Matrix operator=(const Matrix& matrix);
 
         Tuple operator*(const Tuple& tuple);
+        
+        static Matrix create_empty(int row , int col);
         
     };
 

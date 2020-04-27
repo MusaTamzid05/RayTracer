@@ -14,6 +14,7 @@ namespace Testing {
         CPPUNIT_TEST(testMatrixMultiplication);
         CPPUNIT_TEST(testMatrixTupleMultiplication);
         CPPUNIT_TEST(testIdentityMatrix);
+        CPPUNIT_TEST(testTransposeMatrix);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -27,6 +28,7 @@ namespace Testing {
             void testMatrixMultiplication();
             void testMatrixTupleMultiplication();
             void testIdentityMatrix();
+            void testTransposeMatrix();
 
         private:
 

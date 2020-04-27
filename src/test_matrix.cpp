@@ -154,4 +154,28 @@ namespace Testing {
         CPPUNIT_ASSERT(a * TwoD::get_identity_matrix() == a);
 
     }
+
+    
+    void TestMatrix::testTransposeMatrix() {
+
+        float arr1[4][4] = {
+            {0.0f , 9.0f , 3.0f , 0.0f},
+            {9.0f , 8.0f , 0.0f , 8.0f},
+            {1.0f , 8.0f , 5.0f , 3.0f},
+            {0.0f , 0.0f , 5.0f , 8.0f}
+        };
+
+
+        float arr2[4][4] = {
+            {0.0f , 9.0f , 1.0f , 0.0f},
+            {9.0f , 8.0f , 8.0f , 0.0f},
+            {3.0f , 0.0f , 5.0f , 5.0f},
+            {0.0f , 8.0f , 3.0f , 8.0f}
+        };
+
+        TwoD::Matrix4x4 a(arr1);
+        TwoD::Matrix4x4 b(arr2);
+        CPPUNIT_ASSERT(a.transpose()  == b);
+    }
+
 }
