@@ -28,6 +28,8 @@ namespace TwoD {
         Tuple operator*(const Tuple& tuple);
         
         static Matrix create_empty(int row , int col);
+
+        float determinate();
         
     };
 

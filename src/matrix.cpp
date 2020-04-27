@@ -176,4 +176,15 @@ namespace TwoD {
 
     }
 
+
+    float Matrix::determinate() {
+
+        if(row != 2 || col != 2) {
+            std::cerr << "Only can determind the matrix if row and col are of value of 2.\n";
+            return -1;
+        }
+
+        return (values[0][0] * values[1][1]) - (values[0][1] * values[1][0]);
+    }
+
 };

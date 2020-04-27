@@ -185,4 +185,17 @@ namespace Testing {
 
     }
 
+    void TestMatrix::testDeterminate() {
+        
+        float arr[2][2] = {
+            {1.0f , 5.0f},
+            {-3.0f , 2.0f}
+        };
+
+        TwoD::Matrix2x2 matrix(arr);
+        float currentDetermind = matrix.determinate();
+        std::cout << "\n" << currentDetermind << "\n";
+        CPPUNIT_ASSERT(currentDetermind  == 17.0f);
+    }
+
 }
