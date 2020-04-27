@@ -178,4 +178,11 @@ namespace Testing {
         CPPUNIT_ASSERT(a.transpose()  == b);
     }
 
+    void TestMatrix::testTransposeMatrixIdentity() {
+
+        TwoD::Matrix matrix = TwoD::get_identity_matrix();
+        CPPUNIT_ASSERT(matrix.transpose()  == matrix);
+
+    }
+
 }
