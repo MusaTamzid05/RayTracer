@@ -19,6 +19,7 @@ namespace Testing {
         CPPUNIT_TEST(testDeterminate);
         CPPUNIT_TEST(testSubMatrix);
         CPPUNIT_TEST(testMinor);
+        CPPUNIT_TEST(testCofactor);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -37,6 +38,7 @@ namespace Testing {
             void testDeterminate();
             void testSubMatrix();
             void testMinor();
+            void testCofactor();
 
         private:
 

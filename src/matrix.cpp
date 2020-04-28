@@ -214,12 +214,15 @@ namespace TwoD {
 
     float Matrix::determinate() {
 
-        if(row != 2 || col != 2) {
-            std::cerr << "Only can determind the matrix if row and col are of value of 2.\n";
-            return -1;
-        }
+        if(row == 2 && col == 2) 
+            return (values[0][0] * values[1][1]) - (values[0][1] * values[1][0]);
 
-        return (values[0][0] * values[1][1]) - (values[0][1] * values[1][0]);
+        float result = 0.0f;
+        for(unsigned i = 0 ; i < col ; i++)
+            result = result + values[0][i] * cofactor(0 , i);
+
+        return result;
+
     }
 
     
@@ -228,6 +231,18 @@ namespace TwoD {
 
         Matrix result = sub_matrix(row , col);
         return result.determinate();
+    }
+
+
+    
+    float Matrix::cofactor(int row , int col) {
+        
+        float result = minor_(row , col);
+
+        if((row + col) % 2 != 0)
+            return -result;
+
+        return result;
     }
 
 };

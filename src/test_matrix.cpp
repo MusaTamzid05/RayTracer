@@ -254,4 +254,21 @@ namespace Testing {
         CPPUNIT_ASSERT(result1.determinate() == matrix.minor_(1 , 0));
     }
 
+
+    
+    void TestMatrix::testCofactor() {
+
+        float arr[3][3] = {
+            {1.0f , 2.0f , 6.0f},
+            {-5.0f , 8.0f , -4.0f},
+            {2.0f , 6.0f , 4.0f}
+        };
+
+        TwoD::Matrix3x3 matrix(arr);
+        CPPUNIT_ASSERT(matrix.cofactor(0,0) == 56.0f);
+        CPPUNIT_ASSERT(matrix.cofactor(0,1) == 12.0f);
+        CPPUNIT_ASSERT(matrix.cofactor(0,2) == -46.0f);
+        CPPUNIT_ASSERT(matrix.determinate()  == -196.0f);
+    }
+
 }
