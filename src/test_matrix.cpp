@@ -324,6 +324,49 @@ namespace Testing {
 
         CPPUNIT_ASSERT(matrix == matrix2);
 
+        float arr3[4][4] = {
+            { 8.0f , -5.0f  , 9.0f , 2.0f },
+            { 7.0f , 5.0f , 6.0f , 1.0f },
+            { -6.0f , 0.0f , 9.0f , 6.0f },
+            { -3.0f , 0.0f , -9.0f , -4.0f }
+
+        };
+        
+        TwoD::Matrix4x4 matrix3(arr3);
+        matrix3.inverse(matrix);
+
+        float arr4[4][4] = {
+            {-0.15385 , -0.15385 , -0.28205 , -0.53846 },
+            { -0.07692 , 0.12308 , 0.02564 , 0.03077 },
+            { 0.35897 , 0.35897 , 0.43590 , 0.92308 },
+            { -0.69231 , -0.69231 , -0.76923 , -1.92308 }
+        };
+
+        TwoD::Matrix4x4 matrix4(arr4);
+        CPPUNIT_ASSERT(matrix == matrix4);
+
+
+        float arr5[4][4] = {
+            { 9.0f , 3.0f , 0.0f , 9.0f },
+            { -5.0f , -2.0f , -6.0f , -3.0f },
+            { -4.0f , 9.0f , 6.0f , 4.0f },
+            { -7.0f , 6.0f , 6.0f , 2.0f }
+
+        };
+        
+        TwoD::Matrix4x4 matrix5(arr5);
+        matrix5.inverse(matrix);
+
+        float arr6[4][4] = {
+            { -0.04074 , -0.07778 , 0.14444 , -0.22222 },
+            { -0.07778 , 0.03333 , 0.36667 , -0.33333 },
+            { -0.02901 , -0.14630 , -0.10926 , 0.12963 },
+            { 0.17778 , 0.06667 , -0.26667 , 0.33333 }
+        };
+
+        TwoD::Matrix4x4 matrix6(arr6);
+        CPPUNIT_ASSERT(matrix == matrix6);
+
 
     }
 }
