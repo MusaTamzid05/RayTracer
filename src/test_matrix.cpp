@@ -285,17 +285,6 @@ namespace Testing {
         TwoD::Matrix4x4 a(arr);
         CPPUNIT_ASSERT(a.is_invertible() == true);
 
-        /*
-         * This array will be used for the next test.
-         * not removing this because i dont want to
-         * type it again !! :<
-        float arr2[4][4]= {
-            {-5.0 , 2.0f , 6.0f , -8.0f},
-            {1.0 , -5.0f , 1.0f , 8.0f},
-            {7.0 , 7.0f , -6.0f , -7.0f},
-            {1.0 , -3.0f , 7.0f , 4.0f}
-        };
-        */
 
         float arr2[4][4]= {
             {-4.0 , 2.0f , -2.0f , -3.0f},
@@ -309,4 +298,32 @@ namespace Testing {
 
     }
 
+    
+    void TestMatrix::testInverseMatrix() {
+
+        float arr[4][4]= {
+            {-5.0 , 2.0f , 6.0f , -8.0f},
+            {1.0 , -5.0f , 1.0f , 8.0f},
+            {7.0 , 7.0f , -6.0f , -7.0f},
+            {1.0 , -3.0f , 7.0f , 4.0f}
+        };
+
+        TwoD::Matrix4x4 a(arr);
+        TwoD::Matrix matrix = TwoD::Matrix::create_empty(4 , 4);
+        a.inverse(matrix);
+
+
+        float arr2[4][4]= {
+            {0.218045f , 0.451128f , 0.240602f , -0.0451128f},
+            { -0.808271f , -1.45677f , -0.443609f ,0.520677f},
+            {-0.0789474f , -0.223684f , -0.0526316f , 0.197368f},
+            {-0.522556f , -0.81391f , -0.300752f , 0.306391f}
+        };
+
+        TwoD::Matrix4x4 matrix2(arr2);
+
+        CPPUNIT_ASSERT(matrix == matrix2);
+
+
+    }
 }

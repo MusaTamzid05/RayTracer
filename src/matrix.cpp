@@ -1,5 +1,6 @@
 #include "matrix.h"
 #include <iostream>
+#include "operation.h"
 
 namespace TwoD {
 
@@ -62,7 +63,7 @@ namespace TwoD {
 
         for(unsigned int i = 0 ; i < row ; i++)
             for(unsigned int j = 0 ; j < col; j++)
-                if(values[i][j] != matrix.get(i , j)) 
+                if(!Operation::equal(values[i][j] , matrix.get(i , j))) 
                     return false;
 
         return true;
@@ -249,5 +250,27 @@ namespace TwoD {
     bool Matrix::is_invertible() {
         return determinate() == 0 ? false : true;
     }
+
+
+    
+    void Matrix::inverse(Matrix& result) {
+
+        if(!is_invertible()) {
+            std::cerr << "matrix is not ivertiable.\n";
+            return;
+        }
+
+        float cofactor_value;
+        float current_value;
+
+        for(unsigned int i = 0 ; i < row ; i++)
+            for(unsigned int j = 0 ; j < col ; j++) {
+                cofactor_value = cofactor(i , j);
+                current_value  = cofactor_value / determinate();
+                result.set(j , i , current_value);
+            }
+
+    }
+    
 
 };

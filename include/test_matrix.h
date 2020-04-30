@@ -21,6 +21,7 @@ namespace Testing {
         CPPUNIT_TEST(testMinor);
         CPPUNIT_TEST(testCofactor);
         CPPUNIT_TEST(testInvertibleMatrix);
+        CPPUNIT_TEST(testInverseMatrix);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -41,6 +42,7 @@ namespace Testing {
             void testMinor();
             void testCofactor();
             void testInvertibleMatrix();
+            void testInverseMatrix();
 
         private:
 

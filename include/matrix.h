@@ -33,6 +33,8 @@ namespace TwoD {
 
         bool is_invertible();
 
+        void inverse(Matrix& result);
+
         
     };
 
