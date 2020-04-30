@@ -367,6 +367,36 @@ namespace Testing {
         TwoD::Matrix4x4 matrix6(arr6);
         CPPUNIT_ASSERT(matrix == matrix6);
 
-
     }
+
+
+    
+    void TestMatrix::testMultiplyInverse() {
+
+        float arr1[4][4] = {
+            { 3 , -9 , 7 , 3 },
+            { 3 , -8 , 2 , -9 },
+            { -4 , 4 , 4 , 1 },
+            { -6 , 5 , -1 , 1 }
+        };
+
+        float arr2[4][4] = {
+            { 8 , 2 , 2 , 2 },
+            { 3 , -1 , 7 , 0 },
+            { 7 , 0 , 5 , 4 },
+            { 6 , -2 , 0 , 5 }
+        };
+
+        TwoD::Matrix4x4 matrix1(arr1);
+        TwoD::Matrix4x4 matrix2(arr2);
+
+        TwoD::Matrix matrix3 = matrix1 * matrix2;
+
+        TwoD::Matrix inverse_result = TwoD::Matrix::create_empty(4 , 4);
+        matrix2.inverse(inverse_result);
+        TwoD::Matrix matrix4 = matrix3 * inverse_result;
+        CPPUNIT_ASSERT(matrix1 == matrix4);
+    }
+
+
 }
