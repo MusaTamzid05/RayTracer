@@ -271,4 +271,42 @@ namespace Testing {
         CPPUNIT_ASSERT(matrix.determinate()  == -196.0f);
     }
 
+
+    
+    void TestMatrix::testInvertibleMatrix() {
+
+        float arr[4][4] = {
+            {6.0 , 4.0f , 4.0f , 4.0f},
+            {5.0 , 5.0f , 7.0f , 6.0f},
+            {4.0 , -9.0f , 3.0f , -7.0f},
+            {9.0 , 1.0f , 7.0f , -6.0f}
+        };
+
+        TwoD::Matrix4x4 a(arr);
+        CPPUNIT_ASSERT(a.is_invertible() == true);
+
+        /*
+         * This array will be used for the next test.
+         * not removing this because i dont want to
+         * type it again !! :<
+        float arr2[4][4]= {
+            {-5.0 , 2.0f , 6.0f , -8.0f},
+            {1.0 , -5.0f , 1.0f , 8.0f},
+            {7.0 , 7.0f , -6.0f , -7.0f},
+            {1.0 , -3.0f , 7.0f , 4.0f}
+        };
+        */
+
+        float arr2[4][4]= {
+            {-4.0 , 2.0f , -2.0f , -3.0f},
+            {9.0 , 6.0f , 2.0f , 6.0f},
+            {0.0 , -5.0f , 1.0f , 5.0f},
+            {0.0 , 0.0f , 0.0f , 0.0f}
+        };
+
+        TwoD::Matrix4x4 a2(arr2);
+        CPPUNIT_ASSERT(a2.is_invertible() == false);
+
+    }
+
 }

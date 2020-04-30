@@ -245,4 +245,9 @@ namespace TwoD {
         return result;
     }
 
+
+    bool Matrix::is_invertible() {
+        return determinate() == 0 ? false : true;
+    }
+
 };

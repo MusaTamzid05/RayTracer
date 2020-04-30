@@ -31,6 +31,8 @@ namespace TwoD {
         float minor_(int row , int col);
         float cofactor(int row , int col);
 
+        bool is_invertible();
+
         
     };
 
