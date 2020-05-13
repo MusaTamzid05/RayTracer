@@ -24,6 +24,7 @@ namespace Testing {
         CPPUNIT_TEST(testInverseMatrix);
         CPPUNIT_TEST(testMultiplyInverse);
         CPPUNIT_TEST(testTranslationMatrix);
+        CPPUNIT_TEST(testInverseTranslationMatrix);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -48,6 +49,7 @@ namespace Testing {
             void testMultiplyInverse();
 
             void testTranslationMatrix();
+            void testInverseTranslationMatrix();
 
         private:
 

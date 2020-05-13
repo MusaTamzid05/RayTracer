@@ -410,4 +410,11 @@ namespace Testing {
 
     }
 
+    void TestMatrix::testInverseTranslationMatrix() {
+
+        TwoD::Matrix4x4 translation_result =  TwoD::Matrix4x4::translation(TwoD::Point(5.0f , -3.0f , 2.0f));
+        translation_result.inverse(translation_result);
+        CPPUNIT_ASSERT(translation_result * TwoD::Point(-3.0f , 4.0f , 5.0f) == TwoD::Point(-8.0f , 7.0f , 3.0f));
+    }
+
 }
