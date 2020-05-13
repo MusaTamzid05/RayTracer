@@ -4,6 +4,7 @@
 #include <vector>
 #include <sstream>
 #include "tuple.h"
+#include "point.h"
 
 namespace TwoD {
 
@@ -43,6 +44,8 @@ namespace TwoD {
     struct Matrix4x4 : public Matrix {
         Matrix4x4(float arr[4][4]);
         Matrix4x4():Matrix(4,4){}
+
+        static Matrix4x4 translation(const TwoD::Point& point);
     };
 
 

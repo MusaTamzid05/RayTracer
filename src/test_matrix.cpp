@@ -398,5 +398,16 @@ namespace Testing {
         CPPUNIT_ASSERT(matrix1 == matrix4);
     }
 
+    void TestMatrix::testTranslationMatrix() {
+
+        TwoD::Matrix4x4 matrix =  TwoD::Matrix4x4::translation(TwoD::Point(5.0f , -3.0f , 2.0f));
+        TwoD::Point point(-3.0f , 4.0f , 5.0f);
+        TwoD::Tuple result = matrix * point;
+
+
+        CPPUNIT_ASSERT(result == TwoD::Point(2.0f , 1.0f , 7.0f));
+
+
+    }
 
 }

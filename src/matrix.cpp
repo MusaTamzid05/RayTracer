@@ -272,5 +272,17 @@ namespace TwoD {
 
     }
     
+    Matrix4x4 Matrix4x4::translation(const TwoD::Point& point) {
+
+        Matrix4x4 identity_matrix = get_identity_matrix();
+
+        identity_matrix.values[0][3] = point.x;
+        identity_matrix.values[1][3] = point.y;
+        identity_matrix.values[2][3] = point.z;
+        identity_matrix.values[3][3] = 1.0f;
+
+        return identity_matrix;
+    }
+    
 
 };
