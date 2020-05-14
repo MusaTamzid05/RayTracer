@@ -1,5 +1,6 @@
 #include "test_matrix.h"
 #include "matrix.h"
+#include "vector.h"
 
 namespace Testing {
 
@@ -417,4 +418,12 @@ namespace Testing {
         CPPUNIT_ASSERT(translation_result * TwoD::Point(-3.0f , 4.0f , 5.0f) == TwoD::Point(-8.0f , 7.0f , 3.0f));
     }
 
+
+    void TestMatrix::testTranslationWithVector() {
+        
+        TwoD::Matrix4x4 transform_result =  TwoD::Matrix4x4::translation(TwoD::Point(5.0f , -3.0f , 2.0f));
+        TwoD::Vector vector(-3.f , 4.0f , 5.0f);
+        CPPUNIT_ASSERT(transform_result * vector == vector);
+
+    }
 }
