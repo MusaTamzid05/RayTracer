@@ -47,6 +47,11 @@ namespace TwoD {
 
         static Matrix4x4 translation(const TwoD::Point& point);
         static Matrix4x4 scale(const TwoD::Point& point);
+
+        // returns a matrix that will roate a point
+        // when multiply
+
+        static Matrix4x4 rotate_x(float radian);
     };
 
 

@@ -29,6 +29,7 @@ namespace Testing {
         CPPUNIT_TEST(testScaleMatrix);
         CPPUNIT_TEST(testScaleMatrixVector);
         CPPUNIT_TEST(testReflection);
+        CPPUNIT_TEST(testRotateMatrixXAxis);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -59,6 +60,7 @@ namespace Testing {
             void testScaleMatrix();
             void testScaleMatrixVector();
             void testReflection();
+            void testRotateMatrixXAxis();
 
         private:
 

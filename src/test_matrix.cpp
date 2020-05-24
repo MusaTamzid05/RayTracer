@@ -1,6 +1,7 @@
 #include "test_matrix.h"
 #include "matrix.h"
 #include "vector.h"
+#include <math.h>
 
 namespace Testing {
 
@@ -441,6 +442,16 @@ namespace Testing {
     void TestMatrix::testReflection() {
         TwoD::Matrix4x4 scale_matrix = TwoD::Matrix4x4::scale(TwoD::Point(-1.0f , 1.0f , 1.0f));
         CPPUNIT_ASSERT(scale_matrix * TwoD::Point(2.0f , 3.0f , 4.0f) == TwoD::Point(-2.0f , 3.0f , 4.0f));
+    }
 
+    void TestMatrix::testRotateMatrixXAxis() {
+        TwoD::Point point(0.0f , 1.0f , 0.0f);
+
+        TwoD::Matrix4x4 half_quarter = TwoD::Matrix4x4::rotate_x(M_PI / 4);
+        TwoD::Matrix4x4 full_quarter = TwoD::Matrix4x4::rotate_x(M_PI / 2);
+
+        CPPUNIT_ASSERT(half_quarter * point == TwoD::Point(0.0f , sqrt(2) / 2 , sqrt(2) / 2));
+        CPPUNIT_ASSERT(full_quarter * point == TwoD::Point(0.0f , 0.0f , 1.0f));
+        
     }
 }

@@ -1,6 +1,7 @@
 #include "matrix.h"
 #include <iostream>
 #include "operation.h"
+#include <math.h>
 
 namespace TwoD {
 
@@ -295,6 +296,17 @@ namespace TwoD {
 
         return identity_matrix;
     }
-    
+
+    Matrix4x4 Matrix4x4::rotate_x(float radian) {
+
+        Matrix4x4 mat = get_identity_matrix();
+
+        mat.values[1][1] = cos(radian);
+        mat.values[1][2] = -sin(radian);
+        mat.values[2][1] = sin(radian);
+        mat.values[2][2] = cos(radian);
+
+        return mat;
+    }
 
 };
