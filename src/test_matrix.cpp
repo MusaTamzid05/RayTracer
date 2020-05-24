@@ -527,4 +527,23 @@ namespace Testing {
         CPPUNIT_ASSERT(transform6  * point == TwoD::Point(2.0f , 3.0f , 7.0f));
     }
 
+
+    
+    void TestMatrix::testIndividualTransformationAppliedInSeq() {
+
+        TwoD::Point point(1.0f , 0.0f , 1.0f);
+        TwoD::Matrix4x4 A = TwoD::Matrix4x4::rotate_x(M_PI / 2.0f);
+        TwoD::Matrix4x4 B = TwoD::Matrix4x4::scale(TwoD::Point(5.0f , 5.0f , 5.0f));
+        TwoD::Matrix4x4 C = TwoD::Matrix4x4::translation(TwoD::Point(10.0f , 5.0f , 7.0f));
+
+        TwoD::Tuple p2 = A * point;
+        CPPUNIT_ASSERT(p2 == TwoD::Point(1.0f , -1.0f , 0.0f));
+
+        TwoD::Tuple p3 = B * p2;
+        CPPUNIT_ASSERT(p3 == TwoD::Point(5.0f , -5.0f , 0.0f));
+
+        TwoD::Tuple p4 = C * p3;
+        CPPUNIT_ASSERT(p4 == TwoD::Point(15.0f , 0.0f , 7.0f));
+    }
+
 }
