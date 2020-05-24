@@ -46,6 +46,7 @@ namespace TwoD {
         Matrix4x4():Matrix(4,4){}
 
         static Matrix4x4 translation(const TwoD::Point& point);
+        static Matrix4x4 scale(const TwoD::Point& point);
     };
 
 

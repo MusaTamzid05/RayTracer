@@ -283,6 +283,18 @@ namespace TwoD {
 
         return identity_matrix;
     }
+
+    Matrix4x4 Matrix4x4::scale(const TwoD::Point& point) {
+
+        Matrix4x4 identity_matrix = get_identity_matrix();
+
+        identity_matrix.values[0][0] = point.x;
+        identity_matrix.values[1][1] = point.y;
+        identity_matrix.values[2][2] = point.z;
+        identity_matrix.values[3][3] = 1.0f;
+
+        return identity_matrix;
+    }
     
 
 };
