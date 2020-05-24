@@ -27,6 +27,7 @@ namespace Testing {
         CPPUNIT_TEST(testInverseTranslationMatrix);
         CPPUNIT_TEST(testTranslationWithVector);
         CPPUNIT_TEST(testScaleMatrix);
+        CPPUNIT_TEST(testScaleMatrixVector);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -55,6 +56,7 @@ namespace Testing {
             void testTranslationWithVector();
 
             void testScaleMatrix();
+            void testScaleMatrixVector();
 
         private:
 

@@ -1,7 +1,6 @@
 #include "test_matrix.h"
 #include "matrix.h"
 #include "vector.h"
-#include "operation.h"
 
 namespace Testing {
 
@@ -430,10 +429,12 @@ namespace Testing {
 
     
     void TestMatrix::testScaleMatrix() {
-
-
         TwoD::Matrix4x4 scale_matrix = TwoD::Matrix4x4::scale(TwoD::Point(2.0f , 3.0f, 4.0f));
         CPPUNIT_ASSERT(scale_matrix * TwoD::Point(-4.0f , 6.0f , 8.0f) == TwoD::Point(-8.0f , 18.0f , 32.0f));
+    }
 
+    void TestMatrix::testScaleMatrixVector() {
+        TwoD::Matrix4x4 scale_matrix = TwoD::Matrix4x4::scale(TwoD::Point(2.0f , 3.0f, 4.0f));
+        CPPUNIT_ASSERT(scale_matrix * TwoD::Vector(-4.0f , 6.0f , 8.0f) == TwoD::Vector(-8.0f , 18.0f , 32.0f));
     }
 }
