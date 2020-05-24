@@ -494,11 +494,37 @@ namespace Testing {
 
     void TestMatrix::testShearing() {
 
+        TwoD::Point point(2.0f , 3.0f , 4.0f);
+
         TwoD::Matrix4x4 transform = TwoD::Matrix4x4::shearing(1.0f , 0.0f , 0.0f,
                                  0.0f , 0.0f , 0.0f);
-        TwoD::Point point(2.0f , 3.0f , 4.0f);
         CPPUNIT_ASSERT(transform * point == TwoD::Point(5.0f , 3.0f , 4.0f));
 
+
+        TwoD::Matrix4x4 transform2 = TwoD::Matrix4x4::shearing(0.0f , 1.0f , 0.0f,
+                                 0.0f , 0.0f , 0.0f);
+
+        CPPUNIT_ASSERT(transform2 * point == TwoD::Point(6.0f , 3.0f , 4.0f));
+
+
+        TwoD::Matrix4x4 transform3 = TwoD::Matrix4x4::shearing(0.0f , 0.0f , 1.0f,
+                                 0.0f , 0.0f , 0.0f);
+        CPPUNIT_ASSERT(transform3 * point == TwoD::Point(2.0f , 5.0f , 4.0f));
+
+
+        TwoD::Matrix4x4 transform4 = TwoD::Matrix4x4::shearing(0.0f , 0.0f , 0.0f,
+                                 1.0f , 0.0f , 0.0f);
+        CPPUNIT_ASSERT(transform4  * point == TwoD::Point(2.0f , 7.0f , 4.0f));
+
+
+        TwoD::Matrix4x4 transform5 = TwoD::Matrix4x4::shearing(0.0f , 0.0f , 0.0f,
+                                 0.0f , 1.0f , 0.0f);
+        CPPUNIT_ASSERT(transform5  * point == TwoD::Point(2.0f , 3.0f , 6.0f));
+
+
+        TwoD::Matrix4x4 transform6 = TwoD::Matrix4x4::shearing(0.0f , 0.0f , 0.0f,
+                                 0.0f , 0.0f , 1.0f);
+        CPPUNIT_ASSERT(transform6  * point == TwoD::Point(2.0f , 3.0f , 7.0f));
     }
 
 }
