@@ -452,6 +452,15 @@ namespace Testing {
 
         CPPUNIT_ASSERT(half_quarter * point == TwoD::Point(0.0f , sqrt(2) / 2 , sqrt(2) / 2));
         CPPUNIT_ASSERT(full_quarter * point == TwoD::Point(0.0f , 0.0f , 1.0f));
+
+        // testing inverse of rotation matrix.
+
+        point = TwoD::Point(0.0f , 1.0f , 0.0f);
+        half_quarter = TwoD::Matrix4x4::rotate_x(M_PI / 4);
+        TwoD::Matrix4x4 inv;
+        half_quarter.inverse(half_quarter);
+        CPPUNIT_ASSERT(half_quarter * point == TwoD::Point(0.0f , sqrt(2) / 2 , -sqrt(2) / 2 ));
+
         
     }
 }
