@@ -335,5 +335,20 @@ namespace TwoD {
         return mat;
     }
 
+    
+    Matrix4x4 Matrix4x4::shearing(float xy , float  xz , float yx, float yz, float zx, float zy) {
+
+        Matrix4x4 mat = get_identity_matrix();
+
+        mat.values[0][1] = xy;
+        mat.values[0][2] = xz;
+        mat.values[1][0] = yx;
+        mat.values[1][2] = yz;
+        mat.values[2][0] = zx;
+        mat.values[2][1] = zy;
+
+        return mat;
+    }
+
 
 };

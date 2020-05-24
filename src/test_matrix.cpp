@@ -492,4 +492,13 @@ namespace Testing {
 
     }
 
+    void TestMatrix::testShearing() {
+
+        TwoD::Matrix4x4 transform = TwoD::Matrix4x4::shearing(1.0f , 0.0f , 0.0f,
+                                 0.0f , 0.0f , 0.0f);
+        TwoD::Point point(2.0f , 3.0f , 4.0f);
+        CPPUNIT_ASSERT(transform * point == TwoD::Point(5.0f , 3.0f , 4.0f));
+
+    }
+
 }
