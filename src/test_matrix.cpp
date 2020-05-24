@@ -463,4 +463,18 @@ namespace Testing {
 
         
     }
+
+    
+    void TestMatrix::testRotateMatrixYAxis() {
+
+        TwoD::Point point(0.0f , 0.0f , 1.0f);
+
+        TwoD::Matrix4x4 half_quarter = TwoD::Matrix4x4::rotate_y(M_PI / 4);
+        TwoD::Matrix4x4 full_quarter = TwoD::Matrix4x4::rotate_y(M_PI / 2);
+
+        CPPUNIT_ASSERT(half_quarter * point == TwoD::Point(sqrt(2) / 2, 0.0f , sqrt(2) / 2));
+        CPPUNIT_ASSERT(full_quarter * point == TwoD::Point(1.0f , 0.0f , 0.0f));
+
+    }
+
 }
