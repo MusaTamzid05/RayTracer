@@ -53,6 +53,7 @@ namespace TwoD {
 
         static Matrix4x4 rotate_x(float radian);
         static Matrix4x4 rotate_y(float radian);
+        static Matrix4x4 rotate_z(float radian);
     };
 
 

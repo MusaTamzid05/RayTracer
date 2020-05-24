@@ -477,4 +477,19 @@ namespace Testing {
 
     }
 
+
+    void TestMatrix::testRotateMatrixZAxis() {
+
+        TwoD::Point point(0.0f , 1.0f , 0.0f);
+
+        TwoD::Matrix4x4 half_quarter = TwoD::Matrix4x4::rotate_z(M_PI / 4);
+        TwoD::Matrix4x4 full_quarter = TwoD::Matrix4x4::rotate_z(M_PI / 2);
+
+        TwoD::Tuple result = full_quarter * point ;
+
+        CPPUNIT_ASSERT(half_quarter * point == TwoD::Point(-sqrt(2) / 2 , sqrt(2) / 2 , 0.0f));
+        CPPUNIT_ASSERT(full_quarter * point == TwoD::Point(-1.0f , 0.0f , 0.0f));
+
+    }
+
 }

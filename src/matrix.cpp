@@ -323,5 +323,17 @@ namespace TwoD {
     }
 
     
+    Matrix4x4 Matrix4x4::rotate_z(float radian) {
+
+        Matrix4x4 mat = get_identity_matrix();
+
+        mat.values[0][0] = cos(radian);
+        mat.values[0][1] = -sin(radian);
+        mat.values[1][0] = sin(radian);
+        mat.values[1][1] = cos(radian);
+
+        return mat;
+    }
+
 
 };
