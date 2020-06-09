@@ -8,8 +8,8 @@
 
 int main_app()  {
 
-    //Engine::App app;
-    //app.run();
+    Engine::App app;
+    app.run();
 
 
     return 0;
@@ -20,5 +20,5 @@ int run_test() {
 }
 
 int main(int argc , char** argv) {
-    return run_test();
+    return main_app();
 }

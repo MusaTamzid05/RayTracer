@@ -1,6 +1,5 @@
 #include "shape.h"
 #include "pixle_data.h"
-#include <SFML/Graphics.hpp>
 
 #include "const.h"
 
