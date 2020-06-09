@@ -17,11 +17,7 @@ namespace Engine {
         
     World::World(const Environment& env):
     env(env){
-        Engine::Shape* shape = new Engine::Shape(50.0f , 100.0f);
-        TwoD::Point point = TwoD::Point(1.0f , 1.8f , 0.0f);
-        TwoD::Tuple nor = point.normalize();
-        nor *= 8.28;
-        shape->set_velocity(TwoD::Point(nor.x , nor.y , nor.z));
+        Engine::Shape* shape = new Engine::Shape(Const::WIDTH / 2, Const::HEIGHT / 2);
         shapes.push_back(shape);
         
         clear_pixles();
@@ -40,21 +36,6 @@ namespace Engine {
     }
 
     void World::update() {
-
-        for(Shape* shape : shapes) {
-
-            TwoD::Tuple new_pos = shape->get_pos() + shape->get_velocity();
-            TwoD::Point new_pos_point(new_pos.x, new_pos.y, new_pos.z);
-
-            std::cout << new_pos_point << "\n";
-
-            TwoD::Tuple new_vel = shape->get_velocity() + env.gravity + env.wind;
-            TwoD::Point new_vel_point(new_vel.x, new_vel.y, new_vel.z);
-
-            shape->set_pos(new_pos_point);
-            shape->set_velocity(new_vel_point);
-        }
-
     }
 
     
