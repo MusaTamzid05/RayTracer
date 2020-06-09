@@ -10,6 +10,8 @@ namespace TwoD {
         public:
             Point(float x , float y , float z):
                 Tuple(x , y , z , 1.0){}
+
+            void clear_negative();
     };
 };
 

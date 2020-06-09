@@ -16,6 +16,13 @@ namespace TwoD {
         }
     }
 
+    Matrix::Matrix(const Matrix& matrix) {
+
+        row = matrix.row;
+        col = matrix.col;
+        values = matrix.values;
+    }
+
     Matrix4x4::Matrix4x4(float arr[4][4]):Matrix(4 , 4){
 
         for(unsigned int i = 0 ; i < row ; i++ ) 

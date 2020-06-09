@@ -39,6 +39,8 @@ namespace Engine {
 
         private:
 
+            std::vector<TwoD::Point> get_clock_points(float radius,
+                    const TwoD::Point& center = TwoD::Point(0.0f, .0f, 0.0f));
 
             std::vector<Shape*> shapes;
             Environment env;
