@@ -11,6 +11,8 @@ namespace TwoD {
     struct Matrix {
 
         Matrix(int row , int col);
+        Matrix(const Matrix& matrix);
+
         float get(int row , int col) const  { return values[row][col]; }
         void set(int row , int col , float value) { values[row][col] = value; }
 
