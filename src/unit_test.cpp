@@ -4,6 +4,7 @@
 #include "test_canvas.h"
 #include "test_color.h"
 #include "test_matrix.h"
+#include "test_ray.h"
 #include <iostream>
 
 
@@ -11,6 +12,7 @@ CPPUNIT_TEST_SUITE_REGISTRATION(Testing::TestCanvas);
 CPPUNIT_TEST_SUITE_REGISTRATION(Testing::TestTuple);
 CPPUNIT_TEST_SUITE_REGISTRATION(Testing::TestColor);
 CPPUNIT_TEST_SUITE_REGISTRATION(Testing::TestMatrix);
+CPPUNIT_TEST_SUITE_REGISTRATION(Testing::TestRay);
 
 namespace Testing {
 

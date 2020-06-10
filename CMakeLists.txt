@@ -20,6 +20,8 @@ set(Source
     src/fps.cpp
     src/matrix.cpp
     src/test_matrix.cpp
+    src/ray.cpp
+    src/test_ray.cpp
     )
 add_executable(test_pro ${Source})
 target_link_libraries(test_pro ${GTEST_LIBRARIES} cppunit SDL2 pthread)
