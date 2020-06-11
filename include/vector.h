@@ -11,8 +11,9 @@ namespace TwoD {
             Tuple(x , y , z , 0.f) {}
 
         Vector cross(const Vector& vec);
+        static Vector convert_to_vector(const TwoD::Tuple& data);
     };
 
-}
+};
 
 #endif
