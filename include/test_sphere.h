@@ -10,6 +10,7 @@ namespace Testing {
         CPPUNIT_TEST_SUITE(TestSphere);
         CPPUNIT_TEST(testInterspectsTwoSphere);
         CPPUNIT_TEST(testInterspectsSphereATangent);
+        CPPUNIT_TEST(testMissSphere);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -20,6 +21,7 @@ namespace Testing {
 
             void testInterspectsTwoSphere();
             void testInterspectsSphereATangent();
+            void testMissSphere();
 
         private:
 
