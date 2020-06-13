@@ -7,6 +7,8 @@ namespace TwoD {
     }
 
     Vector Vector::convert_to_vector(const TwoD::Tuple& data) {
-        return Vector(data.x, data.y, data.z);
+        Vector vec(data.x, data.y, data.z);
+        vec.w = data.w;
+        return vec;
     }
 };
