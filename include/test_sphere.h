@@ -12,6 +12,7 @@ namespace Testing {
         CPPUNIT_TEST(testInterspectsSphereATangent);
         CPPUNIT_TEST(testMissSphere);
         CPPUNIT_TEST(testRayOriginateInside);
+        CPPUNIT_TEST(testSphereBehindRay);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -24,6 +25,7 @@ namespace Testing {
             void testInterspectsSphereATangent();
             void testMissSphere();
             void testRayOriginateInside();
+            void testSphereBehindRay();
 
         private:
 
