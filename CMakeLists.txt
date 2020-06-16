@@ -25,6 +25,8 @@ set(Source
     src/point.cpp
     src/sphere.cpp
     src/test_sphere.cpp
+    src/intersection.cpp
+    src/test_intersection.cpp
     )
 add_executable(test_pro ${Source})
 target_link_libraries(test_pro ${GTEST_LIBRARIES} cppunit SDL2 pthread)
