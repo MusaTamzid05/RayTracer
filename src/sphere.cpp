@@ -1,5 +1,6 @@
 #include "sphere.h"
 #include "ray.h"
+#include "intersection.h"
 #include <cmath>
 
 namespace Light {
@@ -20,9 +21,9 @@ namespace Light {
     }
 
 
-    std::vector<float> Sphere::intersect(const Light::Ray& ray) {
+    std::vector<Intersection> Sphere::intersect(const Light::Ray& ray) {
 
-        std::vector<float> interspect_points;
+        std::vector<Intersection> intersections;
 
         TwoD::Vector direction = ray.direction;
         TwoD::Tuple sphere_to_ray_tuple = ray.origin - TwoD::Point(0.0f, 0.0f, 0.0f);
@@ -36,13 +37,13 @@ namespace Light {
         float discriminate = pow(b, 2) - 4 * a * c;
 
         if(discriminate < 0)
-            return interspect_points;
+            return intersections;
 
         
-        interspect_points.push_back((-b - sqrt(discriminate)) / (2 * a));
-        interspect_points.push_back((-b + sqrt(discriminate)) / (2 * a));
+        intersections.push_back(Intersection((-b - sqrt(discriminate)) / (2 * a), this));
+        intersections.push_back(Intersection((-b + sqrt(discriminate)) / (2 * a), this));
 
-        return interspect_points;
+        return intersections;
 
 
     }

@@ -7,6 +7,7 @@
 namespace Light {
 
     class Ray;
+    class Intersection;
 
 
     class Sphere {
@@ -19,7 +20,7 @@ namespace Light {
             virtual ~Sphere() {}
             TwoD::Point center;
 
-            std::vector<float> intersect(const Light::Ray& ray);
+            std::vector<Intersection> intersect(const Light::Ray& ray);
 
 
     };

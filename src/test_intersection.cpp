@@ -1,6 +1,7 @@
 #include "test_intersection.h"
 #include "sphere.h"
 #include "intersection.h"
+#include "ray.h"
 
 namespace Testing {
 
@@ -19,7 +20,7 @@ namespace Testing {
         Light::Sphere* sphere = new Light::Sphere();
         Light::Intersection intersection(3.5f, sphere);
     
-        CPPUNIT_ASSERT(intersection.distance  == 3.5f);
+        CPPUNIT_ASSERT(intersection.distance == 3.5f);
         CPPUNIT_ASSERT(intersection.sphere == sphere);
     }
 
@@ -36,5 +37,7 @@ namespace Testing {
         CPPUNIT_ASSERT(intersections[0].distance == 1.0f);
         CPPUNIT_ASSERT(intersections[1].distance == 2.0f);
     }
+
+
 
 };
