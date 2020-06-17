@@ -72,4 +72,17 @@ namespace Testing {
         CPPUNIT_ASSERT(intersections[1].distance  == -4.0);
     }
 
+
+
+    void TestSphere::testIntersectSetOfObjects() {
+
+        Light::Ray ray(TwoD::Point(0.0f, 0.0f, 5.0f), TwoD::Vector(0.0f, 0.0f, 1.0f));
+        Light::Sphere sphere;
+        std::vector<Light::Intersection> intersections = sphere.intersect(ray);
+
+
+        CPPUNIT_ASSERT(intersections.size() == 2);
+        CPPUNIT_ASSERT(*intersections[0].object == sphere);
+        CPPUNIT_ASSERT(*intersections[1].object == sphere);
+    }
 }

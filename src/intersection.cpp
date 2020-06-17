@@ -2,9 +2,9 @@
 #include "sphere.h"
 
 namespace Light {
-    Intersection::Intersection(float distance, Light::Sphere* sphere):
+    Intersection::Intersection(float distance, Light::Sphere* object):
         distance(distance),
-        sphere(sphere){
+        object(object){
 
     }
 };

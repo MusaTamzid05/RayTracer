@@ -48,4 +48,9 @@ namespace Light {
 
     }
 
+
+    bool Sphere::operator==(const Light::Sphere& sphere) {
+        return center == sphere.center;
+    }
+
 };

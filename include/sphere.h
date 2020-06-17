@@ -22,6 +22,8 @@ namespace Light {
 
             std::vector<Intersection> intersect(const Light::Ray& ray);
 
+            bool operator==(const Light::Sphere& sphere);
+
 
     };
 

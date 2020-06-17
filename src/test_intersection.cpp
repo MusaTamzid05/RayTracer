@@ -21,7 +21,7 @@ namespace Testing {
         Light::Intersection intersection(3.5f, sphere);
     
         CPPUNIT_ASSERT(intersection.distance == 3.5f);
-        CPPUNIT_ASSERT(intersection.sphere == sphere);
+        CPPUNIT_ASSERT(intersection.object == sphere);
     }
 
     void TestIntersection::testAggregatingIntersection() {

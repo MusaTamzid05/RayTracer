@@ -9,12 +9,10 @@ namespace Light {
 
     class Intersection {
         public:
-            Intersection(float distance,Light::Sphere* sphere);
+            Intersection(float distance,Light::Sphere* object);
             virtual ~Intersection() {}
 
-
-
-            Light::Sphere* sphere;
+            Light::Sphere* object;
             float distance;
     };
 
