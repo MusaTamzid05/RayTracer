@@ -32,4 +32,15 @@ namespace Light {
         return Ray(TwoD::Point::convert_to_point(new_origin), TwoD::Vector::convert_to_vector(new_direction));
     }
 
+    Ray Ray::scale(const TwoD::Point& point) {
+
+        TwoD::Matrix4x4 scale_matrix = TwoD::Matrix4x4::scale(point);
+
+        TwoD::Tuple new_origin = scale_matrix * origin;
+        TwoD::Tuple new_direction = scale_matrix * direction;
+
+        return Ray(TwoD::Point::convert_to_point(new_origin), TwoD::Vector::convert_to_vector(new_direction));
+
+    }
+
 };

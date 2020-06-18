@@ -21,12 +21,13 @@ namespace Light {
             TwoD::Vector direction;
 
             Ray translation(const TwoD::Point& point);
+            Ray scale(const TwoD::Point& point);
 
 
     };
 
 
-    std::ostream& operator<<(std::ostream& out , const Ray& ray);
+    std::ostream& operator<<(std::ostream& out, const Ray& ray);
 };
 
 #endif
