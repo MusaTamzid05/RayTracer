@@ -1,9 +1,5 @@
 #include "unit_test.h"
 #include "app.h"
-#include "color.h"
-#include <iostream>
-#include "world.h"
-#include "matrix.h"
 
 
 
@@ -12,6 +8,7 @@ int main_app()  {
 
     Engine::App app;
     app.run();
+
 
     return 0;
 }

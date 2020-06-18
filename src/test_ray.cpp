@@ -41,4 +41,18 @@ namespace Testing {
 
     }
 
+    void TestRay::testTranslatingRay() {
+
+        TwoD::Point origin = TwoD::Point(1.0f, 2.0f, 3.0f);
+        TwoD::Vector direction = TwoD::Vector(0.0f, 1.0f, 0.0f);
+
+
+        Light::Ray ray(origin, direction);
+        Light::Ray new_ray =  ray.translation(TwoD::Point(3.0f, 4.0f, 5.0f));
+
+
+        CPPUNIT_ASSERT(new_ray.origin  == TwoD::Point(4.0f, 6.0f, 8.0f));
+        CPPUNIT_ASSERT(new_ray.direction == TwoD::Vector(0.0f, 1.0f, 0.0f));
+    }
+
 };

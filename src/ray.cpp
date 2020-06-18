@@ -22,4 +22,14 @@ namespace Light {
         return out;
     }
 
+
+    Ray Ray::translation(const TwoD::Point& point) {
+
+        TwoD::Matrix4x4 translation_matrix = TwoD::Matrix4x4::translation(point);
+        TwoD::Tuple new_origin = translation_matrix * origin;
+        TwoD::Tuple new_direction = translation_matrix * direction;
+
+        return Ray(TwoD::Point::convert_to_point(new_origin), TwoD::Vector::convert_to_vector(new_direction));
+    }
+
 };

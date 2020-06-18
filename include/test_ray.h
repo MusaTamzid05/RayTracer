@@ -11,6 +11,7 @@ namespace Testing {
         CPPUNIT_TEST_SUITE(TestRay);
         CPPUNIT_TEST(testCreatingQueryRay);
         CPPUNIT_TEST(testCapturePointFromDistance);
+        CPPUNIT_TEST(testTranslatingRay);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -21,6 +22,7 @@ namespace Testing {
 
             void testCreatingQueryRay();
             void testCapturePointFromDistance();
+            void testTranslatingRay();
 
     };
 

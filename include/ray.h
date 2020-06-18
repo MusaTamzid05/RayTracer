@@ -4,6 +4,7 @@
 #include "point.h"
 #include "vector.h"
 #include <iostream>
+#include "matrix.h"
 
 namespace Light {
 
@@ -18,6 +19,8 @@ namespace Light {
 
             TwoD::Point origin; 
             TwoD::Vector direction;
+
+            Ray translation(const TwoD::Point& point);
 
 
     };
