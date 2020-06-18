@@ -18,6 +18,7 @@ namespace Light {
             float distance;
 
             bool operator==(const Intersection& intersection);
+            void operator=(const Intersection& intersection);
 
     };
 

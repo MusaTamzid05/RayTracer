@@ -43,12 +43,16 @@ namespace Testing {
         Light::Sphere* sphere = new Light::Sphere();
         Light::IntersectionContainer container;
 
-        container.add(Light::Intersection(1.0f, sphere));
-        container.add(Light::Intersection(2.0f, sphere));
+        Light::Intersection intersection1(1.0f, sphere);
+        Light::Intersection intersection2(2.0f, sphere);
+
+        container.add(intersection1);
+        container.add(intersection2);
 
         Light::Intersection intersection = container.hit();
 
-        CPPUNIT_ASSERT(intersection.distance  == 1.0f);
+
+        CPPUNIT_ASSERT(intersection == intersection1);
 
     }
 

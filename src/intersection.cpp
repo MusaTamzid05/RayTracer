@@ -13,6 +13,13 @@ namespace Light {
         return distance == intersection.distance && object == intersection.object;
     }
 
+    
+
+    void Intersection::operator=(const Intersection& intersection) {
+        distance = intersection.distance;
+        object = intersection.object;
+    }
+
     IntersectionContainer::IntersectionContainer() {
 
     }
@@ -45,10 +52,11 @@ namespace Light {
         Intersection hit_intersection(100000.0f, nullptr);
         
         for(Intersection current_intersection : intersections) {
+
             if(current_intersection.distance < 0)
                 continue;
 
-            if(current_intersection.distance < hit_intersection.distance)
+            if(current_intersection.distance < hit_intersection.distance) 
                 hit_intersection = current_intersection;
         }
 
