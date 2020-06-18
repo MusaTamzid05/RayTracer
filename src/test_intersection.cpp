@@ -27,15 +27,15 @@ namespace Testing {
     void TestIntersection::testAggregatingIntersection() {
 
         Light::Sphere* sphere = new Light::Sphere();
-        std::vector<Light::Intersection> intersections;
+        Light::IntersectionContainer container;
 
-        intersections.push_back(Light::Intersection(1.0f, sphere));
-        intersections.push_back(Light::Intersection(2.0f, sphere));
+        container.add(Light::Intersection(1.0f, sphere));
+        container.add(Light::Intersection(2.0f, sphere));
 
 
-        CPPUNIT_ASSERT(intersections.size() == 2);
-        CPPUNIT_ASSERT(intersections[0].distance == 1.0f);
-        CPPUNIT_ASSERT(intersections[1].distance == 2.0f);
+        CPPUNIT_ASSERT(container.size() == 2);
+        CPPUNIT_ASSERT(container.get(0).distance == 1.0f);
+        CPPUNIT_ASSERT(container.get(1).distance == 2.0f);
     }
 
 

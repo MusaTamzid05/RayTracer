@@ -1,6 +1,8 @@
 #ifndef INTERSECTION_H
 #define INTERSECTION_H
 
+#include <vector>
+
 namespace Light {
     class Sphere;
 };
@@ -14,6 +16,27 @@ namespace Light {
 
             Light::Sphere* object;
             float distance;
+
+    };
+
+    class IntersectionContainer {
+
+        public:
+
+            IntersectionContainer();
+            virtual ~IntersectionContainer() {}
+
+            void add(const Intersection& intersection);
+            Intersection get(int index);
+
+            int size() { return intersections.size(); }
+
+        private:
+
+            std::vector<Intersection> intersections;
+
+
+
     };
 
 };
