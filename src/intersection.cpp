@@ -33,6 +33,22 @@ namespace Light {
 
         return intersections[index];
     }
+
+
+    Intersection IntersectionContainer::hit() {
+
+        Intersection hit_intersection(100000.0f, nullptr);
+        
+        for(Intersection current_intersection : intersections) {
+            if(current_intersection.distance < 0)
+                continue;
+
+            if(current_intersection.distance < hit_intersection.distance)
+                hit_intersection = current_intersection;
+        }
+
+        return hit_intersection;
+    }
 };
 
 

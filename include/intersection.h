@@ -30,6 +30,7 @@ namespace Light {
             Intersection get(int index);
 
             int size() { return intersections.size(); }
+            Intersection hit();
 
         private:
 

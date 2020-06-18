@@ -38,6 +38,19 @@ namespace Testing {
         CPPUNIT_ASSERT(container.get(1).distance == 2.0f);
     }
 
+    void TestIntersection::testHitIntersectionHavePositiveDistance() {
+
+        Light::Sphere* sphere = new Light::Sphere();
+        Light::IntersectionContainer container;
+
+        container.add(Light::Intersection(1.0f, sphere));
+        container.add(Light::Intersection(2.0f, sphere));
+
+        Light::Intersection intersection = container.hit();
+
+        CPPUNIT_ASSERT(intersection.distance  == 1.0f);
+
+    }
 
 
 };
