@@ -9,9 +9,14 @@ namespace Light {
 
     }
 
+    bool Intersection::operator==(const Intersection& intersection) {
+        return distance == intersection.distance && object == intersection.object;
+    }
+
     IntersectionContainer::IntersectionContainer() {
 
     }
+
 
     void IntersectionContainer::add(const Intersection& intersection) {
 

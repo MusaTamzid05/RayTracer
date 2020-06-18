@@ -17,6 +17,8 @@ namespace Light {
             Light::Sphere* object;
             float distance;
 
+            bool operator==(const Intersection& intersection);
+
     };
 
     class IntersectionContainer {

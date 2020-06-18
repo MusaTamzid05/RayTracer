@@ -53,4 +53,22 @@ namespace Testing {
     }
 
 
+    void TestIntersection::testHitWhenSomeIntersectionHaveNegativeDistance() {
+
+        Light::Sphere* sphere = new Light::Sphere();
+        Light::IntersectionContainer container;
+
+        Light::Intersection neg_intersection(-1.0f, sphere);
+        Light::Intersection pos_intersection(1.0f, sphere);
+
+        container.add(neg_intersection);
+        container.add(pos_intersection);
+
+        Light::Intersection intersection = container.hit();
+
+        CPPUNIT_ASSERT(intersection == pos_intersection);
+
+    }
+
+
 };

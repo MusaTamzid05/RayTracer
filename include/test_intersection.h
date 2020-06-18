@@ -12,6 +12,7 @@ namespace Testing {
         CPPUNIT_TEST(testIntersectionEncapsulates);
         CPPUNIT_TEST(testAggregatingIntersection);
         CPPUNIT_TEST(testHitIntersectionHavePositiveDistance);
+        CPPUNIT_TEST(testHitWhenSomeIntersectionHaveNegativeDistance);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -25,6 +26,7 @@ namespace Testing {
             void testAggregatingIntersection();
 
             void testHitIntersectionHavePositiveDistance();
+            void testHitWhenSomeIntersectionHaveNegativeDistance();
 
         private:
 
