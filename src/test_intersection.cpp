@@ -75,4 +75,27 @@ namespace Testing {
     }
 
 
+    void TestIntersection::testHitAlwaysLowestNoneNegative() {
+
+        Light::Sphere* sphere = new Light::Sphere();
+
+        Light::Intersection intersection1(5.0f, sphere);
+        Light::Intersection intersection2(7.0f, sphere);
+        Light::Intersection intersection3(-3.0f, sphere);
+        Light::Intersection intersection4(2.0f, sphere);
+
+
+        Light::IntersectionContainer container;
+
+        container.add(intersection1);
+        container.add(intersection2);
+        container.add(intersection3);
+        container.add(intersection4);
+
+        Light::Intersection result = container.hit();
+
+        CPPUNIT_ASSERT(result == intersection4);
+    }
+
+
 };
