@@ -91,4 +91,13 @@ namespace Testing {
         Light::Sphere sphere;
         CPPUNIT_ASSERT(sphere.transform == TwoD::get_identity_matrix());
     }
+
+    void TestSphere::testChangingSphereTransformation() {
+
+        Light::Sphere sphere;
+        TwoD::Matrix4x4 tranfomation = TwoD::Matrix4x4::translation(TwoD::Point(2.0f, 3.0f, 4.0f));
+        sphere.transform = tranfomation;
+
+        CPPUNIT_ASSERT(sphere.transform == tranfomation);
+    }
 }
