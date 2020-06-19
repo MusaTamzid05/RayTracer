@@ -85,4 +85,10 @@ namespace Testing {
         CPPUNIT_ASSERT(*intersections[0].object == sphere);
         CPPUNIT_ASSERT(*intersections[1].object == sphere);
     }
+
+    void TestSphere::testDefaultSphereDefaultTransformation() {
+
+        Light::Sphere sphere;
+        CPPUNIT_ASSERT(sphere.transform == TwoD::get_identity_matrix());
+    }
 }

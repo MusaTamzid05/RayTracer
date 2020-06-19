@@ -14,6 +14,7 @@ namespace Testing {
         CPPUNIT_TEST(testRayOriginateInside);
         CPPUNIT_TEST(testSphereBehindRay);
         CPPUNIT_TEST(testIntersectSetOfObjects);
+        CPPUNIT_TEST(testDefaultSphereDefaultTransformation);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -30,6 +31,8 @@ namespace Testing {
 
 
             void testIntersectSetOfObjects();
+
+            void testDefaultSphereDefaultTransformation();
 
         private:
 
