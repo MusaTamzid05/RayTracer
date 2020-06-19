@@ -24,7 +24,7 @@ namespace TwoD {
 
         bool operator==(const Matrix& matrix);
         bool operator!=(const Matrix& matrix);
-        Matrix operator=(const Matrix& matrix);
+        void operator=(const Matrix& matrix);
         Tuple operator*(const Tuple& tuple);
 
         Matrix sub_matrix(int ignore_row , int ignore_col);

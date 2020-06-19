@@ -130,15 +130,12 @@ namespace TwoD {
 
     }
     
-    Matrix Matrix::operator=(const Matrix& matrix) {
-       
-        Matrix result = Matrix::create_empty(row , col);
+    void Matrix::operator=(const Matrix& matrix) {
 
         for(unsigned int i = 0 ; i < row ; i++)
             for(unsigned int j = 0 ; j < col; j++) 
-                result.values[i][j] = values[i][j];
+                values[i][j] = matrix.values[i][j];
 
-        return result;
 
     }
 
