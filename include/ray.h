@@ -24,7 +24,7 @@ namespace Light {
             Ray scale(const TwoD::Point& point);
 
 
-            Ray transform(const TwoD::Matrix4x4& matrix);
+            Ray transform(const TwoD::Matrix& matrix) const;
 
 
     };

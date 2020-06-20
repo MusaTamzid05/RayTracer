@@ -36,9 +36,9 @@ namespace Light {
 
     }
 
-    Ray Ray::transform(const TwoD::Matrix4x4& matrix) {
+    Ray Ray::transform(const TwoD::Matrix& matrix) const  {
 
-        TwoD::Matrix4x4 src_matrix = matrix;
+        TwoD::Matrix src_matrix = matrix;
         TwoD::Tuple new_origin = src_matrix * origin;
         TwoD::Tuple new_direction = src_matrix * direction;
 

@@ -26,10 +26,16 @@ namespace Light {
 
     std::vector<Intersection> Sphere::intersect(const Light::Ray& ray) {
 
+
+        TwoD::Matrix inverse_sphere_transformation = TwoD::Matrix4x4::create_empty(4, 4);
+
+        transform.inverse(inverse_sphere_transformation);
+        Light::Ray new_ray =  ray.transform(inverse_sphere_transformation);
+
         std::vector<Intersection> intersections;
 
-        TwoD::Vector direction = ray.direction;
-        TwoD::Tuple sphere_to_ray_tuple = ray.origin - TwoD::Point(0.0f, 0.0f, 0.0f);
+        TwoD::Vector direction = new_ray.direction;
+        TwoD::Tuple sphere_to_ray_tuple = new_ray.origin - TwoD::Point(0.0f, 0.0f, 0.0f);
         TwoD::Point sphere_to_ray = TwoD::Point::convert_to_point(sphere_to_ray_tuple);
 
         float a = direction.dot(direction);
