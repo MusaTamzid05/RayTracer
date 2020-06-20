@@ -26,21 +26,23 @@ namespace Light {
     Ray Ray::translation(const TwoD::Point& point) {
 
         TwoD::Matrix4x4 translation_matrix = TwoD::Matrix4x4::translation(point);
-        TwoD::Tuple new_origin = translation_matrix * origin;
-        TwoD::Tuple new_direction = translation_matrix * direction;
-
-        return Ray(TwoD::Point::convert_to_point(new_origin), TwoD::Vector::convert_to_vector(new_direction));
+        return transform(translation_matrix);
     }
 
     Ray Ray::scale(const TwoD::Point& point) {
 
         TwoD::Matrix4x4 scale_matrix = TwoD::Matrix4x4::scale(point);
+        return transform(scale_matrix);
 
-        TwoD::Tuple new_origin = scale_matrix * origin;
-        TwoD::Tuple new_direction = scale_matrix * direction;
+    }
+
+    Ray Ray::transform(const TwoD::Matrix4x4& matrix) {
+
+        TwoD::Matrix4x4 src_matrix = matrix;
+        TwoD::Tuple new_origin = src_matrix * origin;
+        TwoD::Tuple new_direction = src_matrix * direction;
 
         return Ray(TwoD::Point::convert_to_point(new_origin), TwoD::Vector::convert_to_vector(new_direction));
-
     }
 
 };
