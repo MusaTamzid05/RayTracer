@@ -114,4 +114,16 @@ namespace Testing {
         CPPUNIT_ASSERT(intersections[1].distance  == 7.0f);
 
     }
+
+
+    void TestSphere::testIntersecTranslatedSphereWithRay() {
+
+        Light::Ray ray(TwoD::Point(0.0f, 0.0f, -5.0f), TwoD::Vector(0.0f, 0.0f, 1.0f));
+        Light::Sphere sphere;
+
+        sphere.transform = TwoD::Matrix4x4::translation(TwoD::Point(5.0f, 0.0f, 0.0f));
+        std::vector<Light::Intersection> intersections = sphere.intersect(ray);
+
+        CPPUNIT_ASSERT(intersections.size() == 0);
+    }
 }
