@@ -100,4 +100,18 @@ namespace Testing {
 
         CPPUNIT_ASSERT(sphere.transform == tranfomation);
     }
+
+    void TestSphere::testIntersectingAScaledSphereWithRay() {
+
+        Light::Ray ray(TwoD::Point(0.0f, 0.0f, -5.0f), TwoD::Vector(0.0f, 0.0f, 1.0f));
+        Light::Sphere sphere;
+        sphere.transform = TwoD::Matrix4x4::scale(TwoD::Point(2.0f, 2.0f, 2.0f));
+
+        std::vector<Light::Intersection> intersections = sphere.intersect(ray);
+
+        CPPUNIT_ASSERT(intersections.size() == 2);
+        CPPUNIT_ASSERT(intersections[0].distance  == 3.0f);
+        CPPUNIT_ASSERT(intersections[1].distance  == 7.0f);
+
+    }
 }

@@ -39,7 +39,7 @@ namespace Light {
         TwoD::Point sphere_to_ray = TwoD::Point::convert_to_point(sphere_to_ray_tuple);
 
         float a = direction.dot(direction);
-        float b = sphere_to_ray.dot(ray.direction) * 2;
+        float b = sphere_to_ray.dot(direction) * 2;
         float c = sphere_to_ray.dot(sphere_to_ray) - 1;
 
 
