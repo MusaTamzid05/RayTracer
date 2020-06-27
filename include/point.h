@@ -14,23 +14,9 @@ namespace TwoD {
         static Point convert_to_point(const TwoD::Tuple& data);
 
 
-        void operator+=(const Point& point);
-        void operator-=(const Point& point);
-        void operator*=(float value);
-        void operator/=(float value);
-
-        Point operator*(float value);
-        Point operator/(float value);
-
-        bool operator==(const Point& point);
-        Point normalize();
-
 
     };
 
-    Point operator+(const Point& data1 , const Point& data2);
-    Point operator-(const Point& data1 , const Point& data2);
-    Point operator*(const Point& data1 , const Point& data2);
 
 };
 
