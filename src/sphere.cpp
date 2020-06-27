@@ -32,6 +32,7 @@ namespace Light {
         transform.inverse(inverse_sphere_transformation);
         Light::Ray new_ray =  ray.transform(inverse_sphere_transformation);
 
+
         std::vector<Intersection> intersections;
 
         TwoD::Vector direction = new_ray.direction;

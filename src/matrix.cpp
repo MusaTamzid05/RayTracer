@@ -5,21 +5,27 @@
 
 namespace TwoD {
 
-    Matrix::Matrix(int row , int col):row(row),col(col) {
+    Matrix::Matrix(int rows , int cols):rows(rows),cols(cols) {
 
-        for(unsigned int i = 0 ; i < row ; i++) {
-            std::vector<float> current_data;
-            for(unsigned int j = 0 ; j < col ; j++) {
-                current_data.push_back(0);
-            }
-            values.push_back(current_data);
-        }
+        values = new float*[rows];
+
+        for(unsigned int i = 0 ; i < cols ; i++)
+            values[i] = new float[cols];
+
+        for (unsigned r = 0 ; r < rows; r++)
+            for (unsigned c = 0 ; c < cols; c++)
+                values[r][c] = 0;
+
+    }
+
+    Matrix::~Matrix() {
+
     }
 
      Matrix::Matrix(const Matrix& matrix) {
 
-         row = matrix.row;
-         col = matrix.col;
+         rows = matrix.rows;
+         cols = matrix.cols;
          values = matrix.values;
 
         }
@@ -27,17 +33,19 @@ namespace TwoD {
 
     Matrix4x4::Matrix4x4(float arr[4][4]):Matrix(4 , 4){
 
-        for(unsigned int i = 0 ; i < row ; i++ ) 
-            for(unsigned int j = 0 ; j < col ; j++)
+        for(unsigned int i = 0 ; i < rows ; i++ ) 
+            for(unsigned int j = 0 ; j < cols ; j++)
                 set(i , j , arr[i][j]);
+
 
     }
 
 
     Matrix3x3::Matrix3x3(float arr[3][3]):Matrix(3 , 3){
 
-        for(unsigned int i = 0 ; i < row ; i++ ) 
-            for(unsigned int j = 0 ; j < col ; j++)
+
+        for(unsigned int i = 0 ; i < rows ; i++ ) 
+            for(unsigned int j = 0 ; j < cols ; j++)
                 set(i , j , arr[i][j]);
 
     }
@@ -45,21 +53,18 @@ namespace TwoD {
 
     Matrix2x2::Matrix2x2(float arr[2][2]):Matrix(2 , 2){
 
-        for(unsigned int i = 0 ; i < row ; i++ ) 
-            for(unsigned int j = 0 ; j < col ; j++)
+        for(unsigned int i = 0 ; i < rows ; i++ ) 
+            for(unsigned int j = 0 ; j < cols ; j++)
                 set(i , j , arr[i][j]);
 
     }
 
     std::ostream& operator<<(std::ostream& out , const Matrix& matrix) {
-        out << "Matrix : (" << matrix.values.size() << "x" << matrix.values[0].size() << ")\n";
 
-
-        for(unsigned int i = 0 ; i < matrix.values.size(); i++) {
-            for(unsigned int j = 0 ; j < matrix.values[0].size(); j++) {
-                std::cout << matrix.get(i , j) << " ";
-            }
-            std::cout << "\n";
+        for(unsigned int r = 0; r < matrix.rows ; r++) {
+            for(unsigned int c = 0; c < matrix.cols; c++)
+                out << matrix.values[r][c] << " ";
+            out << "\n";
         }
         return out;
 
@@ -68,11 +73,11 @@ namespace TwoD {
     bool Matrix::operator==(const Matrix& matrix) {
 
 
-        if(row != matrix.row || col != matrix.col)
+        if(rows != matrix.rows || cols != matrix.cols)
             return false;
 
-        for(unsigned int i = 0 ; i < row ; i++)
-            for(unsigned int j = 0 ; j < col; j++)
+        for(unsigned int i = 0 ; i < rows ; i++)
+            for(unsigned int j = 0 ; j < cols; j++)
                 if(!Operation::equal(values[i][j] , matrix.get(i , j))) 
                     return false;
 
@@ -87,42 +92,42 @@ namespace TwoD {
 
     Matrix operator*(const Matrix& mat1 , const Matrix& mat2) {
 
-        int row_size = mat1.row;
-        int col_size = mat2.col;
+        int rows_size = mat1.rows;
+        int cols_size = mat2.cols;
         Matrix* result =  nullptr;
 
-        if(row_size == 2 && col_size == 2)
+        if(rows_size == 2 && cols_size == 2)
             result = new Matrix2x2();
-        else if(row_size == 3 && col_size == 3)
+        else if(rows_size == 3 && cols_size == 3)
             result = new Matrix3x3();
-        else if(row_size == 4 && col_size == 4)
+        else if(rows_size == 4 && cols_size == 4)
             result = new Matrix4x4();
         
 
 
-        for(unsigned int row = 0 ; row < row_size ; row++)
-            for(unsigned int col = 0 ; col < col_size ; col++) {
-                float value = mat1.get(row , 0) * mat2.get(0 , col) +
-                    mat1.get(row , 1) * mat2.get(1 , col) +
-                    mat1.get(row , 2) * mat2.get(2 , col) +
-                    mat1.get(row , 3) * mat2.get(3 , col);
+        for(unsigned int rows = 0 ; rows < rows_size ; rows++)
+            for(unsigned int cols = 0 ; cols < cols_size ; cols++) {
+                float value = mat1.get(rows , 0) * mat2.get(0 , cols) +
+                    mat1.get(rows , 1) * mat2.get(1 , cols) +
+                    mat1.get(rows , 2) * mat2.get(2 , cols) +
+                    mat1.get(rows , 3) * mat2.get(3 , cols);
 
-                result->set(row , col , value);
+                result->set(rows , cols , value);
             }
 
         return *result;
 
     }
     
-    Matrix Matrix::create_empty(int row , int col) {
+    Matrix Matrix::create_empty(int rows , int cols) {
 
         Matrix* matrix = nullptr;
 
-        if(row == 2 && col == 2)
+        if(rows == 2 && cols == 2)
             matrix = new Matrix2x2();
-        else if(row == 3 && col == 3)
+        else if(rows == 3 && cols == 3)
             matrix = new Matrix3x3();
-        else if(row == 4 && col == 4)
+        else if(rows == 4 && cols == 4)
             matrix = new Matrix4x4();
 
         return *matrix;
@@ -132,8 +137,8 @@ namespace TwoD {
     
     void Matrix::operator=(const Matrix& matrix) {
 
-        for(unsigned int i = 0 ; i < row ; i++)
-            for(unsigned int j = 0 ; j < col; j++) 
+        for(unsigned int i = 0 ; i < rows ; i++)
+            for(unsigned int j = 0 ; j < cols; j++) 
                 values[i][j] = matrix.values[i][j];
 
 
@@ -143,11 +148,11 @@ namespace TwoD {
 
     Matrix Matrix::transpose() {
 
-        Matrix result = Matrix::create_empty(row , col);
+        Matrix result = Matrix::create_empty(rows , cols);
 
-        for(unsigned int i = 0 ; i < values.size() ; i++) {
-            for(unsigned int j = 0 ; j < values[0].size(); j++) {
-                result.values[j][i] = values[i][j];
+        for(unsigned int r = 0 ; r < rows; r++) {
+            for(unsigned int c = 0 ; c < cols; c++) {
+                result.values[r][c] = values[c][r];
 
             }
         }
@@ -161,9 +166,9 @@ namespace TwoD {
         float sum;
         std::string tuple_attributes = "xyzw";
 
-        for(unsigned int i = 0 ; i < row ; i++) {
+        for(unsigned int i = 0 ; i < rows ; i++) {
             sum = 0.0f;
-            for(unsigned int j = 0 ; j < col ; j++) {
+            for(unsigned int j = 0 ; j < cols ; j++) {
                 sum += values[i][j] * tuple.get_value(tuple_attributes[j]);
             }
             result.set_value(tuple_attributes[i] , sum);
@@ -172,33 +177,33 @@ namespace TwoD {
     }
 
 
-    Matrix Matrix::sub_matrix(int ignore_row , int ignore_col) {
+    Matrix Matrix::sub_matrix(int ignore_rows , int ignore_cols) {
     
 
         Matrix* result = nullptr;
 
-        if(row == 4 && col == 4)
+        if(rows == 4 && cols == 4)
             result = new Matrix3x3();
 
-        if(row == 3 && col == 3)
+        if(rows == 3 && cols == 3)
             result = new Matrix2x2();
 
-        int current_row = 0;
-        int current_col = 0;
+        int current_rows = 0;
+        int current_cols = 0;
 
-        for(unsigned int i = 0 ; i < row ; i++) {
-            if(i == ignore_row)
+        for(unsigned int i = 0 ; i < rows ; i++) {
+            if(i == ignore_rows)
                 continue;
-            for(unsigned int j = 0 ; j < col ; j++) {
-                if(j == ignore_col)
+            for(unsigned int j = 0 ; j < cols ; j++) {
+                if(j == ignore_cols)
                     continue;
 
-                result->values[current_row][current_col] = values[i][j];
-                current_col += 1;
+                result->values[current_rows][current_cols] = values[i][j];
+                current_cols += 1;
             }
 
-            current_col = 0;
-            current_row += 1;
+            current_cols = 0;
+            current_rows += 1;
         }
 
         return *result;
@@ -222,11 +227,11 @@ namespace TwoD {
 
     float Matrix::determinate() {
 
-        if(row == 2 && col == 2) 
+        if(rows == 2 && cols == 2) 
             return (values[0][0] * values[1][1]) - (values[0][1] * values[1][0]);
 
         float result = 0.0f;
-        for(unsigned i = 0 ; i < col ; i++)
+        for(unsigned i = 0 ; i < cols ; i++)
             result = result + values[0][i] * cofactor(0 , i);
 
         return result;
@@ -235,19 +240,19 @@ namespace TwoD {
 
     
 
-    float Matrix::minor_(int row , int col) {
+    float Matrix::minor_(int rows , int cols) {
 
-        Matrix result = sub_matrix(row , col);
+        Matrix result = sub_matrix(rows , cols);
         return result.determinate();
     }
 
 
     
-    float Matrix::cofactor(int row , int col) {
+    float Matrix::cofactor(int rows , int cols) {
         
-        float result = minor_(row , col);
+        float result = minor_(rows , cols);
 
-        if((row + col) % 2 != 0)
+        if((rows + cols) % 2 != 0)
             return -result;
 
         return result;
@@ -270,8 +275,8 @@ namespace TwoD {
         float cofactor_value;
         float current_value;
 
-        for(unsigned int i = 0 ; i < row ; i++)
-            for(unsigned int j = 0 ; j < col ; j++) {
+        for(unsigned int i = 0 ; i < rows ; i++)
+            for(unsigned int j = 0 ; j < cols ; j++) {
                 cofactor_value = cofactor(i , j);
                 current_value  = cofactor_value / determinate();
                 result.set(j , i , current_value);
