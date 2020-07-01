@@ -21,11 +21,11 @@ namespace Testing {
         Light::Ray ray(TwoD::Point(0.0f, 0.0f, -5.0f), TwoD::Vector(0.0f, 0.0f, 1.0f));
         Light::Sphere sphere;
 
-        std::vector<Light::Intersection> intersections = sphere.intersect(ray);
+        Light::IntersectionContainer intersections = sphere.intersect(ray);
 
         CPPUNIT_ASSERT(intersections.size() == 2);
-        CPPUNIT_ASSERT(intersections[0].distance == 4.0);
-        CPPUNIT_ASSERT(intersections[1].distance == 6.0);
+        CPPUNIT_ASSERT(intersections.get(0).distance == 4.0f);
+        CPPUNIT_ASSERT(intersections.get(1).distance == 6.0f);
 
     }
 
@@ -34,18 +34,18 @@ namespace Testing {
 
         Light::Ray ray(TwoD::Point(0.0f, 1.0f, -5.0f), TwoD::Vector(0.0f, 0.0f, 1.0f));
         Light::Sphere sphere;
-        std::vector<Light::Intersection> intersections = sphere.intersect(ray);
+        Light::IntersectionContainer intersections = sphere.intersect(ray);
 
         CPPUNIT_ASSERT(intersections.size() == 2);
-        CPPUNIT_ASSERT(intersections[0].distance  == 5.0);
-        CPPUNIT_ASSERT(intersections[1].distance  == 5.0);
+        CPPUNIT_ASSERT(intersections.get(0).distance == 5.0f);
+        CPPUNIT_ASSERT(intersections.get(1).distance == 5.0f);
     }
 
     void TestSphere::testMissSphere() {
 
         Light::Ray ray(TwoD::Point(0.0f, 2.0f, -5.0f), TwoD::Vector(0.0f, 0.0f, 1.0f));
         Light::Sphere sphere;
-        std::vector<Light::Intersection> intersections = sphere.intersect(ray);
+        Light::IntersectionContainer intersections = sphere.intersect(ray);
 
         CPPUNIT_ASSERT(intersections.size() == 0);
     }
@@ -54,22 +54,22 @@ namespace Testing {
 
         Light::Ray ray(TwoD::Point(0.0f, 0.0f, 0.0f), TwoD::Vector(0.0f, 0.0f, 1.0f));
         Light::Sphere sphere;
-        std::vector<Light::Intersection> intersections = sphere.intersect(ray);
+        Light::IntersectionContainer intersections = sphere.intersect(ray);
 
         CPPUNIT_ASSERT(intersections.size() == 2);
-        CPPUNIT_ASSERT(intersections[0].distance  == -1.0);
-        CPPUNIT_ASSERT(intersections[1].distance  == 1.0);
+        CPPUNIT_ASSERT(intersections.get(0).distance == -1.0f);
+        CPPUNIT_ASSERT(intersections.get(1).distance == 1.0f);
     }
 
     void TestSphere::testSphereBehindRay() {
 
         Light::Ray ray(TwoD::Point(0.0f, 0.0f, 5.0f), TwoD::Vector(0.0f, 0.0f, 1.0f));
         Light::Sphere sphere;
-        std::vector<Light::Intersection> intersections = sphere.intersect(ray);
+        Light::IntersectionContainer intersections = sphere.intersect(ray);
 
         CPPUNIT_ASSERT(intersections.size() == 2);
-        CPPUNIT_ASSERT(intersections[0].distance  == -6.0);
-        CPPUNIT_ASSERT(intersections[1].distance  == -4.0);
+        CPPUNIT_ASSERT(intersections.get(0).distance == -6.0f);
+        CPPUNIT_ASSERT(intersections.get(1).distance == -4.0f);
     }
 
 
@@ -78,12 +78,12 @@ namespace Testing {
 
         Light::Ray ray(TwoD::Point(0.0f, 0.0f, 5.0f), TwoD::Vector(0.0f, 0.0f, 1.0f));
         Light::Sphere sphere;
-        std::vector<Light::Intersection> intersections = sphere.intersect(ray);
+        Light::IntersectionContainer intersections = sphere.intersect(ray);
 
 
         CPPUNIT_ASSERT(intersections.size() == 2);
-        CPPUNIT_ASSERT(*intersections[0].object == sphere);
-        CPPUNIT_ASSERT(*intersections[1].object == sphere);
+        CPPUNIT_ASSERT(*intersections.get(0).object == sphere);
+        CPPUNIT_ASSERT(*intersections.get(1).object == sphere);
     }
 
     void TestSphere::testDefaultSphereDefaultTransformation() {
@@ -107,11 +107,11 @@ namespace Testing {
         Light::Sphere sphere;
         sphere.set_transform(TwoD::Matrix4x4::scale(TwoD::Point(2.0f, 2.0f, 2.0f)));
 
-        std::vector<Light::Intersection> intersections = sphere.intersect(ray);
+        Light::IntersectionContainer intersections = sphere.intersect(ray);
 
         CPPUNIT_ASSERT(intersections.size() == 2);
-        CPPUNIT_ASSERT(intersections[0].distance  == 3.0f);
-        CPPUNIT_ASSERT(intersections[1].distance  == 7.0f);
+        CPPUNIT_ASSERT(intersections.get(0).distance == 3.0f);
+        CPPUNIT_ASSERT(intersections.get(1).distance == 7.0f);
 
     }
 
@@ -122,7 +122,7 @@ namespace Testing {
         Light::Sphere sphere;
 
         sphere.set_transform(TwoD::Matrix4x4::translation(TwoD::Point(5.0f, 0.0f, 0.0f)));
-        std::vector<Light::Intersection> intersections = sphere.intersect(ray);
+        Light::IntersectionContainer  intersections = sphere.intersect(ray);
 
         CPPUNIT_ASSERT(intersections.size() == 0);
     }

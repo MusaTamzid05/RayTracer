@@ -3,12 +3,12 @@
 
 #include "point.h"
 #include "matrix.h"
+#include "intersection.h"
 #include <vector>
 
 namespace Light {
 
     class Ray;
-    class Intersection;
 
 
     class Sphere {
@@ -23,7 +23,7 @@ namespace Light {
 
             TwoD::Point center;
 
-            std::vector<Intersection> intersect(const Light::Ray& ray);
+            Light::IntersectionContainer  intersect(const Light::Ray& ray);
 
             bool operator==(const Light::Sphere& sphere);
 

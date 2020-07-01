@@ -1,6 +1,5 @@
 #include "sphere.h"
 #include "ray.h"
-#include "intersection.h"
 #include <cmath>
 
 namespace Light {
@@ -29,13 +28,14 @@ namespace Light {
         transform.inverse(transform_inverse);
 
     }
-    std::vector<Intersection> Sphere::intersect(const Light::Ray& ray) {
+
+    Light::IntersectionContainer  Sphere::intersect(const Light::Ray& ray) {
 
 
         Light::Ray new_ray =  ray.transform(transform_inverse);
 
 
-        std::vector<Intersection> intersections;
+        IntersectionContainer container;
 
         TwoD::Vector direction = new_ray.direction;
         TwoD::Tuple sphere_to_ray_tuple = new_ray.origin - TwoD::Point(0.0f, 0.0f, 0.0f);
@@ -49,13 +49,13 @@ namespace Light {
         float discriminate = pow(b, 2) - 4 * a * c;
 
         if(discriminate < 0)
-            return intersections;
+            return container;
 
         
-        intersections.push_back(Intersection((-b - sqrt(discriminate)) / (2 * a), this));
-        intersections.push_back(Intersection((-b + sqrt(discriminate)) / (2 * a), this));
+        container.add(Intersection((-b - sqrt(discriminate)) / (2 * a), this));
+        container.add(Intersection((-b + sqrt(discriminate)) / (2 * a), this));
 
-        return intersections;
+        return container;
 
 
     }

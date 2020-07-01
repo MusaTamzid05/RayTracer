@@ -35,6 +35,7 @@ namespace Light {
             int size() { return intersections.size(); }
             Intersection hit();
 
+
         private:
 
             std::vector<Intersection> intersections;
