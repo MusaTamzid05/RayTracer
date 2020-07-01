@@ -89,23 +89,23 @@ namespace Testing {
     void TestSphere::testDefaultSphereDefaultTransformation() {
 
         Light::Sphere sphere;
-        CPPUNIT_ASSERT(sphere.transform == TwoD::get_identity_matrix());
+        CPPUNIT_ASSERT(sphere.get_transform()== TwoD::get_identity_matrix());
     }
 
     void TestSphere::testChangingSphereTransformation() {
 
         Light::Sphere sphere;
         TwoD::Matrix4x4 tranfomation = TwoD::Matrix4x4::translation(TwoD::Point(2.0f, 3.0f, 4.0f));
-        sphere.transform = tranfomation;
+        sphere.set_transform(tranfomation);
 
-        CPPUNIT_ASSERT(sphere.transform == tranfomation);
+        CPPUNIT_ASSERT(sphere.get_transform() == tranfomation);
     }
 
     void TestSphere::testIntersectingAScaledSphereWithRay() {
 
         Light::Ray ray(TwoD::Point(0.0f, 0.0f, -5.0f), TwoD::Vector(0.0f, 0.0f, 1.0f));
         Light::Sphere sphere;
-        sphere.transform = TwoD::Matrix4x4::scale(TwoD::Point(2.0f, 2.0f, 2.0f));
+        sphere.set_transform(TwoD::Matrix4x4::scale(TwoD::Point(2.0f, 2.0f, 2.0f)));
 
         std::vector<Light::Intersection> intersections = sphere.intersect(ray);
 
@@ -121,7 +121,7 @@ namespace Testing {
         Light::Ray ray(TwoD::Point(0.0f, 0.0f, -5.0f), TwoD::Vector(0.0f, 0.0f, 1.0f));
         Light::Sphere sphere;
 
-        sphere.transform = TwoD::Matrix4x4::translation(TwoD::Point(5.0f, 0.0f, 0.0f));
+        sphere.set_transform(TwoD::Matrix4x4::translation(TwoD::Point(5.0f, 0.0f, 0.0f)));
         std::vector<Light::Intersection> intersections = sphere.intersect(ray);
 
         CPPUNIT_ASSERT(intersections.size() == 0);

@@ -11,6 +11,7 @@ namespace TwoD {
     struct Matrix {
 
         Matrix(int rows , int cols);
+        Matrix();
         Matrix(const Matrix& matrix);
 
         virtual ~Matrix();
@@ -19,10 +20,10 @@ namespace TwoD {
         void set(int row , int col , float value) { values[row][col] = value; }
 
         int rows;
+        Matrix transpose();
         int cols;
 
         float** values;
-        Matrix transpose();
 
         bool operator==(const Matrix& matrix);
         bool operator!=(const Matrix& matrix);

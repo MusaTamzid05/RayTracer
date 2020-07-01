@@ -7,30 +7,32 @@ namespace Light {
 
 
     Sphere::Sphere():
-        center(TwoD::Point(0.0f, 0.0f, 0.0f)),
-        transform(TwoD::get_identity_matrix()) {
-
+        center(TwoD::Point(0.0f, 0.0f, 0.0f)) {
+            set_transform(TwoD::get_identity_matrix());
         }
 
     Sphere::Sphere(float x,  float y, float z):
-        center(TwoD::Point(x, y, z)),
-        transform(TwoD::get_identity_matrix()) {
+        center(TwoD::Point(x, y, z))  {
+            set_transform(TwoD::get_identity_matrix());
     }
 
 
     Sphere::Sphere(const TwoD::Point& center):
-        center(center),
-        transform(TwoD::get_identity_matrix())  {
+        center(center) {
+            set_transform(TwoD::get_identity_matrix());
+
+        }
+
+
+    void Sphere::set_transform(const TwoD::Matrix4x4& matrix) {
+        transform = matrix;
+        transform.inverse(transform_inverse);
+
     }
-
-
     std::vector<Intersection> Sphere::intersect(const Light::Ray& ray) {
 
 
-        TwoD::Matrix inverse_sphere_transformation = TwoD::Matrix4x4::create_empty(4, 4);
-
-        transform.inverse(inverse_sphere_transformation);
-        Light::Ray new_ray =  ray.transform(inverse_sphere_transformation);
+        Light::Ray new_ray =  ray.transform(transform_inverse);
 
 
         std::vector<Intersection> intersections;

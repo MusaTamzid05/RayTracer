@@ -22,11 +22,18 @@ namespace Light {
 
 
             TwoD::Point center;
-            TwoD::Matrix4x4 transform;
 
             std::vector<Intersection> intersect(const Light::Ray& ray);
 
             bool operator==(const Light::Sphere& sphere);
+
+            void set_transform(const TwoD::Matrix4x4& matrix);
+            TwoD::Matrix get_transform() { return transform; } 
+
+        private:
+
+            TwoD::Matrix4x4 transform;
+            TwoD::Matrix transform_inverse;
 
 
     };

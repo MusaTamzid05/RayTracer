@@ -18,6 +18,19 @@ namespace TwoD {
 
     }
 
+    Matrix::Matrix():rows(4),cols(4) {
+
+        values = new float*[rows];
+
+        for(unsigned int i = 0 ; i < cols ; i++)
+            values[i] = new float[cols];
+
+        for (unsigned r = 0 ; r < rows; r++)
+            for (unsigned c = 0 ; c < cols; c++)
+                values[r][c] = 0;
+
+    }
+
     Matrix::~Matrix() {
 
     }
