@@ -93,9 +93,25 @@ namespace Testing {
         container.add(intersection4);
 
         Light::Intersection result = container.hit();
-
         CPPUNIT_ASSERT(result == intersection4);
     }
 
+
+
+    void TestIntersection::testHitWhenAllIntersectionHaveNegativeDistance() {
+
+        Light::Sphere* sphere = new Light::Sphere();
+        Light::Intersection intersection1(-1.0f, sphere);
+        Light::Intersection intersection2(-2.0f, sphere);
+
+
+        Light::IntersectionContainer container;
+        container.add(intersection1);
+        container.add(intersection2);
+
+
+        Light::Intersection result = container.hit();
+        CPPUNIT_ASSERT(result.object == nullptr);
+    }
 
 };
