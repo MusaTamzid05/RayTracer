@@ -3,6 +3,9 @@
 #include "const.h"
 #include "color.h"
 #include "pixle_data.h"
+#include "ray.h"
+#include "sphere.h"
+#include "intersection.h"
 
 
 namespace Engine {
@@ -17,54 +20,29 @@ namespace Engine {
         
     World::World(const Environment& env):
     env(env){
-        Engine::Shape* shape = new Engine::Shape(50.0f , 100.0f);
-        TwoD::Point point = TwoD::Point(1.0f , 1.8f , 0.0f);
-        TwoD::Tuple nor = point.normalize();
-        nor *= 8.28;
-        shape->set_velocity(TwoD::Point(nor.x , nor.y , nor.z));
-        shapes.push_back(shape);
-        
+        sphere = new Light::Sphere();
         clear_pixles();
+        init_world();
     }
 
     World::~World() {
 
-        for(Shape* shape : shapes)
-            delete shape;
     }
 
     void World::draw(SDL_Renderer* renderer) {
 
-        for(Shape* shape : shapes)
-            shape->draw(renderer);
+        for(unsigned int y = 0; y < Const::HEIGHT; y++) {
+            for(unsigned int x = 0; x < Const::WIDTH; x++)
+                pixle_data[x][y]->draw(renderer);
+        }
     }
 
     void World::update() {
-
-        for(Shape* shape : shapes) {
-
-            TwoD::Tuple new_pos = shape->get_pos() + shape->get_velocity();
-            TwoD::Point new_pos_point(new_pos.x, new_pos.y, new_pos.z);
-
-            std::cout << new_pos_point << "\n";
-
-            TwoD::Tuple new_vel = shape->get_velocity() + env.gravity + env.wind;
-            TwoD::Point new_vel_point(new_vel.x, new_vel.y, new_vel.z);
-
-            shape->set_pos(new_pos_point);
-            shape->set_velocity(new_vel_point);
-        }
-
     }
 
     
     std::vector<std::vector<PixleData*>> World::get_pixles() {
         clear_pixles();
-
-        for(Shape* shape : shapes) {
-            PixleData* current_pixle = shape->get_pixle();
-            pixle_data[current_pixle->row][current_pixle->col] = current_pixle;
-        }
 
         return pixle_data;
 
@@ -84,14 +62,49 @@ namespace Engine {
             pixle_data.push_back(current_data);
         }
 
-        std::cout << pixle_data.size() << " " <<  pixle_data[0].size() << "\n";
-
     }
 
     
     void World::write_pixle(int row , int col , const Color& color) {
         pixle_data[row][col] = new PixleData(row , col , color);
 
+    }
+
+    void World::init_world() {
+
+        TwoD::Point ray_origin = TwoD::Point(0.0f, 0.0f, -5.0f);
+        float wall_z = 10.0f;
+        float wall_size = 7.0f;
+
+        float pixel_size = wall_size / Const::WIDTH;
+        float half = wall_size / 2.0;
+
+        std::cout << pixel_size << "\n";
+        std::cout << half << "\n";
+
+        for(unsigned int y = 0 ; y < Const::HEIGHT; y++) {
+            for(unsigned int x = 0 ; x < Const::WIDTH; x++) {
+                float world_y = half - pixel_size * y;
+                float world_x = -half + pixel_size * x;
+                TwoD::Point position(world_x, world_y, wall_z);
+
+                TwoD::Tuple direction_tuple = position - ray_origin;
+                TwoD::Tuple direction_tuple_norm = direction_tuple.normalize();
+                TwoD::Vector direction = TwoD::Vector::convert_to_vector(direction_tuple_norm);
+
+                Light::Ray ray(ray_origin, direction);
+                Light::IntersectionContainer container = sphere->intersect(ray);
+
+                Light::Intersection result = container.hit();
+
+                if(result.object != nullptr) 
+                    write_pixle(x, y, Engine::Color(1.0, 0.0, 0.0));
+
+            }
+
+        }
+
+        std::cout << "World is created.\n";
     }
 
 };

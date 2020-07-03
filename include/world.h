@@ -9,6 +9,9 @@
 
 #include <SDL2/SDL.h>
 
+namespace Light {
+    class Sphere;
+};
 
 namespace Engine {
 
@@ -40,12 +43,15 @@ namespace Engine {
         private:
 
 
-            std::vector<Shape*> shapes;
             Environment env;
             std::vector<std::vector<PixleData*>> pixle_data;
 
             // this used just for writing ppa file.
             void clear_pixles();
+
+            void init_world();
+
+            Light::Sphere* sphere;
 
     };
 };
