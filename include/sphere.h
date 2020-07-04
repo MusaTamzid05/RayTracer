@@ -31,7 +31,7 @@ namespace Light {
             void set_transform(const TwoD::Matrix4x4& matrix);
             TwoD::Matrix get_transform() { return transform; } 
 
-            TwoD::Vector normal_at(const TwoD::Point& point);
+            TwoD::Vector normal_at(const TwoD::Point& world_point);
 
         private:
 

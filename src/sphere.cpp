@@ -66,12 +66,16 @@ namespace Light {
     }
 
 
-    TwoD::Vector Sphere::normal_at(const TwoD::Point& point) {
+    TwoD::Vector Sphere::normal_at(const TwoD::Point& world_point) {
 
-        TwoD::Tuple result = point - TwoD::Point(0.0f, 0.0f, 0.0f);
-        TwoD::Tuple result_normalize = result.normalize();
+        TwoD::Tuple object_point_tuple = transform_inverse * world_point;
+        TwoD::Tuple object_normal = object_point_tuple - TwoD::Point(0.0f, 0.0f, 0.0f);
+        TwoD::Tuple world_normal_tuple  = transform_inverse.transpose() * object_normal;
+        world_normal_tuple.w = 0.0f;
+        TwoD::Tuple nor = world_normal_tuple.normalize();
 
-        return TwoD::Vector::convert_to_vector(result_normalize);
+        return TwoD::Vector::convert_to_vector(nor);
+
     }
 
 };

@@ -182,4 +182,14 @@ namespace Testing {
         CPPUNIT_ASSERT(vector_normal == TwoD::Vector::convert_to_vector(result_norm));
 
     }
+
+
+    void TestSphere::testComputingNormalOnTranslateSphere() {
+
+        Light::Sphere* sphere = new Light::Sphere();
+        sphere->set_transform(TwoD::Matrix4x4::translation(TwoD::Point(0.0f, 1.0f, 0.0)));
+        TwoD::Vector normal = sphere->normal_at(TwoD::Point(0.0f, 1.70711f, -0.70711f));
+
+        CPPUNIT_ASSERT(normal == TwoD::Vector(0.0f, 0.70711, -0.70711));
+    }
 }

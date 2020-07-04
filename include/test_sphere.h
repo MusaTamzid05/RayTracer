@@ -23,6 +23,7 @@ namespace Testing {
         CPPUNIT_TEST(testNormalSphereAtAPointZAxis);
         CPPUNIT_TEST(testSphereNormalAtNonAxialPoint);
         CPPUNIT_TEST(testNormalizeIsNormal);
+        CPPUNIT_TEST(testComputingNormalOnTranslateSphere);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -53,6 +54,9 @@ namespace Testing {
 
             void testSphereNormalAtNonAxialPoint();
             void testNormalizeIsNormal();
+
+
+            void testComputingNormalOnTranslateSphere();
 
         private:
 
