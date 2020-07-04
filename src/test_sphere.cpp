@@ -169,4 +169,17 @@ namespace Testing {
         CPPUNIT_ASSERT(vector_normal == TwoD::Vector(val, val, val));
 
     }
+
+
+    void TestSphere::testNormalizeIsNormal() {
+
+        float val = sqrt(3) / 3;
+
+        Light::Sphere* sphere = new Light::Sphere();
+        TwoD::Vector vector_normal = sphere->normal_at(TwoD::Point(val, val, val));
+        TwoD::Tuple result_norm = vector_normal.normalize();
+
+        CPPUNIT_ASSERT(vector_normal == TwoD::Vector::convert_to_vector(result_norm));
+
+    }
 }
