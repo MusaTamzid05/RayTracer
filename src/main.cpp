@@ -1,11 +1,6 @@
 #include "unit_test.h"
 #include "app.h"
 
-
-
-#include "sphere.h"
-#include "vector.h"
-
 int main_app()  {
 
     Engine::App app;
