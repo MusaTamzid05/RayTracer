@@ -20,6 +20,7 @@ namespace Testing {
         CPPUNIT_TEST(testIntersecTranslatedSphereWithRay);
         CPPUNIT_TEST(testNormalSphereAtAPointXAxis);
         CPPUNIT_TEST(testNormalSphereAtAPointYAxis);
+        CPPUNIT_TEST(testNormalSphereAtAPointZAxis);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -45,6 +46,7 @@ namespace Testing {
 
             void testNormalSphereAtAPointXAxis();
             void testNormalSphereAtAPointYAxis();
+            void testNormalSphereAtAPointZAxis();
 
         private:
 
