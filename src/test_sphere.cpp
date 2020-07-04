@@ -5,6 +5,7 @@
 #include "sphere.h"
 #include "intersection.h"
 #include <iostream>
+#include <math.h>
 
 namespace Testing {
 
@@ -156,4 +157,16 @@ namespace Testing {
 
     }
 
+
+    void TestSphere::testSphereNormalAtNonAxialPoint() {
+
+        float val = sqrt(3) / 3;
+
+
+        Light::Sphere* sphere = new Light::Sphere();
+        TwoD::Vector vector_normal = sphere->normal_at(TwoD::Point(val, val, val));
+
+        CPPUNIT_ASSERT(vector_normal == TwoD::Vector(val, val, val));
+
+    }
 }
