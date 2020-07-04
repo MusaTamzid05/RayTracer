@@ -126,4 +126,14 @@ namespace Testing {
 
         CPPUNIT_ASSERT(intersections.size() == 0);
     }
+
+
+    void TestSphere::testNormalSphereAtAPointXAxis() {
+
+        Light::Sphere* sphere = new Light::Sphere();
+        TwoD::Vector vector_normal = sphere->normal_at(TwoD::Point(1.0f, 0.0f, 0.0f));
+
+        CPPUNIT_ASSERT(vector_normal == TwoD::Vector(1.0f, 0.0f, 0.0f));
+
+    }
 }

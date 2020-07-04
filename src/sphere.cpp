@@ -66,4 +66,11 @@ namespace Light {
     }
 
 
+    TwoD::Vector Sphere::normal_at(const TwoD::Point& point) {
+
+        TwoD::Tuple result = point - TwoD::Point(0.0f, 0.0f, 0.0f);
+        TwoD::Tuple result_normalize = result.normalize();
+
+        return TwoD::Vector::convert_to_vector(result_normalize);
+    }
 };

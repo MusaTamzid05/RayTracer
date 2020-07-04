@@ -18,5 +18,5 @@ int run_test() {
 }
 
 int main(int argc , char** argv) {
-    return main_app();
+    return run_test();
 }

@@ -2,6 +2,7 @@
 #define SPHERE_H
 
 #include "point.h"
+#include "vector.h"
 #include "matrix.h"
 #include "intersection.h"
 #include <vector>
@@ -29,6 +30,8 @@ namespace Light {
 
             void set_transform(const TwoD::Matrix4x4& matrix);
             TwoD::Matrix get_transform() { return transform; } 
+
+            TwoD::Vector normal_at(const TwoD::Point& point);
 
         private:
 
