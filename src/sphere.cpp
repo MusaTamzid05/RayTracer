@@ -73,4 +73,5 @@ namespace Light {
 
         return TwoD::Vector::convert_to_vector(result_normalize);
     }
+
 };

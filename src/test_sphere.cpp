@@ -136,4 +136,15 @@ namespace Testing {
         CPPUNIT_ASSERT(vector_normal == TwoD::Vector(1.0f, 0.0f, 0.0f));
 
     }
+
+    void TestSphere::testNormalSphereAtAPointYAxis() {
+
+        Light::Sphere* sphere = new Light::Sphere();
+        TwoD::Vector vector_normal = sphere->normal_at(TwoD::Point(0.0f, 1.0f, 0.0f));
+
+        CPPUNIT_ASSERT(vector_normal == TwoD::Vector(0.0f, 1.0f, 0.0f));
+
+    }
+
+
 }

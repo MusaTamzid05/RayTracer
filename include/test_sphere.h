@@ -19,6 +19,7 @@ namespace Testing {
         CPPUNIT_TEST(testIntersectingAScaledSphereWithRay);
         CPPUNIT_TEST(testIntersecTranslatedSphereWithRay);
         CPPUNIT_TEST(testNormalSphereAtAPointXAxis);
+        CPPUNIT_TEST(testNormalSphereAtAPointYAxis);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -43,6 +44,7 @@ namespace Testing {
             void testIntersecTranslatedSphereWithRay();
 
             void testNormalSphereAtAPointXAxis();
+            void testNormalSphereAtAPointYAxis();
 
         private:
 
