@@ -137,4 +137,12 @@ namespace Testing {
 
 
     }
+
+    void TestTuple::testReflectingVectorOffSlanterSurface() {
+        
+        TwoD::Vector vec(0.0f, -1.0f, 0.0f);
+        TwoD::Vector nor(sqrt(2) / 2, sqrt(2) / 2, 0.0f);
+        TwoD::Vector result = vec.reflect(nor);
+        CPPUNIT_ASSERT(result == TwoD::Vector(1.0f, 0.0f, 0.0f));
+    }
 };

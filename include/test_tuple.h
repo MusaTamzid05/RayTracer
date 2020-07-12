@@ -24,6 +24,7 @@ namespace Testing {
         CPPUNIT_TEST(testDot);
         CPPUNIT_TEST(testCross);
         CPPUNIT_TEST(testReflect);
+        CPPUNIT_TEST(testReflectingVectorOffSlanterSurface);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -46,6 +47,7 @@ namespace Testing {
             void testDot();
             void testCross();
             void testReflect();
+            void testReflectingVectorOffSlanterSurface();
 
         private:
             TwoD::Tuple*  tuple;
