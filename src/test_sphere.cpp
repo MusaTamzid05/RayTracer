@@ -6,6 +6,7 @@
 #include "intersection.h"
 #include <iostream>
 #include <math.h>
+#include "material.h"
 
 namespace Testing {
 
@@ -203,4 +204,11 @@ namespace Testing {
         CPPUNIT_ASSERT(nor == TwoD::Vector(0.0f, 0.97014, -0.24254));
 
     }
-}
+
+    void TestSphere::testSphereDefault() {
+        Light::Sphere* sphere = new Light::Sphere();
+        Light::Material* light_material = new Light::Material();
+        CPPUNIT_ASSERT(*sphere->material == *light_material);
+    }
+
+};

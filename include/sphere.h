@@ -34,11 +34,12 @@ namespace Light {
 
             TwoD::Vector normal_at(const TwoD::Point& world_point);
 
+            Light::Material* material;
+
         private:
 
             TwoD::Matrix4x4 transform;
             TwoD::Matrix transform_inverse;
-            Light::Material* material;
 
     };
 

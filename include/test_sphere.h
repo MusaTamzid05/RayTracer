@@ -25,6 +25,7 @@ namespace Testing {
         CPPUNIT_TEST(testNormalizeIsNormal);
         CPPUNIT_TEST(testComputingNormalOnTranslateSphere);
         CPPUNIT_TEST(testNormalOnTransformedSphere);
+        CPPUNIT_TEST(testSphereDefault);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -59,6 +60,9 @@ namespace Testing {
 
             void testComputingNormalOnTranslateSphere();
             void testNormalOnTransformedSphere();
+
+
+            void testSphereDefault();
 
         private:
 

@@ -9,4 +9,12 @@ namespace Light {
         specular(0.9f),
         shininess(200.0f) {}
 
+
+    bool Material::operator==(const Material& material) {
+        return color == material.color &&
+            ambient == material.ambient &&
+            diffuse == material.diffuse &&
+            specular == material.specular &&
+            shininess == material.shininess;
+    }
 };

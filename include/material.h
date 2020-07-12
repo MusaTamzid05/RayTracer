@@ -13,6 +13,7 @@ namespace Light {
         float specular;
         float shininess;
 
+        bool operator==(const Material& material);
         Material();
 
     };
