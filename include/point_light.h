@@ -17,7 +17,7 @@ namespace Light {
 
         PointLight(Engine::Color* color = nullptr,TwoD::Point* position = nullptr);
 
-        Engine::Color* color;
+        Engine::Color* intensity;
         TwoD::Point* position;
 
     };

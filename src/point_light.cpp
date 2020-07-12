@@ -5,6 +5,6 @@
 namespace Light {
 
     PointLight::PointLight(Engine::Color* color, TwoD::Point* position):
-        color(color),
+        intensity(color),
         position(position) {}
 };
