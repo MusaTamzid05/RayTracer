@@ -8,6 +8,7 @@
 #include "test_sphere.h"
 #include "test_intersection.h"
 #include "test_material.h"
+#include "test_light.h"
 #include <iostream>
 
 
@@ -19,6 +20,7 @@ CPPUNIT_TEST_SUITE_REGISTRATION(Testing::TestRay);
 CPPUNIT_TEST_SUITE_REGISTRATION(Testing::TestSphere);
 CPPUNIT_TEST_SUITE_REGISTRATION(Testing::TestIntersection);
 CPPUNIT_TEST_SUITE_REGISTRATION(Testing::TestMaterial);
+CPPUNIT_TEST_SUITE_REGISTRATION(Testing::TestLight);
 
 namespace Testing {
 
