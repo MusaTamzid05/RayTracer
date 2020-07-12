@@ -125,4 +125,16 @@ namespace Testing {
         CPPUNIT_ASSERT(a.cross(b) == TwoD::Vector(-1.0f , 2.0f , -1.0f));
         CPPUNIT_ASSERT(b.cross(a) == TwoD::Vector(1.0f , -2.0f , 1.0f));
     }
+
+    void TestTuple::testReflect() {
+
+        TwoD::Vector vec(1.0f, -1.0f, 0.0f);
+        TwoD::Vector nor(0.0f, 1.0f, 0.0f);
+
+        TwoD::Vector result = vec.reflect(nor) ;
+
+        CPPUNIT_ASSERT(result == TwoD::Vector(1.0f, 1.0f,0.0f));
+
+
+    }
 };

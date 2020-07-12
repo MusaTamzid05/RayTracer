@@ -12,6 +12,8 @@ namespace TwoD {
 
         Vector cross(const Vector& vec);
         static Vector convert_to_vector(const TwoD::Tuple& data);
+
+        Vector reflect(const Vector& vec1);
     };
 
 };

@@ -11,4 +11,11 @@ namespace TwoD {
         vec.w = data.w;
         return vec;
     }
+
+
+    Vector Vector::reflect(const Vector& vec1) {
+        Vector copy_vec = vec1;
+        Tuple result = *this - copy_vec * 2 * dot(copy_vec);
+        return Vector::convert_to_vector(result);
+    }
 };

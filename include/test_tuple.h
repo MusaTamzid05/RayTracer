@@ -23,6 +23,7 @@ namespace Testing {
         CPPUNIT_TEST(testNormalize);
         CPPUNIT_TEST(testDot);
         CPPUNIT_TEST(testCross);
+        CPPUNIT_TEST(testReflect);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -44,6 +45,7 @@ namespace Testing {
             void testNormalize();
             void testDot();
             void testCross();
+            void testReflect();
 
         private:
             TwoD::Tuple*  tuple;
