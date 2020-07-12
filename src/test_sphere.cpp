@@ -211,4 +211,13 @@ namespace Testing {
         CPPUNIT_ASSERT(*sphere->material == *light_material);
     }
 
+    void TestSphere::testSphereAssignedMaterial() {
+
+        Light::Sphere* sphere = new Light::Sphere();
+        Light::Material* light_material = new Light::Material();
+        light_material->ambient = 1.0f;
+        sphere->material = light_material;
+        CPPUNIT_ASSERT(*sphere->material == *light_material);
+    }
+
 };
