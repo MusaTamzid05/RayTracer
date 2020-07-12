@@ -1,23 +1,27 @@
 #include "sphere.h"
 #include "ray.h"
 #include <cmath>
+#include "material.h"
 
 namespace Light {
 
 
     Sphere::Sphere():
-        center(TwoD::Point(0.0f, 0.0f, 0.0f)) {
+        center(TwoD::Point(0.0f, 0.0f, 0.0f)),
+        material(new Light::Material()) {
             set_transform(TwoD::get_identity_matrix());
         }
 
     Sphere::Sphere(float x,  float y, float z):
-        center(TwoD::Point(x, y, z))  {
+        center(TwoD::Point(x, y, z)),
+        material(new Light::Material()) {
             set_transform(TwoD::get_identity_matrix());
     }
 
 
     Sphere::Sphere(const TwoD::Point& center):
-        center(center) {
+        center(center),
+        material(new Light::Material()){
             set_transform(TwoD::get_identity_matrix());
 
         }

@@ -10,6 +10,7 @@
 namespace Light {
 
     class Ray;
+    class Material;
 
 
     class Sphere {
@@ -37,7 +38,7 @@ namespace Light {
 
             TwoD::Matrix4x4 transform;
             TwoD::Matrix transform_inverse;
-
+            Light::Material* material;
 
     };
 
