@@ -21,9 +21,9 @@ namespace Testing {
         TwoD::Point* position = new TwoD::Point(0.0f, 0.0f, 0.0f);
 
         point_light.position = position;
-        point_light.color = color;
+        point_light.intensity = color;
         CPPUNIT_ASSERT(point_light.position == position);
-        CPPUNIT_ASSERT(point_light.color == color);
+        CPPUNIT_ASSERT(point_light.intensity == color);
 
     }
 

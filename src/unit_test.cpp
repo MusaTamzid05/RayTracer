@@ -9,6 +9,7 @@
 #include "test_intersection.h"
 #include "test_material.h"
 #include "test_light.h"
+#include "test_material.h"
 #include <iostream>
 
 

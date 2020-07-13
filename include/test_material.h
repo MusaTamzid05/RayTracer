@@ -9,6 +9,7 @@ namespace Testing {
 
         CPPUNIT_TEST_SUITE(TestMaterial);
         CPPUNIT_TEST(testDefaultMaterial);
+        CPPUNIT_TEST(testLightingWithEyeBetweenLightAndSurface);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -18,6 +19,7 @@ namespace Testing {
         protected:
 
             void testDefaultMaterial();
+            void testLightingWithEyeBetweenLightAndSurface();
 
         private:
 
