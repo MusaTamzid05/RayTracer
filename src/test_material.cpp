@@ -58,4 +58,20 @@ namespace Testing {
         CPPUNIT_ASSERT(result == TwoD::Vector(1.0f, 1.0f, 1.0f));
 
     }
+
+    void TestMaterial::testLightWithEyeOppositeSurfaceLightOffset45() {
+
+        Light::Material material;
+        TwoD::Point position(0.0f, 0.0f, 0.0f);
+
+        TwoD::Vector eye_vector = TwoD::Vector(0.0f, 0.0f, -1.0f);
+        TwoD::Vector normal_vector = TwoD::Vector(0.0f, 0.0f, -1.0f);
+        Light::PointLight point_light = Light::PointLight(new Engine::Color(1.0f, 1.0f, 1.0f),
+                 new TwoD::Point(0.0f, 10.0f, -10.0f));
+
+
+        TwoD::Vector result = material.lighting(&point_light, position,  eye_vector, normal_vector);
+        CPPUNIT_ASSERT(result == TwoD::Vector(0.7364f, 0.7364f, 0.7364f));
+
+    }
 };

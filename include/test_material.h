@@ -11,6 +11,7 @@ namespace Testing {
         CPPUNIT_TEST(testDefaultMaterial);
         CPPUNIT_TEST(testLightingWithEyeBetweenLightAndSurface);
         CPPUNIT_TEST(testLightingWithEyeBetweenLightAndSurface45);
+        CPPUNIT_TEST(testLightWithEyeOppositeSurfaceLightOffset45);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -22,6 +23,7 @@ namespace Testing {
             void testDefaultMaterial();
             void testLightingWithEyeBetweenLightAndSurface();
             void testLightingWithEyeBetweenLightAndSurface45();
+            void testLightWithEyeOppositeSurfaceLightOffset45();
 
         private:
 
