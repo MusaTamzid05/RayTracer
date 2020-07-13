@@ -30,6 +30,11 @@ namespace TwoD {
 
         float get_value(const char name) const;
         void set_value(const char name , float value);
+
+        Tuple mul(float value);
+        Tuple div(float value);
+
+        Tuple negative();
         
     };
 

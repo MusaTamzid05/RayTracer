@@ -151,4 +151,20 @@ namespace TwoD {
 
         throw std::runtime_error("Invalid attribe set in tuple");
     }
+
+    Tuple Tuple::mul(float value) {
+        Tuple data = *this;
+        return data * value;
+    }
+
+
+    Tuple Tuple::div(float value) {
+        Tuple data = *this;
+        return data / value;
+    }
+
+    Tuple Tuple::negative() {
+        Tuple data = *this;
+        return Tuple(-data.x, -data.y, -data.z, -data.w);
+    }
 }
