@@ -4,6 +4,7 @@
 #include "point.h"
 #include "vector.h"
 #include "point_light.h"
+#include <math.h>
 
 namespace Testing {
 
@@ -38,6 +39,23 @@ namespace Testing {
         TwoD::Vector result = material.lighting(&point_light, position,  eye_vector, normal_vector);
         CPPUNIT_ASSERT(result == TwoD::Vector(1.9f, 1.9f, 1.9f));
 
+
+    }
+
+    void TestMaterial::testLightingWithEyeBetweenLightAndSurface45() {
+
+        Light::Material material;
+        TwoD::Point position(0.0f, 0.0f, 0.0f);
+
+
+        TwoD::Vector eye_vector = TwoD::Vector(0.0f, sqrt(2.0) / 2.0, 1.0 * sqrt(2) / 2);
+        TwoD::Vector normal_vector = TwoD::Vector(0.0f, 0.0f, -1.0f);
+        Light::PointLight point_light = Light::PointLight(new Engine::Color(1.0f, 1.0f, 1.0f),
+                 new TwoD::Point(0.0f, 0.0f, -10.0f));
+
+
+        TwoD::Vector result = material.lighting(&point_light, position,  eye_vector, normal_vector);
+        CPPUNIT_ASSERT(result == TwoD::Vector(1.0f, 1.0f, 1.0f));
 
     }
 };
