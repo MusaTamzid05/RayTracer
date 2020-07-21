@@ -7,6 +7,8 @@
 #include "intersection.h"
 #include <vector>
 
+
+
 namespace Light {
 
     class Ray;

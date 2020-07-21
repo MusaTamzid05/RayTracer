@@ -6,6 +6,8 @@
 #include "ray.h"
 #include "sphere.h"
 #include "intersection.h"
+#include "material.h"
+#include "point_light.h"
 
 
 namespace Engine {
@@ -21,8 +23,17 @@ namespace Engine {
     World::World(const Environment& env):
     env(env){
         sphere = new Light::Sphere();
+        sphere->material = new Light::Material();
+        sphere->material->color = Engine::Color(1, 0.2f, 1.0f);
+
+        light = new Light::PointLight(
+                new Engine::Color(1.0f, 1.0f, 1.0f),
+                new TwoD::Point(-10.0f, -10.0f, -10.0f)
+                );
+
         clear_pixles();
         init_world();
+
     }
 
     World::~World() {
@@ -97,8 +108,14 @@ namespace Engine {
 
                 Light::Intersection result = container.hit();
 
-                if(result.object != nullptr) 
-                    write_pixle(x, y, Engine::Color(1.0, 0.0, 0.0));
+                if(result.object != nullptr) {
+                    TwoD::Point point =  ray.position(result.distance);
+                    TwoD::Vector normal = result.object->normal_at(point);
+                    TwoD::Vector eye = TwoD::Vector::convert_to_vector(ray.direction.negative());
+                    TwoD::Vector color_vec = result.object->material->lighting(light, point, eye, normal);
+
+                    write_pixle(x, y, Engine::Color(color_vec.x, color_vec.y, color_vec.z));
+                }
 
             }
 

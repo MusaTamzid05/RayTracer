@@ -11,6 +11,7 @@
 
 namespace Light {
     class Sphere;
+    struct PointLight;
 };
 
 namespace Engine {
@@ -52,6 +53,7 @@ namespace Engine {
             void init_world();
 
             Light::Sphere* sphere;
+            Light::PointLight* light;
 
     };
 };
