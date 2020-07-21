@@ -23,7 +23,7 @@ namespace Light {
         Material();
 
 
-        TwoD::Vector lighting(const Light::PointLight* point_light,
+        Engine::Color lighting(const Light::PointLight* point_light,
             TwoD::Point& point,
             TwoD::Vector& eye_vector,
             TwoD::Vector& normal_vector);

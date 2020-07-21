@@ -22,7 +22,7 @@ namespace Light {
     }
 
 
-    TwoD::Vector Material::lighting(const Light::PointLight* point_light,
+    Engine::Color Material::lighting(const Light::PointLight* point_light,
             TwoD::Point& point,
             TwoD::Vector& eye_vector,
             TwoD::Vector& normal_vector
@@ -72,7 +72,9 @@ namespace Light {
 
         }
 
-        return TwoD::Vector::convert_to_vector(ambient_vector + diffuse_vector + specular_vector);
+        TwoD::Vector color_vec = TwoD::Vector::convert_to_vector(ambient_vector + diffuse_vector + specular_vector);
+
+        return Engine::Color(color_vec.x, color_vec.y, color_vec.z);
 
     }
 

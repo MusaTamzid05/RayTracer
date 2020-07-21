@@ -112,9 +112,9 @@ namespace Engine {
                     TwoD::Point point =  ray.position(result.distance);
                     TwoD::Vector normal = result.object->normal_at(point);
                     TwoD::Vector eye = TwoD::Vector::convert_to_vector(ray.direction.negative());
-                    TwoD::Vector color_vec = result.object->material->lighting(light, point, eye, normal);
+                    Engine::Color color = result.object->material->lighting(light, point, eye, normal);
 
-                    write_pixle(x, y, Engine::Color(color_vec.x, color_vec.y, color_vec.z));
+                    write_pixle(x, y, color);
                 }
 
             }
