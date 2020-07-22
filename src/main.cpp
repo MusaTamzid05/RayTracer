@@ -1,6 +1,5 @@
 #include "unit_test.h"
 #include "app.h"
-#include "material.h"
 
 
 
@@ -17,5 +16,5 @@ int run_test() {
 }
 
 int main(int argc , char** argv) {
-    return main_app();
+    return run_test();
 }
