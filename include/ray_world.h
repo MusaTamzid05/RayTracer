@@ -14,6 +14,10 @@ namespace Engine {
         std::vector<Light::Sphere*> objects;
 
         RayWorld();
+
+        bool contains(Light::Sphere* target);
+
+        static RayWorld* create_default_world();
     };
 };
 

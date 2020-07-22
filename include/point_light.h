@@ -20,6 +20,8 @@ namespace Light {
         Engine::Color* intensity;
         TwoD::Point* position;
 
+        bool operator==(const Light::PointLight& point_light);
+
     };
 };
 #endif
