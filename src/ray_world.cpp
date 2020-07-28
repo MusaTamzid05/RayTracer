@@ -53,10 +53,8 @@ namespace Engine {
 
         Light::IntersectionContainer container = Light::IntersectionContainer();
 
-        for(Light::Sphere* obj : objects) {
-            Light::IntersectionContainer current_container = obj->intersect(*ray);
-            container +=  current_container;
-        }
+        for(Light::Sphere* obj : objects) 
+            container += obj->intersect(*ray);
 
         return container;
     }
