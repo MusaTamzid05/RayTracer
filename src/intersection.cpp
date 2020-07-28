@@ -36,6 +36,14 @@ namespace Light {
                 );
     }
 
+    
+    void IntersectionContainer::operator+=(const IntersectionContainer& new_container) {
+
+        for(Intersection intersection : new_container.intersections)
+            add(intersection);
+
+    }
+
     Intersection IntersectionContainer::get(int index) {
 
         if(index < 0 || index >= intersections.size()) {

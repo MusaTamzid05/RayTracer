@@ -10,6 +10,7 @@ namespace Testing {
         CPPUNIT_TEST_SUITE(TestRayWorld);
         CPPUNIT_TEST(testCreateWorld);
         CPPUNIT_TEST(testDefaultWorld);
+        CPPUNIT_TEST(testIntersectWorldWithRay);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -20,6 +21,7 @@ namespace Testing {
 
             void testCreateWorld();
             void testDefaultWorld();
+            void testIntersectWorldWithRay();
 
         private:
 

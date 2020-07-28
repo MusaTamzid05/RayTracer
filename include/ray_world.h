@@ -2,10 +2,12 @@
 #define RAY_WORLD_H
 
 #include <vector>
+#include "intersection.h"
 
 namespace Light {
     struct PointLight;
     class Sphere;
+    class Ray;
 };
 
 namespace Engine {
@@ -18,6 +20,8 @@ namespace Engine {
         bool contains(Light::Sphere* target);
 
         static RayWorld* create_default_world();
+        Light::IntersectionContainer intersect(Light::Ray* ray);
+
     };
 };
 

@@ -36,6 +36,8 @@ namespace Light {
             Intersection hit();
 
 
+            void operator+=(const IntersectionContainer& new_container);
+
         private:
 
             std::vector<Intersection> intersections;

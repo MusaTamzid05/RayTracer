@@ -2,6 +2,12 @@
 #include "app.h"
 
 
+#include "point.h"
+#include "vector.h"
+#include "ray_world.h"
+#include "ray.h"
+#include "sphere.h"
+#include "material.h"
 
 int main_app()  {
 

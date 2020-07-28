@@ -3,6 +3,7 @@
 #include "point_light.h"
 #include "color.h"
 #include "material.h"
+#include "ray.h"
 
 namespace Engine {
     RayWorld::RayWorld():
@@ -15,7 +16,7 @@ namespace Engine {
 
         RayWorld* ray_world = new  Engine::RayWorld();
         ray_world->light = new Light::PointLight(new Engine::Color(1.0f, 1.0f, 1.0f),
-                new TwoD::Point(-10.0f, -10.0f, -10.0f)
+                new TwoD::Point(-10.0f, 10.0f, -10.0f)
                 );
 
         Light::Sphere* s1 = new Light::Sphere();
@@ -46,5 +47,17 @@ namespace Engine {
                 return true;
 
         return false;
+    }
+
+    Light::IntersectionContainer RayWorld::intersect(Light::Ray* ray) {
+
+        Light::IntersectionContainer container = Light::IntersectionContainer();
+
+        for(Light::Sphere* obj : objects) {
+            Light::IntersectionContainer current_container = obj->intersect(*ray);
+            container +=  current_container;
+        }
+
+        return container;
     }
 };
