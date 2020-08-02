@@ -16,7 +16,8 @@ namespace Testing {
         CPPUNIT_TEST(testHitWhenAllIntersectionHaveNegativeDistance);
         CPPUNIT_TEST(testHitAlwaysLowestNoneNegative);
         CPPUNIT_TEST(testPrecomputingTheStateInterection);
-        //CPPUNIT_TEST(testHitWhenAndIntersectionOutside);
+        CPPUNIT_TEST(testHitWhenAndIntersectionOutside);
+        CPPUNIT_TEST(testHitWhenAndIntersectionInside);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -36,8 +37,8 @@ namespace Testing {
 
             void testPrecomputingTheStateInterection();
             
-            //void testHitWhenAndIntersectionOutside();
-            //void testHitWhenAndIntersectionIutside();
+            void testHitWhenAndIntersectionOutside();
+            void testHitWhenAndIntersectionInside();
 
         private:
 

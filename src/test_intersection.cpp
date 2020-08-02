@@ -133,7 +133,6 @@ namespace Testing {
 
     }
 
-    /*
 
     void TestIntersection::testHitWhenAndIntersectionOutside() {
 
@@ -147,7 +146,7 @@ namespace Testing {
         CPPUNIT_ASSERT(comp->inside == false);
     }
 
-    void TestIntersection::testHitWhenAndIntersectionIutside() {
+    void TestIntersection::testHitWhenAndIntersectionInside() {
 
 
         Light::Ray* ray = new Light::Ray(TwoD::Point(0.0f, 0.0f, 0.0f),
@@ -157,7 +156,6 @@ namespace Testing {
         Light::Intersection* intersection = new Light::Intersection(1.0f, sphere);
 
         Light::Computation* comp = new Light::Computation(intersection, ray);
-        CPPUNIT_ASSERT(comp->inside == false);
+        CPPUNIT_ASSERT(comp->inside == true);
     }
-    */
 };
