@@ -33,6 +33,7 @@ set(Source
     src/test_light.cpp
     src/ray_world.cpp
     src/test_ray_world.cpp
+    src/computation.cpp
     )
 add_executable(test_pro ${Source})
 target_link_libraries(test_pro ${GTEST_LIBRARIES} cppunit SDL2 pthread)
