@@ -124,7 +124,7 @@ namespace Testing {
         Light::Sphere* sphere = new Light::Sphere();
         Light::Intersection* intersection = new Light::Intersection(4.0f, sphere);
 
-        Light::Computation* comp = new Light::Computation(intersection);
+        Light::Computation* comp = new Light::Computation(intersection, ray);
         CPPUNIT_ASSERT(comp->distance == intersection->distance);
         CPPUNIT_ASSERT(comp->object== intersection->object);
         CPPUNIT_ASSERT(comp->point == TwoD::Point(0.0f, 0.0f, -1.0f));
@@ -132,4 +132,32 @@ namespace Testing {
         CPPUNIT_ASSERT(comp->normal_vector == TwoD::Vector(0.0f, 0.0f, -1.0f));
 
     }
+
+    /*
+
+    void TestIntersection::testHitWhenAndIntersectionOutside() {
+
+        Light::Ray* ray = new Light::Ray(TwoD::Point(0.0f, 0.0f, -5.0f),
+                TwoD::Vector(0.0f, 0.0f, 1.0f)
+                );
+        Light::Sphere* sphere = new Light::Sphere();
+        Light::Intersection* intersection = new Light::Intersection(4.0f, sphere);
+
+        Light::Computation* comp = new Light::Computation(intersection, ray);
+        CPPUNIT_ASSERT(comp->inside == false);
+    }
+
+    void TestIntersection::testHitWhenAndIntersectionIutside() {
+
+
+        Light::Ray* ray = new Light::Ray(TwoD::Point(0.0f, 0.0f, 0.0f),
+                TwoD::Vector(0.0f, 0.0f, 1.0f)
+                );
+        Light::Sphere* sphere = new Light::Sphere();
+        Light::Intersection* intersection = new Light::Intersection(1.0f, sphere);
+
+        Light::Computation* comp = new Light::Computation(intersection, ray);
+        CPPUNIT_ASSERT(comp->inside == false);
+    }
+    */
 };

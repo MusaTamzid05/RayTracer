@@ -8,20 +8,20 @@ namespace Light {
 
     class Intersection;
     class Sphere;
+    class Ray;
 
     struct Computation {
 
         Sphere* object;
         float distance;
+        float inside;
 
         TwoD::Point point;
         TwoD::Vector eye_vector;
         TwoD::Vector normal_vector;
 
         Computation(Intersection* intersection,
-                const TwoD::Point& point = TwoD::Point(0.0f, 0.0f, -1.0f),
-                const TwoD::Vector& eye_vector = TwoD::Vector(0.0f, 0.0f, -1.0f),
-                const TwoD::Vector& normal_vector = TwoD::Vector(0.0f, 0.0f, -1.0f)
+                Light::Ray* ray
                 );
 
 

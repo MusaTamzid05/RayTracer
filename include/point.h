@@ -8,7 +8,7 @@ namespace TwoD {
     struct Point : public Tuple {
 
         public:
-            Point(float x , float y , float z):
+            Point(float x = 0.0f , float y = 0.0f , float z = 0.0f):
                 Tuple(x , y , z , 1.0){}
 
         static Point convert_to_point(const TwoD::Tuple& data);
