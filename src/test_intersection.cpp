@@ -144,6 +144,7 @@ namespace Testing {
 
         Light::Computation* comp = new Light::Computation(intersection, ray);
         CPPUNIT_ASSERT(comp->inside == false);
+        CPPUNIT_ASSERT(comp->normal_vector == TwoD::Vector(0.0f, 0.0f, -1.0f));
     }
 
     void TestIntersection::testHitWhenAndIntersectionInside() {
