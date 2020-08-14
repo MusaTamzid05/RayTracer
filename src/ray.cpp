@@ -9,7 +9,7 @@ namespace Light {
     Ray::~Ray() {}
 
 
-    TwoD::Point Ray::position(float distance) {
+    TwoD::Point Ray::position(float distance) const {
         TwoD::Tuple new_direction = direction;
         TwoD::Tuple result = origin + new_direction * distance;
         return TwoD::Point::convert_to_point(result);

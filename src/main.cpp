@@ -8,12 +8,14 @@
 #include "ray.h"
 #include "sphere.h"
 #include "material.h"
+#include "computation.h"
+#include "point_light.h"
 
 int main_app()  {
 
     Engine::App app;
     app.run();
-
+        
     return 0;
 }
 

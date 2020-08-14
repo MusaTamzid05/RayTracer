@@ -5,8 +5,8 @@
 
 namespace Light {
 
-    Computation::Computation(Intersection* intersection,
-                Light::Ray* ray
+    Computation::Computation(const Intersection* intersection,
+                const Light::Ray* ray
             ):
         distance(intersection->distance),
         object(intersection->object){
@@ -15,13 +15,14 @@ namespace Light {
             eye_vector = TwoD::Vector::convert_to_vector(ray->direction.negative());
             normal_vector = object->normal_at(point);
             
-            TwoD::Vector vec1 = normal_vector;
-            TwoD::Vector vec2 = eye_vector;
 
-            if(normal_vector.dot(eye_vector) < 0.0f)
+            if(normal_vector.dot(eye_vector) < 0.f) {
                 inside = true;
+                normal_vector = TwoD::Vector::convert_to_vector(normal_vector.negative());
+            }
             else
                 inside = false;
+
 
         }
 

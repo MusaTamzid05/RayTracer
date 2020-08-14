@@ -23,17 +23,17 @@ namespace Light {
 
 
     Engine::Color Material::lighting(const Light::PointLight* point_light,
-            TwoD::Point& point,
-            TwoD::Vector& eye_vector,
-            TwoD::Vector& normal_vector
-            ) {
+            const TwoD::Point& point,
+            const TwoD::Vector& eye_vector,
+            const TwoD::Vector& normal_vector
+            ) const  {
 
 
         TwoD::Vector diffuse_vector;
         TwoD::Vector specular_vector;
         // my god !!, this is just bad c++,
         // #TODO: learn c++ !!
-
+        
         TwoD::Tuple effective_color_tuple  = color * *point_light->intensity;
         Engine::Color effective_color = Engine::Color::convert_to_color(effective_color_tuple);
 
@@ -50,7 +50,8 @@ namespace Light {
         if(light_dot_normal < 0)  {
             // light vector is in the other side
             // of the surface.
-    
+
+
             diffuse_vector = TwoD::Vector(0.0f, 0.0f, 0.0f);
             specular_vector = TwoD::Vector(0.0f, 0.0f, 0.0f);
 
@@ -62,9 +63,11 @@ namespace Light {
             TwoD::Vector reflect_vector_negative = TwoD::Vector::convert_to_vector(reflect_vector.negative());
             float reflect_dot_eye =  reflect_vector_negative.dot(eye_vector);
 
+
             if(reflect_dot_eye <= 0.0f) 
                 specular_vector = TwoD::Vector(0.0f, 0.0f, 0.0f);
             else {
+
                 float factor = pow(reflect_dot_eye, shininess);
                 TwoD::Tuple specular_tuple = point_light->intensity->mul(specular * factor);
                 specular_vector = TwoD::Vector::convert_to_vector(specular_tuple);

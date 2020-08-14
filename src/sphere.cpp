@@ -65,16 +65,17 @@ namespace Light {
     }
 
 
-    bool Sphere::operator==(const Light::Sphere& sphere) {
+    bool Sphere::operator==(const Light::Sphere& sphere) const {
         return center == sphere.center;
     }
 
 
-    TwoD::Vector Sphere::normal_at(const TwoD::Point& world_point) {
+    TwoD::Vector Sphere::normal_at(const TwoD::Point& world_point) const {
 
-        TwoD::Tuple object_point_tuple = transform_inverse * world_point;
+        TwoD::Matrix transform_inverse_ = transform_inverse;
+        TwoD::Tuple object_point_tuple = transform_inverse_ * world_point;
         TwoD::Tuple object_normal = object_point_tuple - TwoD::Point(0.0f, 0.0f, 0.0f);
-        TwoD::Tuple world_normal_tuple  = transform_inverse.transpose() * object_normal;
+        TwoD::Tuple world_normal_tuple  = transform_inverse_.transpose() * object_normal;
         world_normal_tuple.w = 0.0f;
         TwoD::Tuple nor = world_normal_tuple.normalize();
 

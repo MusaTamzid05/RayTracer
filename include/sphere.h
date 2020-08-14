@@ -29,12 +29,12 @@ namespace Light {
 
             Light::IntersectionContainer  intersect(const Light::Ray& ray);
 
-            bool operator==(const Light::Sphere& sphere);
+            bool operator==(const Light::Sphere& sphere) const;
 
             void set_transform(const TwoD::Matrix4x4& matrix);
             TwoD::Matrix get_transform() { return transform; } 
 
-            TwoD::Vector normal_at(const TwoD::Point& world_point);
+            TwoD::Vector normal_at(const TwoD::Point& world_point) const;
 
             Light::Material* material;
 

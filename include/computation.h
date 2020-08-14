@@ -12,7 +12,7 @@ namespace Light {
 
     struct Computation {
 
-        Sphere* object;
+        const Sphere* object;
         float distance;
         float inside;
 
@@ -20,8 +20,8 @@ namespace Light {
         TwoD::Vector eye_vector;
         TwoD::Vector normal_vector;
 
-        Computation(Intersection* intersection,
-                Light::Ray* ray
+        Computation(const Intersection* intersection,
+                const Light::Ray* ray
                 );
 
 

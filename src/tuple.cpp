@@ -46,7 +46,7 @@ namespace TwoD {
     }
 
     
-    bool Tuple::operator==(const Tuple& tuple) {
+    bool Tuple::operator==(const Tuple& tuple) const {
 
         return Operation::equal(x , tuple.x) &&
             Operation::equal(y , tuple.y) && 
@@ -87,7 +87,7 @@ namespace TwoD {
         return Tuple(data1.x * data2.x , data1.y * data2.y , data1.z * data2.z , data1.w * data2.w);
     }
 
-    Tuple Tuple::negate() {
+    Tuple Tuple::negate() const {
 
         Tuple zero = Tuple(0.0f , 0.0f , 0.0f , 0.0f);
         return zero - *this;
@@ -163,7 +163,7 @@ namespace TwoD {
         return data / value;
     }
 
-    Tuple Tuple::negative() {
+    Tuple Tuple::negative() const {
         Tuple data = *this;
         return Tuple(-data.x, -data.y, -data.z, -data.w);
     }

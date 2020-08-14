@@ -15,7 +15,7 @@ namespace Light {
             Ray(const TwoD::Point& origin, const TwoD::Vector& direction);
             virtual ~Ray();
 
-            TwoD::Point position(float distance); 
+            TwoD::Point position(float distance) const; 
 
             TwoD::Point origin; 
             TwoD::Vector direction;

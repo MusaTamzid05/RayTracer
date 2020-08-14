@@ -24,9 +24,9 @@ namespace Light {
 
 
         Engine::Color lighting(const Light::PointLight* point_light,
-            TwoD::Point& point,
-            TwoD::Vector& eye_vector,
-            TwoD::Vector& normal_vector);
+            const TwoD::Point& point,
+            const TwoD::Vector& eye_vector,
+            const TwoD::Vector& normal_vector) const;
 
     };
 };

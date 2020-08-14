@@ -11,10 +11,10 @@ namespace Light {
 
     class Intersection {
         public:
-            Intersection(float distance,Light::Sphere* object);
+            Intersection(float distance, const Light::Sphere* object);
             virtual ~Intersection() {}
 
-            Light::Sphere* object;
+            const Light::Sphere* object;
             float distance;
 
             bool operator==(const Intersection& intersection);
@@ -30,7 +30,7 @@ namespace Light {
             virtual ~IntersectionContainer() {}
 
             void add(const Intersection& intersection);
-            Intersection get(int index);
+            Intersection get(int index) const;
 
             int size() { return intersections.size(); }
             Intersection hit();

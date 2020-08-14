@@ -3,7 +3,7 @@
 #include <algorithm>
 
 namespace Light {
-    Intersection::Intersection(float distance, Light::Sphere* object):
+    Intersection::Intersection(float distance, const Light::Sphere* object):
         distance(distance),
         object(object){
 
@@ -44,7 +44,7 @@ namespace Light {
 
     }
 
-    Intersection IntersectionContainer::get(int index) {
+    Intersection IntersectionContainer::get(int index) const {
 
         if(index < 0 || index >= intersections.size()) {
             std::cerr << "intersection index out of range!!\n";

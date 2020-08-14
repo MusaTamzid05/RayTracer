@@ -21,8 +21,8 @@ namespace TwoD {
         Tuple operator*(float value);
         Tuple operator/(float value);
 
-        bool operator==(const Tuple& tuple);
-        Tuple negate();
+        bool operator==(const Tuple& tuple) const;
+        Tuple negate() const;
 
         float magnitude();
         Tuple normalize();
@@ -34,7 +34,7 @@ namespace TwoD {
         Tuple mul(float value);
         Tuple div(float value);
 
-        Tuple negative();
+        Tuple negative() const;
         
     };
 

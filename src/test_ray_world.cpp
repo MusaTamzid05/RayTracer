@@ -5,9 +5,13 @@
 #include "color.h"
 #include "sphere.h"
 #include "material.h"
-#include <algorithm>
 #include "ray.h"
+#include "computation.h"
+#include "operation.h"
 
+
+
+#include <algorithm>
 namespace Testing {
 
     void TestRayWorld::setUp(){}
@@ -68,5 +72,37 @@ namespace Testing {
         CPPUNIT_ASSERT(container.get(2).distance == 5.5f);
         CPPUNIT_ASSERT(container.get(3).distance == 6.0f);
 
+    }
+
+
+    void TestRayWorld::testShadingIntersection() {
+        
+        Engine::RayWorld* ray_world = Engine::RayWorld::create_default_world();
+        Light::Ray ray(TwoD::Point(0.0f, 0.0f, -5.0f), TwoD::Vector(0.0f, 0.0f, 1.0f));
+        Light::Sphere* shape = ray_world->objects[0];
+        Light::Intersection* intersection = new Light::Intersection(4.0f, shape);
+
+        Light::Computation* computation = new Light::Computation(intersection, &ray);
+        Engine::Color color = ray_world->shade_hit(computation);
+
+        CPPUNIT_ASSERT(Operation::equal(color.red(), 0.38066));
+        CPPUNIT_ASSERT(Operation::equal(color.green(), 0.47583));
+        CPPUNIT_ASSERT(Operation::equal(color.blue(), 0.2855));
+
+
+
+    }
+
+    void TestRayWorld::testShadingAnIntersectionFromInside() {
+
+        Engine::RayWorld* ray_world = Engine::RayWorld::create_default_world();
+        ray_world->light = new Light::PointLight(new Engine::Color(1.0f, 1.0f, 1.0f),new TwoD::Point(0.0f, 0.25f, 0.0f));
+        Light::Ray ray(TwoD::Point(0.0f, 0.0f, 0.0f), TwoD::Vector(0.0f, 0.0f, 1.0f));
+        Light::Sphere* shape = ray_world->objects[1];
+        Light::Intersection* intersection = new Light::Intersection(0.5f, shape);
+
+        Light::Computation* computation = new Light::Computation(intersection, &ray);
+        Engine::Color color = ray_world->shade_hit(computation);
+        CPPUNIT_ASSERT(color == TwoD::Vector(0.90498f, 0.90498f, 0.90498f));
     }
 };
