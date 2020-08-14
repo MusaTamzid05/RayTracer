@@ -4,6 +4,7 @@
 #include "color.h"
 #include "material.h"
 #include "ray.h"
+#include "computation.h"
 
 namespace Engine {
     RayWorld::RayWorld():
@@ -23,8 +24,6 @@ namespace Engine {
         Light::Material* material = new Light::Material();
         material->color = Engine::Color(0.8f, 1.0f, 0.6f);
 
-        material->ambient = 0.0f;
-        material->shininess= 0.0f;
         material->diffuse = 0.7f;
         material->specular = 0.2f;
 
@@ -57,5 +56,10 @@ namespace Engine {
             container += obj->intersect(*ray);
 
         return container;
+    }
+
+
+    Engine::Color RayWorld::shade_hit(Light::Computation* comps) {
+        return comps->object->material->lighting(light, comps->point, comps->eye_vector, comps->normal_vector);
     }
 };
