@@ -132,4 +132,19 @@ namespace Testing {
 
 
     }
+
+
+    void TestRayWorld::testColorWithAnIntersectionBehineRay() {
+
+        Engine::RayWorld* ray_world = Engine::RayWorld::create_default_world();
+        Light::Sphere* outer = ray_world->objects[0];
+        outer->material->ambient = 1.0f;
+        Light::Sphere* inner = ray_world->objects[1];
+        inner->material->ambient = 1.0f;
+
+        Light::Ray ray(TwoD::Point(0.0f, 0.0f, 0.75f), TwoD::Vector(0.0f, 0.0f, -1.0f));
+
+        Engine::Color color = ray_world->color_at(&ray);
+        CPPUNIT_ASSERT(color == inner->material->color);;
+    }
 };
