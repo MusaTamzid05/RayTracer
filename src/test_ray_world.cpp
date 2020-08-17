@@ -119,4 +119,17 @@ namespace Testing {
         CPPUNIT_ASSERT(Operation::equal(color.blue(), 0.0f));
 
     }
+
+
+    void TestRayWorld::testColorWhenRayHits() {
+
+
+        Engine::RayWorld* ray_world = Engine::RayWorld::create_default_world();
+        Light::Ray ray(TwoD::Point(0.0f, 0.0f, -5.0f), TwoD::Vector(0.0f, 0.0f, 1.0f));
+
+        Engine::Color color = ray_world->color_at(&ray);
+        CPPUNIT_ASSERT(color == TwoD::Vector(0.38066, 0.47583, 0.2855));
+
+
+    }
 };
