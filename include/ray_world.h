@@ -23,10 +23,10 @@ namespace Engine {
         bool contains(Light::Sphere* target);
 
         static RayWorld* create_default_world();
-        Light::IntersectionContainer intersect(Light::Ray* ray);
+        Light::IntersectionContainer intersect(const Light::Ray* ray);
 
         Engine::Color shade_hit(Light::Computation* comps);
-        Engine::Color color_at(Light::Ray* ray);
+        Engine::Color color_at(const Light::Ray* ray);
 
     };
 };

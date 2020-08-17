@@ -48,7 +48,7 @@ namespace Engine {
         return false;
     }
 
-    Light::IntersectionContainer RayWorld::intersect(Light::Ray* ray) {
+    Light::IntersectionContainer RayWorld::intersect(const Light::Ray* ray) {
 
         Light::IntersectionContainer container = Light::IntersectionContainer();
 
@@ -65,7 +65,7 @@ namespace Engine {
 
 
 
-    Engine::Color RayWorld::color_at(Light::Ray* ray) {
+    Engine::Color RayWorld::color_at(const Light::Ray* ray) {
 
         Light::IntersectionContainer container = intersect(ray);
         Light::Intersection intersection = container.hit();
