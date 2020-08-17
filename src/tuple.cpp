@@ -99,11 +99,11 @@ namespace TwoD {
         return out;
     }
 
-    float Tuple::magnitude() {
+    float Tuple::magnitude() const {
         return sqrt(pow(x , 2) + pow(y , 2) + pow(z , 2) + pow(w , 2));
     }
 
-    Tuple Tuple::normalize() {
+    Tuple Tuple::normalize() const {
 
         float mag = magnitude();
         return Tuple(x / mag , y / mag , z / mag , w /mag);

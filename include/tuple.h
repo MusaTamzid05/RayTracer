@@ -24,8 +24,8 @@ namespace TwoD {
         bool operator==(const Tuple& tuple) const;
         Tuple negate() const;
 
-        float magnitude();
-        Tuple normalize();
+        float magnitude() const;
+        Tuple normalize() const;
         float dot(const Tuple& data);
 
         float get_value(const char name) const;
