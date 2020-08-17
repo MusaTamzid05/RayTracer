@@ -13,6 +13,7 @@ namespace Testing {
         CPPUNIT_TEST(testIntersectWorldWithRay);
         CPPUNIT_TEST(testShadingIntersection);
         CPPUNIT_TEST(testShadingAnIntersectionFromInside);
+        CPPUNIT_TEST(testColorWhenRayMisses);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -27,6 +28,7 @@ namespace Testing {
             void testShadingIntersection();
 
             void testShadingAnIntersectionFromInside();
+            void testColorWhenRayMisses();
 
         private:
 

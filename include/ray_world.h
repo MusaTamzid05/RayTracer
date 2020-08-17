@@ -26,6 +26,7 @@ namespace Engine {
         Light::IntersectionContainer intersect(Light::Ray* ray);
 
         Engine::Color shade_hit(Light::Computation* comps);
+        Engine::Color color_at(Light::Ray* ray);
 
     };
 };

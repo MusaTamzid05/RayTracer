@@ -70,6 +70,10 @@ namespace Light {
 
         return hit_intersection;
     }
+
+
+
+    bool Intersection::is_hit() { return object != nullptr; }
 };
 
 

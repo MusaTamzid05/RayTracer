@@ -62,4 +62,19 @@ namespace Engine {
     Engine::Color RayWorld::shade_hit(Light::Computation* comps) {
         return comps->object->material->lighting(light, comps->point, comps->eye_vector, comps->normal_vector);
     }
+
+
+
+    Engine::Color RayWorld::color_at(Light::Ray* ray) {
+
+        Light::IntersectionContainer container = intersect(ray);
+        Light::Intersection intersection = container.hit();
+
+        if(!intersection.is_hit())
+            return Engine::Color(0.0f, 0.0f, 0.0f);
+
+        Light::Computation computation(&intersection, ray);
+
+        return shade_hit(&computation);
+    }
 };
