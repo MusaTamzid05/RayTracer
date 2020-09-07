@@ -386,4 +386,17 @@ namespace TwoD {
         return new_matrix;
     }
 
+
+
+    Matrix4x4 Matrix4x4::convert_matrix4x4(const Matrix& matrix) {
+
+        TwoD::Matrix4x4 new_matrix;
+
+        for(unsigned int i = 0; i < 4; i++)
+            for(unsigned int j = 0; j < 4; j++)
+                new_matrix.values[i][j] = matrix.values[i][j];
+
+        return new_matrix;
+    }
+
 };

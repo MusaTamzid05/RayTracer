@@ -24,5 +24,6 @@ int run_test() {
 }
 
 int main(int argc , char** argv) {
-    return run_test();
+    run_test();
+    return 0;
 }

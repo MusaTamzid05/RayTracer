@@ -63,6 +63,7 @@ namespace TwoD {
         static Matrix4x4 shearing(float xy , float  xz , float yx, float yz, float zx, float zy);
 
         static Matrix4x4 convert(const Matrix& matrix);
+        static Matrix4x4 convert_matrix4x4(const Matrix& matrix);
     };
 
 
