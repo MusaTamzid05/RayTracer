@@ -36,6 +36,8 @@ set(Source
     src/computation.cpp
     src/transformation.cpp
     src/test_transformation.cpp
+    src/camera.cpp
+    src/test_camera.cpp
     )
 add_executable(test_pro ${Source})
 target_link_libraries(test_pro ${GTEST_LIBRARIES} cppunit SDL2 pthread)

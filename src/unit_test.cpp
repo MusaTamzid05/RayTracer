@@ -11,6 +11,7 @@
 #include "test_light.h"
 #include "test_material.h"
 #include "test_ray_world.h"
+#include "test_camera.h"
 #include "test_transformation.h"
 #include <iostream>
 
@@ -26,6 +27,7 @@ CPPUNIT_TEST_SUITE_REGISTRATION(Testing::TestMaterial);
 CPPUNIT_TEST_SUITE_REGISTRATION(Testing::TestLight);
 CPPUNIT_TEST_SUITE_REGISTRATION(Testing::TestRayWorld);
 CPPUNIT_TEST_SUITE_REGISTRATION(Testing::TestTransformation);
+CPPUNIT_TEST_SUITE_REGISTRATION(Testing::TestCamera);
 
 namespace Testing {
 
