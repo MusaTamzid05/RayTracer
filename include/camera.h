@@ -12,6 +12,9 @@ namespace Engine {
             int hsize;
             int vsize;
             float field_of_view;
+            float half_width;
+            float half_height;
+            float pixel_size;
             TwoD::Matrix4x4 transform;
     };
 };

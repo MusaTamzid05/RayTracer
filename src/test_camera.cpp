@@ -23,4 +23,9 @@ namespace Testing {
         
     }
 
+    void TestCamera::testPixelSizeHorizontalCanvas() {
+        Engine::Camera camera(200, 125, M_PI / 2);
+        CPPUNIT_ASSERT(Operation::equal(camera.pixel_size, 0.01f));
+    }
+
 }
