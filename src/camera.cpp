@@ -3,7 +3,7 @@
 
 namespace Engine {
 
-    Camera::Camera(int hsize, int vsize, float field_of_view):
+    Camera::Camera(float hsize, float vsize, float field_of_view):
     hsize(hsize),
     vsize(vsize),
     field_of_view(field_of_view),

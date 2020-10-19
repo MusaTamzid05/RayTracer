@@ -10,6 +10,7 @@ namespace Testing {
         CPPUNIT_TEST_SUITE(TestCamera);
         CPPUNIT_TEST(testCameraIntialization);
         CPPUNIT_TEST(testPixelSizeHorizontalCanvas);
+        CPPUNIT_TEST(testPixelSizeVericalCanvas);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -20,6 +21,7 @@ namespace Testing {
 
             void testCameraIntialization();
             void testPixelSizeHorizontalCanvas();
+            void testPixelSizeVericalCanvas();
 
         private:
 

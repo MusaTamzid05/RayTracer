@@ -6,11 +6,11 @@
 namespace Engine {
     class Camera {
         public:
-            Camera(int hsize, int vsize, float field_of_view);
+            Camera(float hsize, float vsize, float field_of_view);
             virtual ~Camera() {}
 
-            int hsize;
-            int vsize;
+            float hsize;
+            float vsize;
             float field_of_view;
             float half_width;
             float half_height;

@@ -28,4 +28,11 @@ namespace Testing {
         CPPUNIT_ASSERT(Operation::equal(camera.pixel_size, 0.01f));
     }
 
+
+
+    void TestCamera::testPixelSizeVericalCanvas() {
+        Engine::Camera camera(125, 200, M_PI / 2);
+        CPPUNIT_ASSERT(Operation::equal(camera.pixel_size, 0.01f));
+    }
+
 }
