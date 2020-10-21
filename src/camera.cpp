@@ -1,5 +1,8 @@
 #include "camera.h"
+#include "canvas.h"
+#include "world.h"
 #include "ray.h"
+#include "ray_world.h"
 #include "point.h"
 #include <math.h>
 
@@ -44,5 +47,22 @@ namespace Engine {
         return new Light::Ray(TwoD::Point::convert_to_point(origin), TwoD::Vector::convert_to_vector(dir_nor));
 
     }
+
+
+    Canvas* Camera::render(RayWorld* world) {
+
+        Canvas* image = new Canvas(hsize, vsize, nullptr);
+
+        for(unsigned int y = 0; y < vsize - 1; y++) {
+            for(unsigned int x = 0; x < hsize- 1; x++) {
+                Light::Ray* ray = ray_for_pixel(x, y);
+                Color color = world->color_at(ray);
+                image->write_pixle(x, y, color);
+            }
+        }
+
+        return image;
+    }
+
 
 };

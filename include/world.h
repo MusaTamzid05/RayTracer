@@ -40,6 +40,7 @@ namespace Engine {
 
             // write_pixle has more priority than shapes
             void write_pixle(int row , int col , const Color& color);
+            PixleData* pixel_at(int row, int col) const;
 
         private:
 

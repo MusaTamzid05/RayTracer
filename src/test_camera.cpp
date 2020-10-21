@@ -1,8 +1,12 @@
 #include "test_camera.h"
+#include "ray_world.h"
 #include "operation.h"
+#include "transformation.h"
 #include "point.h"
 #include "camera.h"
+#include "canvas.h"
 #include "ray.h"
+#include "pixle_data.h"
 #include <cmath>
 
 namespace Testing {
@@ -60,6 +64,25 @@ namespace Testing {
         Light::Ray* ray = camera.ray_for_pixel(100.0, 50.0f);
         CPPUNIT_ASSERT(ray->origin == TwoD::Point(0.0f, 2.0f, -5.0f));
         CPPUNIT_ASSERT(ray->direction == TwoD::Vector(sqrt(2) / 2, 0.0f, - sqrt(2) / 2));
+    }
+
+    void TestCamera::testRenderingWorldWithCamera() {
+
+        Engine::RayWorld* world = Engine::RayWorld::create_default_world();
+        Engine::Camera* camera = new Engine::Camera(11.0f,
+                11.0f,
+                M_PI / 2
+                );
+
+        TwoD::Point from =  TwoD::Point(0.0f, 0.0f, -5.0f);
+        TwoD::Point to =  TwoD::Point(0.0f, 0.0f, 0.0f);
+        TwoD::Vector up =  TwoD::Vector(0.0f, 1.0f, 0.0f);
+        camera->transform = TwoD::Transformation::view_transform(from, to, up);
+
+        Engine::Canvas* image = camera->render(world);
+        CPPUNIT_ASSERT(image->pixel_at(5, 5)->color ==  Engine::Color(0.38066f, 0.47583f, 0.2855f));
+
+
     }
 
 }

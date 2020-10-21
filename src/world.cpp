@@ -124,4 +124,9 @@ namespace Engine {
         std::cout << "World is created.\n";
     }
 
+
+    PixleData* World::pixel_at(int row, int col) const {
+        return pixle_data[row][col];
+    }
+
 };

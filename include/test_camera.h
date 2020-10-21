@@ -14,6 +14,7 @@ namespace Testing {
         CPPUNIT_TEST(testConstructingARayThroughTheCenterOfCanvas);
         CPPUNIT_TEST(testConstructingARayThroughTheCornerOfCanvas);
         CPPUNIT_TEST(testConstructingARayWhenTheCameraIsTransformed);
+        CPPUNIT_TEST(testRenderingWorldWithCamera);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -28,6 +29,7 @@ namespace Testing {
             void testConstructingARayThroughTheCenterOfCanvas();
             void testConstructingARayThroughTheCornerOfCanvas();
             void testConstructingARayWhenTheCameraIsTransformed();
+            void testRenderingWorldWithCamera();
 
         private:
 

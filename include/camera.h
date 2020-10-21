@@ -8,10 +8,16 @@ namespace Light {
 };
 
 namespace Engine {
+
+    class RayWorld;
+    class Canvas;
+
     class Camera {
         public:
             Camera(float hsize, float vsize, float field_of_view);
             virtual ~Camera() {}
+
+            Canvas* render(RayWorld* world);
 
             float hsize;
             float vsize;

@@ -8,6 +8,7 @@
 namespace Engine {
 
     class World;
+    struct PixleData;
 
     class Canvas {
 
@@ -17,6 +18,7 @@ namespace Engine {
 
             void draw();
             void write_pixle(int row , int col , const Color& color);
+            PixleData* pixel_at(int row, int col) const;
 
             void update();
             void save(const std::string& save_path);

@@ -70,9 +70,10 @@ namespace Engine {
 
 		Operation::write_file(save_path , ppm_str);
 		std::cout << "Sucessfully written data to " << save_path << "\n";
+    }
 
-}
-
-
+    PixleData* Canvas::pixel_at(int row, int col) const {
+        return m_world->pixel_at(row, col);
+    }
 
 };
