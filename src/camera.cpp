@@ -1,4 +1,6 @@
 #include "camera.h"
+#include "ray.h"
+#include "point.h"
 #include <math.h>
 
 namespace Engine {
@@ -14,7 +16,7 @@ namespace Engine {
 
         if(aspect >= 1) {
             half_width = half_view;
-            half_view = half_width / aspect;
+            half_height = half_width / aspect;
         } else {
             half_width = half_view * aspect;
             half_height = half_view;
@@ -24,5 +26,23 @@ namespace Engine {
 
     }
 
+    Light::Ray* Camera::ray_for_pixel(float px, float py) {
+
+        float xoffset = (px + 0.5f) * pixel_size;
+        float yoffset = (py + 0.5f) * pixel_size;
+
+        float world_x = half_width - xoffset;
+        float world_y = half_height - yoffset;
+
+        TwoD::Matrix inverse_transform;
+        transform.inverse(inverse_transform);
+        TwoD::Tuple pixel_tuple = inverse_transform * TwoD::Point(world_x, world_y, -1.0f);
+        TwoD::Tuple origin = inverse_transform * TwoD::Point(0.0f, 0.0f, 0.0f);
+        TwoD::Tuple dir_tuple = TwoD::Vector::convert_to_vector(pixel_tuple) - TwoD::Vector::convert_to_vector(origin);
+        TwoD::Tuple dir_nor = TwoD::Vector::convert_to_vector(dir_tuple.normalize());
+
+        return new Light::Ray(TwoD::Point::convert_to_point(origin), TwoD::Vector::convert_to_vector(dir_nor));
+
+    }
 
 };
