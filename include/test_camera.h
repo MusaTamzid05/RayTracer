@@ -12,6 +12,7 @@ namespace Testing {
         CPPUNIT_TEST(testPixelSizeHorizontalCanvas);
         CPPUNIT_TEST(testPixelSizeVericalCanvas);
         CPPUNIT_TEST(testConstructingARayThroughTheCenterOfCanvas);
+        CPPUNIT_TEST(testConstructingARayThroughTheCornerOfCanvas);
         CPPUNIT_TEST_SUITE_END();
 
         public:
@@ -24,6 +25,7 @@ namespace Testing {
             void testPixelSizeHorizontalCanvas();
             void testPixelSizeVericalCanvas();
             void testConstructingARayThroughTheCenterOfCanvas();
+            void testConstructingARayThroughTheCornerOfCanvas();
 
         private:
 

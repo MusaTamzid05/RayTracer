@@ -20,8 +20,9 @@ namespace Engine {
             float half_height;
             float pixel_size;
             TwoD::Matrix4x4 transform;
-
             Light::Ray* ray_for_pixel(float px, float py);
+
+
     };
 };
 

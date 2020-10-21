@@ -45,4 +45,12 @@ namespace Testing {
         CPPUNIT_ASSERT(ray->direction == TwoD::Vector(0.0f, 0.0f, -1.0f));
     }
 
+
+    void TestCamera::testConstructingARayThroughTheCornerOfCanvas() {
+        Engine::Camera camera(201, 101, M_PI / 2);
+        Light::Ray* ray = camera.ray_for_pixel(0.0, 0.0f);
+        CPPUNIT_ASSERT(ray->origin == TwoD::Point(0.0f, 0.0f, 0.0f));
+        CPPUNIT_ASSERT(ray->direction == TwoD::Vector(0.66519f, 0.33259f, -0.66851f));
+    }
+
 }
